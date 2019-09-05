@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+                                             android:layout_height="match_parent">
+
+    <TextView
+            android:text="회원가입"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView60" app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp" android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/guideline7"/>
+    <ImageView
+            android:layout_width="22dp"
+            android:layout_height="22dp" app:srcCompat="@drawable/icon_back"
+            android:id="@+id/imageView15"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp" android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/guideline7"/>
+    <android.support.constraint.Guideline
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" app:layout_constraintGuide_begin="46dp" android:id="@+id/guideline7"/>
+
+    <TextView
+            android:text="휴대전화"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView61" app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="43dp"
+            android:layout_marginStart="43dp" app:layout_constraintTop_toTopOf="@+id/guideline7"
+            android:layout_marginTop="40dp"/>
+
+    <EditText
+            android:layout_width="330dp"
+            android:layout_height="50dp"
+            android:inputType="phone"
+            android:ems="10"
+            android:background="@drawable/edittext_background"
+            android:padding="10dp"
+            android:textSize="14dp"
+            android:id="@+id/signup_phone_editText"
+            android:hint="01000000000" android:layout_marginStart="8dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="8dp" android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="10dp" app:layout_constraintTop_toBottomOf="@+id/textView61"/>
+    <!--<Button-->
+            <!--android:text="인증번호 받기"-->
+            <!--android:layout_width="330dp"-->
+            <!--android:layout_height="55dp"-->
+            <!--android:id="@+id/button3"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--app:layout_constraintEnd_toEndOf="parent"-->
+            <!--android:layout_marginTop="24dp" app:layout_constraintTop_toBottomOf="@+id/editText"-->
+    />
+    <TextView
+            android:text="인증번호"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:id="@+id/textView62"
+            app:layout_constraintTop_toBottomOf="@+id/signup_phone_editText" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="43dp" android:layout_marginStart="43dp" android:layout_marginTop="52dp"/>
+    <EditText
+            android:layout_width="330dp"
+            android:layout_height="50dp"
+            android:inputType="textPersonName"
+            android:background="@drawable/edittext_background"
+            android:padding="10dp"
+            android:textSize="14dp"
+            android:ems="10"
+            android:id="@+id/editText4"
+            android:hint="인증번호를 입력해주세요" app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp" android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/textView62"/>
+    <Button
+            android:text="다음"
+            android:layout_width="330dp"
+            android:layout_height="55dp"
+            android:id="@+id/signup_next_Button"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="84dp" app:layout_constraintTop_toBottomOf="@+id/editText4"
+            app:layout_constraintHorizontal_bias="0.5"/>
+    <TextView
+            android:text="인증번호 재전송"
+            android:textColor="@color/colorPrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView68"
+            app:layout_constraintTop_toBottomOf="@+id/editText4" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="44dp" android:layout_marginRight="44dp" android:layout_marginTop="10dp"/>
+    <TextView
+            android:text="3:00"
+            android:textColor="@color/colorPrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView69"
+            app:layout_constraintEnd_toEndOf="@+id/editText4" android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            app:layout_constraintTop_toTopOf="@+id/editText4" app:layout_constraintBottom_toBottomOf="@+id/editText4"/>
+
+
+</android.support.constraint.ConstraintLayout>

@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.minseok.wheple">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
@@ -16,6 +18,30 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <activity android:name=".SpaceActivity"></activity>
+
+        <activity android:name=".SelectDateTimeActivity"></activity>
+
+        <activity android:name=".ReservationActivity"></activity>
+
+        <activity android:name=".ReservationSuccessActivity"></activity>
+
+        <activity android:name=".ReviewActivity"></activity>
+
+        <activity android:name=".ChatActivity"></activity>
+
+        <activity android:name=".LoginActivity"></activity>
+
+        <activity android:name=".SignupPhoneActivity"></activity>
+
+        <activity android:name=".SignupOthersActivity"></activity>
+
+        <!-- 테스트 용-->
+        <activity android:name=".TestActivity"></activity>
+        <activity android:name=".Test2Activity"></activity>
+
+
     </application>
 
 </manifest>
