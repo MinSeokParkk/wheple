@@ -10,6 +10,7 @@
             android:label="@string/app_name"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
+            android:name=".App"
             android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -31,15 +32,16 @@
 
         <activity android:name=".ChatActivity"></activity>
 
-        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".login.LoginActivity"></activity>
 
-        <activity android:name=".SignupPhoneActivity"></activity>
+        <activity android:name=".signup_phone.SignupPhoneActivity"></activity>
 
-        <activity android:name=".SignupOthersActivity"></activity>
+        <activity android:name=".signup_others.SignupOthersActivity"></activity>
+
 
         <!-- 테스트 용-->
-        <activity android:name=".TestActivity"></activity>
-        <activity android:name=".Test2Activity"></activity>
+        <activity android:name=".test.TestActivity"></activity>
+        <activity android:name=".test.Test2Activity"></activity>
 
 
     </application>

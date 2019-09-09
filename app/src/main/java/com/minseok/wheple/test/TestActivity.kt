@@ -1,22 +1,16 @@
-package com.minseok.wheple
+package com.minseok.wheple.test
 
 
 
 import android.content.Intent
-import android.net.Uri
-import android.os.AsyncTask
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.view.View
-import android.widget.TextView
+import com.minseok.wheple.R
 
 import kotlinx.android.synthetic.main.activity_test.*
-import kotlinx.android.synthetic.main.fragment_mypage.view.*
-import org.json.JSONObject
 
 import java.io.*
 import java.net.HttpURLConnection
-import java.net.MalformedURLException
 import java.net.URL
 import java.net.URLEncoder
 

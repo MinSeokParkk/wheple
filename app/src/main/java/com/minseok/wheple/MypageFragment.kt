@@ -3,25 +3,15 @@ package com.minseok.wheple
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import android.os.AsyncTask
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_login.*
 
 
 import kotlinx.android.synthetic.main.fragment_mypage.view.*
-import java.io.BufferedReader
-import java.io.InputStreamReader
-import java.io.OutputStreamWriter
-import java.net.HttpURLConnection
-import java.net.URL
-import java.net.URLEncoder
-import android.app.Activity
-
+import com.minseok.wheple.login.LoginActivity
 
 
 class MypageFragment : Fragment() {

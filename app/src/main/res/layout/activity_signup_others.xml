@@ -37,14 +37,14 @@
     <EditText
             android:layout_width="330dp"
             android:layout_height="50dp"
-
+            android:privateImeOptions="defaultInputmode=english"
             android:background="@drawable/edittext_background"
             android:padding="10dp"
             android:textSize="14dp"
             android:inputType="textEmailAddress"
             android:ems="10"
             android:id="@+id/signup_email_editText"
-            android:hint="이름을 입력해주세요" android:layout_marginTop="10dp"
+            android:hint="이메일을 입력해주세요" android:layout_marginTop="10dp"
             app:layout_constraintTop_toBottomOf="@+id/textView64" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginLeft="8dp" android:layout_marginStart="8dp" android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="8dp"/>
@@ -68,7 +68,7 @@
             android:inputType="textPassword"
             android:ems="10"
             android:id="@+id/signup_password_editText"
-            android:hint="8~10자리 영문,숫자 조합" android:layout_marginTop="10dp"
+            android:hint="8~16자리 영문, 숫자, 특수문자 조합" android:layout_marginTop="10dp"
             app:layout_constraintTop_toBottomOf="@+id/textView65" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
     />
@@ -89,7 +89,7 @@
             android:inputType="textPassword"
             android:ems="10"
             android:id="@+id/signup_repassword_editText"
-            android:hint="8~10자리 영문,숫자 조합" app:layout_constraintStart_toStartOf="parent"
+            android:hint="8~16자리 영문, 숫자, 특수문자 조합" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="10dp" app:layout_constraintTop_toBottomOf="@+id/textView66"/>
     <TextView
@@ -103,13 +103,14 @@
     <EditText
             android:layout_width="330dp"
             android:layout_height="50dp"
+            android:privateImeOptions="defaultInputmode=korean"
             android:background="@drawable/edittext_background"
             android:padding="10dp"
             android:textSize="14dp"
-            android:inputType="textPersonName"
+
             android:ems="10"
             android:id="@+id/signup_nickname_editText"
-            android:hint="닉네임을 입력하세요" app:layout_constraintStart_toStartOf="parent"
+            android:hint="2~8자리 한글" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="10dp" app:layout_constraintTop_toBottomOf="@+id/textView67"/>
     <CheckBox
@@ -118,7 +119,7 @@
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/checkBox" app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="43dp"
+            android:id="@+id/signup_agree_checkBox" app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="43dp"
             android:layout_marginStart="43dp"
             android:layout_marginTop="28dp" app:layout_constraintTop_toBottomOf="@+id/signup_nickname_editText"/>
     <Button
