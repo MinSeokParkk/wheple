@@ -22,13 +22,6 @@ class HomeFragment : Fragment() {
             }
         }
 
-//        view.filterSports_layout.setOnClickListener {
-//            activity?.let{
-//                val intent = Intent (it, FilterSportsDialog::class.java)
-//                it.startActivity(intent)
-//            }
-//        }
-
         // Return the fragment view/layout
         return view
     }

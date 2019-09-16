@@ -1,12 +1,11 @@
 package com.minseok.wheple.signup_others
 
-import com.minseok.wheple.APIService
-import com.minseok.wheple.App
-import com.minseok.wheple.Result
+import com.minseok.wheple.retrofit.APIService
+import com.minseok.wheple.shared.App
+import com.minseok.wheple.retrofit.Result
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
-import javax.crypto.KeyAgreement
 
 
 class SignupOthersPresenter (private val view : SignupOthersContract.View):SignupOthersContract.Presenter {
@@ -47,8 +46,14 @@ class SignupOthersPresenter (private val view : SignupOthersContract.View):Signu
             view.showToast("닉네임을 형식에 맞게 입력해주세요.")
             view.wrongInput(2)
         }else {
+            var sending : String
+            sending = "{ \"email\" : \""+ email + "\", \r\n" +
+                    "\"password\" : \""+password+"\", \r\n" +
+                    "\"nickname\" : \""+nickname+"\", \r\n" +
+                    "\"phone\" : \""+phone+"\"}"
+
             disposable =
-                apiService.serversignup(email, password, nickname, phone)
+                apiService.connect_server("signup.php", sending)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(
@@ -58,7 +63,7 @@ class SignupOthersPresenter (private val view : SignupOthersContract.View):Signu
     }
 
 
-    fun showResult(result: Result.Signupresult){
+    fun showResult(result: Result.Connectresult){
         if(result.result.equals("0")){
             view.signupSuccess()
             view.showToast("회원 가입이 완료되었습니다.")

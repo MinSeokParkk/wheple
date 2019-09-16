@@ -8,9 +8,8 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText
 import android.widget.Toast
-import com.minseok.wheple.MainActivity
+import com.minseok.wheple.main.MainActivity
 import com.minseok.wheple.R
-import kotlinx.android.synthetic.main.activity_login.*
 
 import kotlinx.android.synthetic.main.activity_signup_others.*
 

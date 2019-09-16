@@ -1,7 +1,7 @@
 package com.minseok.wheple.login
 
-import com.minseok.wheple.BasePresenter
-import com.minseok.wheple.BaseView
+import com.minseok.wheple.base.BasePresenter
+import com.minseok.wheple.base.BaseView
 
 interface LoginContract {
 

@@ -1,4 +1,4 @@
-package com.minseok.wheple
+package com.minseok.wheple.base
 
 interface BasePresenter {
 

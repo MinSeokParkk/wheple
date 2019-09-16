@@ -10,7 +10,7 @@ import android.widget.EditText
 import com.minseok.wheple.R
 import kotlinx.android.synthetic.main.activity_login.*
 import android.widget.Toast
-import com.minseok.wheple.MainActivity
+import com.minseok.wheple.main.MainActivity
 import com.minseok.wheple.signup_phone.SignupPhoneActivity
 
 
@@ -27,7 +27,7 @@ class LoginActivity : AppCompatActivity(),
 
             login_Button.isEnabled = false
 
-             login_email_editText.afterTextChanged {
+            login_email_editText.afterTextChanged {
                 editTextCheck()
             }
 
@@ -38,6 +38,7 @@ class LoginActivity : AppCompatActivity(),
 
             login_Button.setOnClickListener {
                 loginUser()
+
             }
 
             signup_text.setOnClickListener {  //회원가입할 때
@@ -67,7 +68,8 @@ class LoginActivity : AppCompatActivity(),
     }
 
     override fun showToast(string: String) {
-        Toast.makeText(this, string, Toast.LENGTH_SHORT).show()
+
+         Toast.makeText(this, string, Toast.LENGTH_SHORT).show()
     }
 
     override fun wrongInput(int: Int) {
@@ -86,7 +88,6 @@ class LoginActivity : AppCompatActivity(),
             }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-
             }
 
             override fun afterTextChanged(editable: Editable?) {

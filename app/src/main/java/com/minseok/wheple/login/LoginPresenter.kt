@@ -1,9 +1,9 @@
 package com.minseok.wheple.login
 
 
-import com.minseok.wheple.APIService
-import com.minseok.wheple.App
-import com.minseok.wheple.Result
+import com.minseok.wheple.retrofit.APIService
+import com.minseok.wheple.shared.App
+import com.minseok.wheple.retrofit.Result
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
@@ -28,12 +28,19 @@ class LoginPresenter (private val view : LoginContract.View): LoginContract.Pres
 
     override fun login(email: String, password: String)  {
 
+
+
         if(!isEmailValid(email)){
             view.showToast("이메일 형식을 확인해주세요.")
             view.wrongInput(1)
          }else{
+            var sending : String
+            sending = "{ \"email\" : \""+ email + "\", \r\n" +
+                    "\"password\" : \""+password+"\"}"
+            println("sending =====" + sending)
+
             disposable =
-                apiService.serverlogin(email, password)
+                apiService.connect_server("login.php", sending)
 
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
@@ -43,9 +50,10 @@ class LoginPresenter (private val view : LoginContract.View): LoginContract.Pres
         }
     }
 
-    fun showResult(result: Result.Loginresult){
+    fun showResult(result: Result.Connectresult){
         if(result.result.equals("0")){
             view.loginSuccess()
+
             view.showToast("로그인 성공")
 
             App.prefs.autologin = true //쉐어드로 로그인 상태 유지시킴

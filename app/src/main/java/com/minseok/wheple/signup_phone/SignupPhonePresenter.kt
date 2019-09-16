@@ -1,8 +1,7 @@
 package com.minseok.wheple.signup_phone
 
-import com.minseok.wheple.APIService
-import com.minseok.wheple.App
-import com.minseok.wheple.Result
+import com.minseok.wheple.retrofit.APIService
+import com.minseok.wheple.retrofit.Result
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
@@ -27,8 +26,11 @@ class SignupPhonePresenter (private val view : SignupPhoneContract.View):SignupP
     }
 
     override fun phonecheck(phone: String) {
+        var sending : String
+        sending = "{ \"phone\" : \""+ phone + "\"}"
+        println("sending ===   "+ sending)
           disposable =
-                apiService.serverphonecheck(phone)
+                apiService.connect_server("phonecheck.php", sending)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(
@@ -37,7 +39,7 @@ class SignupPhonePresenter (private val view : SignupPhoneContract.View):SignupP
 
     }
 
-    fun showResult(result: Result.Phoneresult){
+    fun showResult(result: Result.Connectresult){
         println("return ======"+result.result )
         if(result.result.equals("1")){
             view.showToast("이미 가입한 번호입니다.")

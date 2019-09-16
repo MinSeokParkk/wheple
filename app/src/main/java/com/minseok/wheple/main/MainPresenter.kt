@@ -1,0 +1,39 @@
+package com.minseok.wheple.main
+
+import android.support.design.widget.BottomNavigationView
+import android.support.v4.app.Fragment
+import com.minseok.wheple.*
+
+class MainPresenter (private val view : MainContract.View): MainContract.Presenter{
+
+    override fun start() {
+    }
+
+    override fun navListener(): BottomNavigationView.OnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener {
+            menuItem ->
+        val selectedFragment: Fragment
+        when(menuItem.itemId){
+            R.id.navigation_home -> {
+                selectedFragment = HomeFragment()
+                view.openFragment(selectedFragment)
+                return@OnNavigationItemSelectedListener true
+            }
+            R.id.navigation_search -> {
+                selectedFragment = SearchFragment()
+                view.openFragment(selectedFragment)
+                return@OnNavigationItemSelectedListener true
+            }
+            R.id.navigation_chat -> {
+                selectedFragment = ChatFragment()
+                view.openFragment(selectedFragment)
+                return@OnNavigationItemSelectedListener true
+            }
+            R.id.navigation_mypage -> {
+                selectedFragment = MypageFragment()
+                view.openFragment(selectedFragment)
+                return@OnNavigationItemSelectedListener true
+            }
+        }
+        false
+    }
+}

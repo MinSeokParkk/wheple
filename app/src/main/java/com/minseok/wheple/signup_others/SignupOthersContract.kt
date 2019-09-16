@@ -1,8 +1,7 @@
 package com.minseok.wheple.signup_others
 
-import com.minseok.wheple.BasePresenter
-import com.minseok.wheple.BaseView
-import javax.crypto.KeyAgreement
+import com.minseok.wheple.base.BasePresenter
+import com.minseok.wheple.base.BaseView
 
 interface SignupOthersContract {
 

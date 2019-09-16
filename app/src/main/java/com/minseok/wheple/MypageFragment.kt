@@ -12,6 +12,7 @@ import android.view.ViewGroup
 
 import kotlinx.android.synthetic.main.fragment_mypage.view.*
 import com.minseok.wheple.login.LoginActivity
+import com.minseok.wheple.main.MainActivity
 
 
 class MypageFragment : Fragment() {
