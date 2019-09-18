@@ -30,7 +30,7 @@
 
         <activity android:name=".ReviewActivity"></activity>
 
-        <activity android:name=".ChatActivity"></activity>
+        <activity android:name=".ChatroomActivity"></activity>
 
         <activity android:name=".login.LoginActivity"></activity>
 
