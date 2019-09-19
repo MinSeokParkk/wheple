@@ -1,9 +1,8 @@
 package com.minseok.wheple.retrofit
 
-object Result {
-    data class Connectresult(val result: String)
+import com.minseok.wheple.home.PlaceItem
 
-//    data class Phoneresult(val result: String)
-//
-//    data class Signupresult(val result: String)
+object Result {
+    data class Connectresult(val result:String , val places: ArrayList<PlaceItem>)
+
 }

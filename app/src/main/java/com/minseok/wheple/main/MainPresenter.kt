@@ -4,7 +4,7 @@ import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import com.minseok.wheple.*
 import com.minseok.wheple.chatlist.ChatlistFragment
-import com.minseok.wheple.home.HomeFragment
+import com.minseok.wheple.HomeFragment
 import com.minseok.wheple.mypage.MypageFragment
 import com.minseok.wheple.search.SearchFragment
 

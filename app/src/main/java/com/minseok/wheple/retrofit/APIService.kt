@@ -18,7 +18,8 @@ interface APIService {
      fun connect_server(
         @Url url: String,
         @Field("sending") sending: String
-    ): Observable<Result.Connectresult>
+     ): Observable<Result.Connectresult>
+
 
     companion object {
         fun create(): APIService {
