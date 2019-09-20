@@ -1,14 +1,16 @@
-package com.minseok.wheple.home
+package com.minseok.wheple.home.adapter
 
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.minseok.wheple.R
+import com.minseok.wheple.home.PlaceItem
 
 
-class PlaceItemViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+class PlaceViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
     var placeName = itemView.findViewById<TextView>(R.id.text_home_name)
     var placeAddress = itemView.findViewById<TextView>(R.id.text_home_address)
     var placePrice = itemView.findViewById<TextView>(R.id.text_home_price)
@@ -26,5 +28,10 @@ class PlaceItemViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         Glide.with(itemView)
             .load(placeItemList.photo)
             .into(placePhoto)
+
+        itemView.setOnClickListener{
+            Toast.makeText(itemView.context, position.toString(), Toast.LENGTH_SHORT).show()
+        }
+
     }
 }

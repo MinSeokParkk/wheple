@@ -13,4 +13,5 @@ interface MypageContract {
     interface Presenter : BasePresenter{
         fun check_preference()
     }
+
 }
