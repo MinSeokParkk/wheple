@@ -15,7 +15,7 @@
     <ImageView
             android:layout_width="22dp"
             android:layout_height="22dp" app:srcCompat="@drawable/icon_back"
-            android:id="@+id/imageView8"
+            android:id="@+id/img_place_back"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp" android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"
             android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/guideline2"/>
@@ -51,7 +51,7 @@
                     android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView11" app:layout_constraintStart_toStartOf="parent"
+                    android:id="@+id/text_place_name" app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginLeft="16dp"
                     android:layout_marginStart="16dp"
                     app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="2dp"
@@ -62,10 +62,10 @@
                     android:layout_height="240dp"
                     android:scaleType="centerCrop"
                     app:srcCompat="@drawable/img_gym"
-                    android:id="@+id/imageView2" app:layout_constraintStart_toStartOf="parent"
+                    android:id="@+id/img_place_photo" app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
-                    android:layout_marginTop="14dp" app:layout_constraintTop_toBottomOf="@+id/textView28"/>
+                    android:layout_marginTop="14dp" app:layout_constraintTop_toBottomOf="@+id/text_place_sports"/>
 
             <TextView
                     android:layout_width="wrap_content"
@@ -82,7 +82,7 @@
                     android:text="서울 광진구 능동로 120"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView13"
+                    android:id="@+id/text_place_address"
                     app:layout_constraintStart_toEndOf="@+id/textView12" android:layout_marginLeft="8dp"
                     android:layout_marginStart="8dp" android:layout_marginTop="16dp"
                     app:layout_constraintTop_toBottomOf="@+id/ratingBar"/>
@@ -95,7 +95,7 @@
                     android:progressTint="@color/ratingYellow"
                     android:secondaryProgressTint="@android:color/transparent"
                     android:id="@+id/ratingBar" android:layout_marginTop="20dp"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView2" app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/img_place_photo" app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginLeft="23dp" android:layout_marginStart="23dp"
                     style="@android:style/Widget.DeviceDefault.Light.RatingBar.Indicator"
             />
@@ -106,17 +106,17 @@
                     android:textSize="22dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView14" android:layout_marginLeft="2dp" android:layout_marginStart="2dp"
+                    android:id="@+id/text_place_rating" android:layout_marginLeft="2dp" android:layout_marginStart="2dp"
                     app:layout_constraintStart_toEndOf="@+id/ratingBar" android:layout_marginTop="24dp"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView2"/>
+                    app:layout_constraintTop_toBottomOf="@+id/img_place_photo"/>
             <TextView
                     android:text="(15)"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView15"
+                    android:id="@+id/text_place_review"
                     android:layout_marginLeft="12dp" android:layout_marginStart="12dp"
-                    app:layout_constraintStart_toEndOf="@+id/textView14"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView2" android:layout_marginTop="29dp"/>
+                    app:layout_constraintStart_toEndOf="@+id/text_place_rating"
+                    app:layout_constraintTop_toBottomOf="@+id/img_place_photo" android:layout_marginTop="29dp"/>
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -124,9 +124,9 @@
                     android:textSize="26dp"
                     android:textColor="@color/grey"
                     android:fontFamily="@font/fontawesome_webfont"
-                    android:id="@+id/textView16" app:layout_constraintStart_toEndOf="@+id/textView15"
+                    android:id="@+id/textView16" app:layout_constraintStart_toEndOf="@+id/text_place_review"
                     android:layout_marginLeft="8dp" android:layout_marginStart="8dp" android:layout_marginTop="26dp"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView2"/>
+                    app:layout_constraintTop_toBottomOf="@+id/img_place_photo"/>
 
             <TextView
                     android:layout_width="wrap_content"
@@ -136,7 +136,7 @@
                     android:textColor="@color/grey"
                     android:fontFamily="@font/fontawesome_webfont"
                     android:id="@+id/textView17"
-                    app:layout_constraintStart_toEndOf="@+id/textView13" android:layout_marginLeft="8dp"
+                    app:layout_constraintStart_toEndOf="@+id/text_place_address" android:layout_marginLeft="8dp"
                     android:layout_marginStart="8dp" android:layout_marginTop="15dp"
                     app:layout_constraintTop_toBottomOf="@+id/ratingBar"/>
 
@@ -149,7 +149,7 @@
                     android:id="@+id/view4"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintHorizontal_bias="0.5" android:layout_marginTop="20dp"
-                    app:layout_constraintTop_toBottomOf="@+id/textView30"/>
+                    app:layout_constraintTop_toBottomOf="@+id/text_place_introduction"/>
 
 
             <View
@@ -178,7 +178,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     android:id="@+id/view2"
                     app:layout_constraintStart_toStartOf="parent"
-                    android:layout_marginTop="25dp" app:layout_constraintTop_toBottomOf="@+id/constraintLayout"/>
+                    android:layout_marginTop="25dp" app:layout_constraintTop_toBottomOf="@+id/constraint_place_parking"/>
 
             <View
                     android:layout_width="390dp"
@@ -188,16 +188,17 @@
                     android:id="@+id/view3"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintHorizontal_bias="0.52"
-                    app:layout_constraintTop_toBottomOf="@+id/textView27" android:layout_marginTop="20dp"/>
+                    app:layout_constraintTop_toBottomOf="@+id/text_place_guide" android:layout_marginTop="20dp"/>
 
 
             <android.support.constraint.ConstraintLayout
+
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:background="@drawable/rounded"
+                    android:background="@drawable/rounded_filter_possible"
                     app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginLeft="64dp" android:layout_marginStart="64dp"
-                    android:id="@+id/constraintLayout" android:layout_marginTop="24dp"
+                    android:id="@+id/constraint_place_parking" android:layout_marginTop="24dp"
                     app:layout_constraintTop_toBottomOf="@+id/textView19">
 
                 <TextView
@@ -205,10 +206,10 @@
                         android:layout_height="wrap_content"
                         android:text="\uf1b9"
                         android:textSize="22dp"
-                        android:textColor="@color/black"
+                        android:textColor="@color/filter_possible"
                         android:fontFamily="@font/fontawesome_webfont"
 
-                        android:id="@+id/textView21" android:layout_marginTop="14dp"
+                        android:id="@+id/text_place_parking_icon" android:layout_marginTop="14dp"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
                         android:layout_marginRight="8dp" app:layout_constraintStart_toStartOf="parent"
@@ -217,10 +218,10 @@
                         android:text="주차 100석"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/textView22"
+                        android:id="@+id/text_place_parking_text"
                         android:textSize="12dp"
-                        android:textColor="@color/black"
-                        app:layout_constraintTop_toBottomOf="@+id/textView21"
+                        android:textColor="@color/filter_possible"
+                        app:layout_constraintTop_toBottomOf="@+id/text_place_parking_icon"
                         app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
                         android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
                         android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
@@ -230,10 +231,10 @@
             <android.support.constraint.ConstraintLayout
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:background="@drawable/rounded"
+                    android:background="@drawable/rounded_filter_possible"
                     android:layout_marginEnd="64dp"
                     android:layout_marginRight="64dp" app:layout_constraintEnd_toEndOf="parent"
-                    android:id="@+id/constraintLayout2" android:layout_marginTop="24dp"
+                    android:id="@+id/constraint_place_heating" android:layout_marginTop="24dp"
                     app:layout_constraintTop_toBottomOf="@+id/textView19">
 
                 <TextView
@@ -241,10 +242,10 @@
                         android:layout_height="wrap_content"
                         android:text="\uf2c8"
                         android:textSize="22dp"
-                        android:textColor="@color/bluegrey"
+                        android:textColor="@color/filter_possible"
                         android:fontFamily="@font/fontawesome_webfont"
 
-                        android:id="@+id/textView25" android:layout_marginTop="14dp"
+                        android:id="@+id/text_place_heating_icon" android:layout_marginTop="14dp"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
                         android:layout_marginRight="8dp" app:layout_constraintStart_toStartOf="parent"
@@ -253,10 +254,10 @@
                         android:text="냉/난방 불가"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/textView26"
+                        android:id="@+id/text_place_heating_text"
                         android:textSize="12dp"
-                        android:textColor="@color/bluegrey"
-                        app:layout_constraintTop_toBottomOf="@+id/textView25"
+                        android:textColor="@color/filter_possible"
+                        app:layout_constraintTop_toBottomOf="@+id/text_place_heating_icon"
                         app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
                         android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
                         android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
@@ -266,21 +267,21 @@
             <android.support.constraint.ConstraintLayout
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:background="@drawable/rounded"
-                    app:layout_constraintEnd_toStartOf="@+id/constraintLayout2"
-                    app:layout_constraintStart_toEndOf="@+id/constraintLayout"
+                    android:background="@drawable/rounded_filter_possible"
+                    app:layout_constraintEnd_toStartOf="@+id/constraint_place_heating"
+                    app:layout_constraintStart_toEndOf="@+id/constraint_place_parking"
                     android:layout_marginTop="24dp"
-                    app:layout_constraintTop_toBottomOf="@+id/textView19" android:id="@+id/constraintLayout3">
+                    app:layout_constraintTop_toBottomOf="@+id/textView19" android:id="@+id/constraint_place_shower">
 
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="\uf2cc"
                         android:textSize="22dp"
-                        android:textColor="@color/black"
+                        android:textColor="@color/filter_possible"
                         android:fontFamily="@font/fontawesome_webfont"
 
-                        android:id="@+id/textView23" android:layout_marginTop="14dp"
+                        android:id="@+id/text_place_shower_icon" android:layout_marginTop="14dp"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
                         android:layout_marginRight="8dp" app:layout_constraintStart_toStartOf="parent"
@@ -289,10 +290,10 @@
                         android:text="샤워 6석"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/textView24"
+                        android:id="@+id/text_place_shower_text"
                         android:textSize="12dp"
-                        android:textColor="@color/black"
-                        app:layout_constraintTop_toBottomOf="@+id/textView23"
+                        android:textColor="@color/filter_possible"
+                        app:layout_constraintTop_toBottomOf="@+id/text_place_shower_icon"
                         app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
                         android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
                         android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
@@ -324,7 +325,7 @@
                     android:textColor="@color/black"
                     android:layout_width="363dp"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView27" app:layout_constraintStart_toStartOf="parent"
+                    android:id="@+id/text_place_guide" app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginLeft="30dp" android:layout_marginStart="30dp"
                     app:layout_constraintTop_toBottomOf="@+id/textView20" android:layout_marginTop="20dp"
                     app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="24dp"
@@ -336,8 +337,8 @@
                     android:textColor="@color/colorPrimary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView28"
-                    app:layout_constraintTop_toBottomOf="@+id/textView11" app:layout_constraintStart_toStartOf="parent"
+                    android:id="@+id/text_place_sports"
+                    app:layout_constraintTop_toBottomOf="@+id/text_place_name" app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginLeft="16dp" android:layout_marginStart="16dp"/>
             <TextView
                     android:text="시설소개"
@@ -354,7 +355,7 @@
                     android:layout_width="match_parent"
                     android:textColor="@color/black"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView30" app:layout_constraintStart_toStartOf="parent"
+                    android:id="@+id/text_place_introduction" app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginLeft="30dp" android:layout_marginStart="30dp" android:layout_marginTop="20dp"
                     app:layout_constraintTop_toBottomOf="@+id/textView29" app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginEnd="30dp" android:layout_marginRight="30dp"/>
@@ -551,7 +552,7 @@
                     android:background="@drawable/rounded_blue"
                     android:layout_width="134dp"
                     android:layout_height="47dp"
-                    android:id="@+id/constraintLayout4"
+                    android:id="@+id/constraint_place_phone"
                     app:layout_constraintTop_toBottomOf="@+id/textView49"
                     android:layout_marginTop="16dp"
                     app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="60dp"
@@ -589,12 +590,13 @@
             <TextView
                     android:text="20,000"
                     android:textSize="22dp"
+                    android:textStyle="bold"
                     android:textColor="@color/colorPrimary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView70" app:layout_constraintEnd_toStartOf="@+id/textView71"
+                    android:id="@+id/text_place_price" app:layout_constraintEnd_toStartOf="@+id/textView71"
                     android:layout_marginEnd="4dp" android:layout_marginRight="4dp" android:layout_marginTop="25dp"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView2"/>
+                    app:layout_constraintTop_toBottomOf="@+id/img_place_photo"/>
             <TextView
                     android:textSize="11dp"
                     android:text="원/시간"
@@ -602,14 +604,14 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/textView71" app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginEnd="23dp" android:layout_marginRight="23dp" android:layout_marginTop="34dp"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView2"/>
+                    app:layout_constraintTop_toBottomOf="@+id/img_place_photo"/>
             <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="126dp"
                     android:layout_height="39dp"
                     app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="24dp"
                     android:layout_marginStart="24dp" android:layout_marginTop="20dp"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView2" android:id="@+id/ReviewMore1_layout">
+                    app:layout_constraintTop_toBottomOf="@+id/img_place_photo" android:id="@+id/ReviewMore1_layout">
             </LinearLayout>
             <LinearLayout
                     android:orientation="horizontal"

@@ -6,7 +6,8 @@ import com.minseok.wheple.base.BaseView
 interface SignupPhoneContract {
     interface View : BaseView<Presenter> {
         fun showToast(string: String)
-        fun signupbutton(phone: Boolean)
+        fun signupbutton_on()
+        fun signupbutton_off()
         fun phonecheckSuccess(phone: String)
         fun wrongInput()
     }

@@ -15,7 +15,7 @@ class SignupOthersPresenter (private val view : SignupOthersContract.View):Signu
          APIService.create()
     }
     var disposable: Disposable? = null
-
+    val regex = SignupOthersRegex()
 
     init {
         this.view.setPresenter(this)
@@ -24,28 +24,47 @@ class SignupOthersPresenter (private val view : SignupOthersContract.View):Signu
     }
 
     override fun inputCheck(email: String, password: String, repassword: String, nickname: String, agreement: Boolean) {
-        view.signupbutton(email.trim().length!=0, password.trim().length!=0, repassword.trim().length!=0,
-                                nickname.trim().length!=0, agreement)
+
+        if(regex.lengthCheck(email)&&regex.lengthCheck(password)&&regex.lengthCheck(repassword)&&regex.lengthCheck(nickname) && agreement){
+            view.signupbutton_on()
+        }else{
+            view.signupbutton_off()
+        }
     }
 
 
-    override fun signup(email: String, password: String, repassword: String, nickname: String, phone: String) {
-        val regex_password = Regex(pattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[@#\$%!\\-_?&])(?=\\S+\$).{8,16}")
-        val regex_nickname = Regex(pattern = "[가-힣]{2,8}")
+    override fun signup(email: String, password: String, repassword: String, nickname: String, phone: String, agreement: Boolean) {
 
-        if(!isEmailValid(email)) {
+        val result = regex.checkRegex(email, password, repassword, nickname)
+
+        if(!regex.lengthCheck(email)){
+            view.showToast("이메일을 입력해주세요.")
+            view.wrongInput(-1)
+        } else if(!regex.lengthCheck(password)){
+            view.showToast("비밀번호를 입력해주세요.")
+            view.wrongInput(-2)
+        } else if(!regex.lengthCheck(repassword)){
+            view.showToast("비밀번호 확인을 입력해주세요.")
+            view.wrongInput(-3)
+        } else if(!regex.lengthCheck(nickname)){
+            view.showToast("닉네임을 입력해주세요.")
+            view.wrongInput(2)
+        } else if(!agreement){
+            view.showToast("약관에 동의해주세요.")
+            view.wrongInput(3)
+        } else if(result == 1) {
             view.showToast("이메일 형식을 확인해주세요.")
             view.wrongInput(-1)
-        }else if(!regex_password.matches(input = password)) {
+        }else if(result == 2) {
             view.showToast("비밀번호를 형식에 맞게 입력해주세요.")
             view.wrongInput(-2)
-        }else if(!repassword.equals(password)){
+        }else if(result == 3){
             view.showToast("비밀번호가 같지 않습니다.")
             view.wrongInput(-3)
-        }else if(!regex_nickname.matches(input = nickname)){
+        }else if(result == 4){
             view.showToast("닉네임을 형식에 맞게 입력해주세요.")
             view.wrongInput(2)
-        }else {
+        }else if(result == -1){
             var sending : String
             sending = "{ \"email\" : \""+ email + "\", \r\n" +
                     "\"password\" : \""+password+"\", \r\n" +
@@ -57,18 +76,18 @@ class SignupOthersPresenter (private val view : SignupOthersContract.View):Signu
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(
-                        { result -> showResult(result) }
+                        { result -> showResult(result, email) }
                     )
         }
     }
 
 
-    fun showResult(result: Result.Connectresult){
+    fun showResult(result: Result.Connectresult, email: String){
         if(result.result.equals("0")){
             view.signupSuccess()
             view.showToast("회원 가입이 완료되었습니다.")
 
-            App.prefs.autologin = true //쉐어드로 로그인 상태 유지시킴
+            App.prefs.autologin = email //쉐어드로 로그인 상태 유지시킴
 
         } else if(result.result.equals("1")) {
             view.showToast("이미 가입된 이메일 입니다.")
@@ -84,8 +103,5 @@ class SignupOthersPresenter (private val view : SignupOthersContract.View):Signu
         }
     }
 
-    fun isEmailValid(email: String): Boolean {
-        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
-    }
 
 }

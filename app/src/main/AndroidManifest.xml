@@ -20,11 +20,11 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".SpaceActivity"></activity>
+        <activity android:name=".place.PlaceActivity"></activity>
 
-        <activity android:name=".SelectDateTimeActivity"></activity>
+        <activity android:name=".select_date_time.SelectDateTimeActivity"></activity>
 
-        <activity android:name=".ReservationActivity"></activity>
+        <activity android:name=".reservation.ReservationActivity"></activity>
 
         <activity android:name=".ReservationSuccessActivity"></activity>
 

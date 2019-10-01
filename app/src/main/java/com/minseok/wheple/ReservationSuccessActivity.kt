@@ -17,4 +17,8 @@ class ReservationSuccessActivity : AppCompatActivity() {
             startActivity(nextIntent)
         }
     }
+
+    override fun onBackPressed() {
+
+    }
 }

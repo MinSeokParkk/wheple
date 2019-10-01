@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools" android:layout_width="wrap_content"
+                                             android:layout_height="wrap_content"
+                                            >
+
+    <RadioButton
+
+            android:id="@+id/radio_time"
+            android:layout_width="141dp"
+            android:layout_height="41dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/radiobutton"
+            android:button="@android:color/transparent"
+            android:checked="false"
+            android:gravity="center"
+            android:text="12:00 ~ 14:00"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="5dp" android:layout_marginBottom="5dp" android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp" android:layout_marginRight="5dp" android:layout_marginEnd="5dp"/>
+    <TextView
+
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+             android:textColor="@color/darkPrimary"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            android:id="@+id/radio_state" app:layout_constraintStart_toStartOf="@+id/radio_time"
+            app:layout_constraintEnd_toEndOf="@+id/radio_time" android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_margin="5dp"
+            app:layout_constraintTop_toTopOf="@+id/radio_time"
+            app:layout_constraintBottom_toBottomOf="@+id/radio_time"
+            app:layout_constraintVertical_bias="1"/>
+
+</android.support.constraint.ConstraintLayout>

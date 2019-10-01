@@ -9,12 +9,12 @@ import android.text.TextWatcher
 import android.widget.EditText
 import android.widget.Toast
 import com.minseok.wheple.R
+import com.minseok.wheple.afterTextChanged
 import com.minseok.wheple.signup_others.SignupOthersActivity
 
 import kotlinx.android.synthetic.main.activity_signup_phone.*
 
-class SignupPhoneActivity : AppCompatActivity(),
-    SignupPhoneContract.View{
+class SignupPhoneActivity : AppCompatActivity(), SignupPhoneContract.View{
 
     private lateinit var mPresenter : SignupPhoneContract.Presenter
 
@@ -22,7 +22,6 @@ class SignupPhoneActivity : AppCompatActivity(),
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup_phone)
 
-        signup_next_Button.isEnabled = false
 
         signup_phone_editText.afterTextChanged {
             editTextCheck()
@@ -57,20 +56,6 @@ class SignupPhoneActivity : AppCompatActivity(),
 
     }
 
-    fun EditText.afterTextChanged(afterTextChanged: (String) -> Unit) {
-        this.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            }
-
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-
-            }
-
-            override fun afterTextChanged(editable: Editable?) {
-                afterTextChanged.invoke(editable.toString())
-            }
-        })
-    }
 
     internal fun editTextCheck(){
 
@@ -81,8 +66,12 @@ class SignupPhoneActivity : AppCompatActivity(),
         mPresenter.phonecheck(signup_phone_editText.text.toString())
     }
 
-    override fun signupbutton(phone: Boolean) {
-       signup_next_Button.isEnabled = phone
+    override fun signupbutton_on() {
+        signup_next_Button.setBackgroundResource(R.drawable.button_on)
+    }
+
+    override fun signupbutton_off() {
+        signup_next_Button.setBackgroundResource(R.drawable.button_off)
     }
 
 }

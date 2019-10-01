@@ -11,7 +11,7 @@ class MypagePresenter (private val view: MypageContract.View): MypageContract.Pr
     }
 
     override fun check_preference() {
-        if(App.prefs.autologin){
+        if(App.prefs.autologin!=""){
             view.login_mode()
         }else{
             view.guest_mode()

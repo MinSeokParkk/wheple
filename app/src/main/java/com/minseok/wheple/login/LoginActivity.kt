@@ -10,7 +10,9 @@ import android.widget.EditText
 import com.minseok.wheple.R
 import kotlinx.android.synthetic.main.activity_login.*
 import android.widget.Toast
+import com.minseok.wheple.afterTextChanged
 import com.minseok.wheple.main.MainActivity
+import com.minseok.wheple.reservation.ReservationActivity
 import com.minseok.wheple.signup_phone.SignupPhoneActivity
 
 
@@ -22,7 +24,6 @@ class LoginActivity : AppCompatActivity(), LoginContract.View{
             super.onCreate(savedInstanceState)
             setContentView(R.layout.activity_login)
 
-            login_Button.isEnabled = false
 
             login_email_editText.afterTextChanged {
                 editTextCheck()
@@ -58,14 +59,23 @@ class LoginActivity : AppCompatActivity(), LoginContract.View{
 
 
     override fun loginSuccess() {
+        if(intent.getStringExtra("space")!=null){
+            val nextIntent = Intent(this, ReservationActivity::class.java)
+            nextIntent.putExtra("space", intent.getStringExtra("space"))
+            nextIntent.putExtra("date", intent.getStringExtra("date"))
+            nextIntent.putExtra("timeNo", intent.getStringExtra("timeNo"))
+            nextIntent.putExtra("timeText", intent.getStringExtra("timeText"))
 
-        val nextIntent = Intent(this, MainActivity::class.java)
-        startActivity(nextIntent)
+            startActivity(nextIntent)
+        }else {
+            val nextIntent = Intent(this, MainActivity::class.java)
+            startActivity(nextIntent)
+        }
+        finish()
 
     }
 
     override fun showToast(string: String) {
-
          Toast.makeText(this, string, Toast.LENGTH_SHORT).show()
     }
 
@@ -79,27 +89,19 @@ class LoginActivity : AppCompatActivity(), LoginContract.View{
 
     }
 
-    fun EditText.afterTextChanged(afterTextChanged: (String) -> Unit) {
-        this.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            }
-
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            }
-
-            override fun afterTextChanged(editable: Editable?) {
-                afterTextChanged.invoke(editable.toString())
-            }
-        })
-    }
 
     internal fun editTextCheck(){
 
         mPresenter.inputCheck(login_email_editText.text.toString(), login_password_editText.text.toString())
     }
 
-    override fun loginbutton(email: Boolean, password: Boolean) {
-        login_Button.isEnabled = email && password
+
+    override fun loginbutton_on() {
+        login_Button.setBackgroundResource(R.drawable.button_on)
+    }
+
+    override fun loginbutton_off() {
+        login_Button.setBackgroundResource(R.drawable.button_off)
     }
 
 

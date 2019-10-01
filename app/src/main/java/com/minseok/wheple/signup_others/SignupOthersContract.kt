@@ -9,11 +9,12 @@ interface SignupOthersContract {
         fun signupSuccess()
         fun showToast(string: String)
         fun wrongInput(int: Int)
-        fun signupbutton(email: Boolean, password: Boolean, repassword: Boolean, nickname: Boolean, agreement: Boolean)
+        fun signupbutton_on()
+        fun signupbutton_off()
    }
 
     interface Presenter : BasePresenter {
-        fun signup(email: String, password: String, repassword: String, nickname: String, phone: String) {
+        fun signup(email: String, password: String, repassword: String, nickname: String, phone: String, agreement: Boolean) {
         }
 
         fun inputCheck(email: String, password: String, repassword: String, nickname: String, agreement: Boolean){

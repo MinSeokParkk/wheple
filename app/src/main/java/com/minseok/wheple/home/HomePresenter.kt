@@ -1,14 +1,18 @@
 package com.minseok.wheple.home
 
-import android.support.v7.widget.LinearLayoutManager
+
+import android.util.Log
+import com.minseok.wheple.home.adapter.PlaceAdapter
 import com.minseok.wheple.retrofit.APIService
 import com.minseok.wheple.retrofit.Result
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.fragment_home.*
+
 
 class HomePresenter  (private val view : HomeContract.View): HomeContract.Presenter{
+
+    lateinit var placeAdapter1 :PlaceAdapter
 
     val apiService by lazy {
         APIService.create()
@@ -17,7 +21,9 @@ class HomePresenter  (private val view : HomeContract.View): HomeContract.Presen
 
 
     init {
+
         this.view.setPresenter(this)
+
     }
 
     override fun start() {
@@ -25,7 +31,8 @@ class HomePresenter  (private val view : HomeContract.View): HomeContract.Presen
 
 
 
-    override fun getlist(){
+    override fun getlist(placeAdapter: PlaceAdapter){
+        placeAdapter1 =  placeAdapter
         var sending : String
         sending = ""
 
@@ -43,8 +50,18 @@ class HomePresenter  (private val view : HomeContract.View): HomeContract.Presen
     }
 
     fun showResult(places: Result.Connectresult ){
-//        println("해보자 "+places.places)
-       view.makeadapter(places)
+
+                placeAdapter1.addItems(places.places)
+                placeAdapter1.notifyAdapter()
+
+               view.connectAdapter()
     }
+
+    override fun clear(){ //테스트용
+        placeAdapter1.clearItem()
+        placeAdapter1.notifyAdapter()
+    }
+
+
 
 }

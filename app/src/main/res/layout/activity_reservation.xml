@@ -7,7 +7,7 @@
 
     <TextView
             android:text="예약하기"
-            android:focusableInTouchMode="true"
+
             android:textSize="18dp"
             android:textColor="@color/black"
             android:layout_width="wrap_content"
@@ -19,7 +19,7 @@
     <ImageView
             android:layout_width="22dp"
             android:layout_height="22dp" app:srcCompat="@drawable/icon_back"
-            android:id="@+id/imageView17"
+            android:id="@+id/img_res_back"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp" android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"
             android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/guideline9"/>
@@ -28,6 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" app:layout_constraintGuide_begin="46dp" android:id="@+id/guideline9"/>
     <ScrollView
+            android:id="@+id/scroll_res"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -47,7 +48,7 @@
                     android:id="@+id/view6"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintTop_toBottomOf="@+id/textView93" android:layout_marginTop="32dp"/>
+                    app:layout_constraintTop_toBottomOf="@+id/text_res_finalprice" android:layout_marginTop="32dp"/>
             <View
                     android:layout_width="match_parent"
                     android:layout_height="6dp"
@@ -73,7 +74,7 @@
                     android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView73" android:layout_marginStart="40dp"
+                    android:id="@+id/text_res_name" android:layout_marginStart="40dp"
                     app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="40dp"
                     android:layout_marginTop="24dp" app:layout_constraintTop_toTopOf="parent"/>
             <TextView
@@ -81,7 +82,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/textView74" android:layout_marginTop="32dp"
-                    app:layout_constraintTop_toBottomOf="@+id/textView73" app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_res_name" app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginLeft="40dp" android:layout_marginStart="40dp"/>
             <TextView
                     android:text="예약 시간"
@@ -95,17 +96,17 @@
                     android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView76" app:layout_constraintEnd_toEndOf="parent"
+                    android:id="@+id/text_res_date" app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginEnd="40dp" android:layout_marginRight="40dp" android:layout_marginTop="32dp"
-                    app:layout_constraintTop_toBottomOf="@+id/textView73"/>
+                    app:layout_constraintTop_toBottomOf="@+id/text_res_name"/>
             <TextView
                     android:text="14:00 ~ 16:00"
                     android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView77" app:layout_constraintEnd_toEndOf="parent"
+                    android:id="@+id/text_res_time" app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginEnd="40dp" android:layout_marginRight="40dp"
-                    app:layout_constraintTop_toBottomOf="@+id/textView76" android:layout_marginTop="24dp"/>
+                    app:layout_constraintTop_toBottomOf="@+id/text_res_date" android:layout_marginTop="24dp"/>
             <View
                     android:layout_width="match_parent"
                     android:layout_height="6dp"
@@ -114,7 +115,7 @@
                     android:id="@+id/view4"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintTop_toBottomOf="@+id/editText10" android:layout_marginTop="32dp"/>
+                    app:layout_constraintTop_toBottomOf="@+id/edit_res_phone" android:layout_marginTop="32dp"/>
             <TextView
                     android:text="예약자 정보"
                     android:textColor="@color/black"
@@ -138,11 +139,13 @@
                     android:layout_height="40dp"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
-
+                    android:privateImeOptions="defaultInputmode=korean"
+                    android:imeOptions="actionNext"
+                    android:focusableInTouchMode="true"
                     android:textSize="14dp"
-                    android:inputType="textPersonName"
+                    android:singleLine="true"
                     android:ems="10"
-                    android:id="@+id/editText9" android:hint="이름을 입력해주세요"
+                    android:id="@+id/edit_res_name" android:hint="이름을 입력해주세요"
                     android:layout_marginTop="24dp"
                     app:layout_constraintTop_toBottomOf="@+id/textView79" android:layout_marginEnd="40dp"
                     app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="40dp"/>
@@ -158,16 +161,19 @@
                     android:background="@drawable/edittext_background"
                     android:layout_width="200dp"
                     android:layout_height="40dp"
-
+                    android:imeOptions="actionDone"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:textSize="14dp"
                     android:inputType="phone"
                     android:ems="10"
-                    android:id="@+id/editText10" android:text="01011112222"
+                    android:digits="0123456789"
+                    android:maxLength="11"
+                    android:hint="01012345678"
+                    android:id="@+id/edit_res_phone" android:text="01011112222"
                     android:layout_marginTop="33dp"
                     app:layout_constraintTop_toBottomOf="@+id/textView80" app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginEnd="40dp" android:layout_marginRight="40dp" android:hint="01000000000"/>
+                    android:layout_marginEnd="40dp" android:layout_marginRight="40dp" />
             <TextView
                     android:text="예약 금액"
                     android:layout_width="wrap_content"
@@ -187,7 +193,7 @@
                     android:text="20,000원 X 2시간"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView84" app:layout_constraintStart_toEndOf="@+id/textView83"
+                    android:id="@+id/text_res_timehour" app:layout_constraintStart_toEndOf="@+id/textView83"
                     android:layout_marginLeft="55dp" android:layout_marginStart="55dp"
                     app:layout_constraintTop_toBottomOf="@+id/textView75" android:layout_marginTop="26dp"/>
             <TextView
@@ -196,15 +202,15 @@
                     android:textSize="16dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView85" app:layout_constraintEnd_toEndOf="parent"
+                    android:id="@+id/text_res_price_top" app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginEnd="40dp" android:layout_marginRight="40dp"
-                    app:layout_constraintTop_toBottomOf="@+id/textView77" android:layout_marginTop="22dp"/>
+                    app:layout_constraintTop_toBottomOf="@+id/text_res_time" android:layout_marginTop="25dp"/>
             <TextView
                     android:text="40,000원"
                     android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView86" app:layout_constraintEnd_toEndOf="parent"
+                    android:id="@+id/text_res_price_mid" app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginEnd="40dp" android:layout_marginRight="40dp"
                     app:layout_constraintTop_toBottomOf="@+id/view4" android:layout_marginTop="32dp"/>
             <TextView
@@ -217,11 +223,13 @@
             <Button
                     android:text="쿠폰적용"
                     android:textSize="12dp"
+                    android:background="@drawable/button_on"
+                    android:textColor="@color/white"
                     android:layout_width="80dp"
-                    android:layout_height="40dp"
-                    android:id="@+id/button6" android:layout_marginTop="19dp"
-                    app:layout_constraintTop_toBottomOf="@+id/textView86" android:layout_marginEnd="36dp"
-                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="36dp"/>
+                    android:layout_height="30dp"
+                    android:id="@+id/button_res_cuppon" android:layout_marginTop="25dp"
+                    app:layout_constraintTop_toBottomOf="@+id/text_res_price_mid" android:layout_marginEnd="40dp"
+                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="40dp"/>
             <TextView
                     android:text="포인트"
                     android:layout_width="wrap_content"
@@ -234,20 +242,22 @@
                     android:layout_width="200dp"
                     android:layout_height="35dp"
                     android:padding="10dp"
+                    android:inputType="phone"
+                    android:digits="0123456789"
                     android:textSize="13dp"
                     android:gravity="right"
-                    android:inputType="textPersonName"
+                    android:imeOptions="actionDone"
                     android:ems="10"
-                    android:id="@+id/editText11" android:hint="500P 보유" android:layout_marginTop="20dp"
-                    app:layout_constraintTop_toBottomOf="@+id/button6" android:layout_marginEnd="40dp"
+                    android:id="@+id/edit_res_point" android:hint="500P 보유" android:layout_marginTop="22dp"
+                    app:layout_constraintTop_toBottomOf="@+id/button_res_cuppon" android:layout_marginEnd="40dp"
                     app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="40dp"/>
             <TextView
                     android:text="500p 사용 가능"
                     android:textSize="12dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView91" android:layout_marginTop="8dp"
-                    app:layout_constraintTop_toBottomOf="@+id/editText11" android:layout_marginEnd="42dp"
+                    android:id="@+id/text_res_possiblepoint" android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/edit_res_point" android:layout_marginEnd="42dp"
                     app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="42dp"/>
             <TextView
                     android:text="최종 결제 금액"
@@ -264,19 +274,19 @@
                     android:textColor="@color/colorPrimary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView93" android:layout_marginEnd="40dp"
+                    android:id="@+id/text_res_finalprice" android:layout_marginEnd="40dp"
                     app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="40dp"
                     android:layout_marginTop="70dp" app:layout_constraintTop_toBottomOf="@+id/textView88"/>
             <TextView
                     android:text="전액사용"
-                    android:textSize="12dp"
+                    android:textSize="13dp"
                     android:textColor="@color/colorPrimary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView94"
-                    app:layout_constraintTop_toTopOf="@+id/editText11"
-                    app:layout_constraintBottom_toBottomOf="@+id/editText11"
-                    app:layout_constraintStart_toStartOf="@+id/editText11" android:layout_marginLeft="10dp"
+                    android:id="@+id/text_res_allpoint"
+                    app:layout_constraintTop_toTopOf="@+id/edit_res_point"
+                    app:layout_constraintBottom_toBottomOf="@+id/edit_res_point"
+                    app:layout_constraintStart_toStartOf="@+id/edit_res_point" android:layout_marginLeft="10dp"
                     android:layout_marginStart="10dp"/>
             <TextView
                     android:text="결제수단"
@@ -297,36 +307,38 @@
                     android:text="(필수) 숙소 이용규칙 동의"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/checkBox2" app:layout_constraintStart_toStartOf="parent"
+                    android:id="@+id/check_res_use" app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginLeft="60dp" android:layout_marginStart="60dp" android:layout_marginTop="6dp"
-                    app:layout_constraintTop_toBottomOf="@+id/checkBox3" android:textSize="13dp"/>
+                    app:layout_constraintTop_toBottomOf="@+id/check_res_all" android:textSize="13dp"/>
             <CheckBox
                     android:text="전체동의"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/checkBox3" app:layout_constraintStart_toStartOf="parent"
+                    android:id="@+id/check_res_all" app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginLeft="40dp" android:layout_marginStart="40dp" android:layout_marginTop="20dp"
                     app:layout_constraintTop_toBottomOf="@+id/view7"/>
             <CheckBox
-                    android:text="(필수) 개인정보 제3자 제공동의"
+                    android:text="(필수) 개인정보 제3자 제공 동의"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/checkBox4"
+                    android:layout_height="wrap_content" android:id="@+id/check_res_personal"
                     app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginLeft="60dp" android:layout_marginStart="60dp" android:layout_marginTop="6dp"
-                    app:layout_constraintTop_toBottomOf="@+id/checkBox5" android:textSize="13dp"/>
+                    app:layout_constraintTop_toBottomOf="@+id/check_res_cancel" android:textSize="13dp"/>
             <CheckBox
                     android:text="(필수) 취소 규정 동의"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/checkBox5"
+                    android:layout_height="wrap_content" android:id="@+id/check_res_cancel"
                     app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginLeft="60dp" android:layout_marginStart="60dp" android:layout_marginTop="6dp"
-                    app:layout_constraintTop_toBottomOf="@+id/checkBox2" android:textSize="13dp"/>
+                    app:layout_constraintTop_toBottomOf="@+id/check_res_use" android:textSize="13dp"/>
             <Button
                     android:text="40,000원 결제하기"
+                    android:background="@drawable/button_off"
+                    android:textColor="@color/white"
                     android:layout_width="330dp"
                     android:layout_height="55dp"
-                    android:id="@+id/payment_Button" android:layout_marginTop="30dp"
-                    app:layout_constraintTop_toBottomOf="@+id/checkBox4" app:layout_constraintBottom_toBottomOf="parent"
+                    android:id="@+id/button_gotopay" android:layout_marginTop="30dp"
+                    app:layout_constraintTop_toBottomOf="@+id/check_res_personal" app:layout_constraintBottom_toBottomOf="parent"
                     android:layout_marginBottom="25dp" app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintVertical_bias="0.0"/>
@@ -337,25 +349,25 @@
                     android:textColor="@color/colorPrimary"
 
                     android:id="@+id/textView98" android:layout_marginLeft="12dp" android:layout_marginStart="11dp"
-                    app:layout_constraintStart_toEndOf="@+id/checkBox2" android:layout_marginTop="13.5dp"
-                    app:layout_constraintTop_toBottomOf="@+id/checkBox3" android:textSize="13dp"/>
+                    app:layout_constraintStart_toEndOf="@+id/check_res_use" android:layout_marginTop="13.5dp"
+                    app:layout_constraintTop_toBottomOf="@+id/check_res_all" android:textSize="13dp"/>
             <TextView
                     android:text="보기"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorPrimary"
                     android:id="@+id/textView99" android:layout_marginLeft="12dp" android:layout_marginStart="12dp"
-                    app:layout_constraintStart_toEndOf="@+id/checkBox5"
-                    app:layout_constraintTop_toBottomOf="@+id/checkBox2" android:layout_marginTop="13.5dp"
-                     android:textSize="13dp"/>
+                    app:layout_constraintStart_toEndOf="@+id/check_res_cancel"
+                    app:layout_constraintTop_toBottomOf="@+id/check_res_use" android:layout_marginTop="13.5dp"
+                    android:textSize="13dp"/>
             <TextView
                     android:text="보기"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorPrimary"
                     android:id="@+id/textView100" android:layout_marginLeft="12dp" android:layout_marginStart="12dp"
-                    app:layout_constraintStart_toEndOf="@+id/checkBox4"
-                    android:layout_marginTop="13.5dp" app:layout_constraintTop_toBottomOf="@+id/checkBox5"
+                    app:layout_constraintStart_toEndOf="@+id/check_res_personal"
+                    android:layout_marginTop="13.5dp" app:layout_constraintTop_toBottomOf="@+id/check_res_cancel"
                     android:textSize="13dp"/>
 
         </android.support.constraint.ConstraintLayout>

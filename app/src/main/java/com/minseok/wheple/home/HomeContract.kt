@@ -2,16 +2,18 @@ package com.minseok.wheple.home
 
 import com.minseok.wheple.base.BasePresenter
 import com.minseok.wheple.base.BaseView
-import com.minseok.wheple.retrofit.Result
+import com.minseok.wheple.home.adapter.PlaceAdapter
 
 interface HomeContract {
 
     interface View : BaseView<Presenter> {
-        fun makeadapter(places: Result.Connectresult)
+        fun connectAdapter()
 
     }
 
     interface Presenter : BasePresenter {
-        fun getlist()
-    }
+
+        fun getlist(placeAdapter: PlaceAdapter)
+        fun clear()
+     }
 }

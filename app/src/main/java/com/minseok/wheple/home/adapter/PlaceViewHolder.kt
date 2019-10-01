@@ -1,12 +1,13 @@
 package com.minseok.wheple.home.adapter
 
+import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.minseok.wheple.R
+import com.minseok.wheple.place.PlaceActivity
 import com.minseok.wheple.home.PlaceItem
 
 
@@ -30,7 +31,12 @@ class PlaceViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
             .into(placePhoto)
 
         itemView.setOnClickListener{
-            Toast.makeText(itemView.context, position.toString(), Toast.LENGTH_SHORT).show()
+//            Toast.makeText(itemView.context, position.toString(), Toast.LENGTH_SHORT).show()
+
+
+            val nextIntent = Intent(itemView.context, PlaceActivity::class.java)
+           nextIntent.putExtra("no", placeItemList.no)
+            itemView.context.startActivity(nextIntent)
         }
 
     }

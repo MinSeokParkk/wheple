@@ -13,6 +13,7 @@ class SignupPhonePresenter (private val view : SignupPhoneContract.View):SignupP
         APIService.create()
     }
     var disposable: Disposable? = null
+    val regex = SignupPhoneRegex()
 
     init {
         this.view.setPresenter(this)
@@ -22,21 +23,34 @@ class SignupPhonePresenter (private val view : SignupPhoneContract.View):SignupP
 
 
     override fun inputCheck(phone: String) {
-        view.signupbutton(phone.trim().length!=0 && phone.length>9 && phone.length<12 && phone.startsWith("01"))
+
+        if(regex.phonecheck(phone)){
+            view.signupbutton_on()
+        }else{
+            view.signupbutton_off()
+        }
     }
 
     override fun phonecheck(phone: String) {
-        var sending : String
-        sending = "{ \"phone\" : \""+ phone + "\"}"
-        println("sending ===   "+ sending)
-          disposable =
+        if(!regex.emptycheck(phone)){
+            view.showToast("휴대전화 번호를 입력해주세요.")
+            view.wrongInput()
+        }
+        else if(!regex.phonecheck(phone)){
+            view.showToast("휴대전화 번호 형식을 다시 확인해주세요.")
+            view.wrongInput()
+        }else {
+            var sending: String
+            sending = "{ \"phone\" : \"" + phone + "\"}"
+            println("sending ===   " + sending)
+            disposable =
                 apiService.connect_server("phonecheck.php", sending)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(
                         { result -> showResult(result) }
                     )
-
+        }
     }
 
     fun showResult(result: Result.Connectresult){

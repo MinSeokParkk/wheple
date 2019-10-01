@@ -10,21 +10,17 @@ import android.widget.EditText
 import android.widget.Toast
 import com.minseok.wheple.main.MainActivity
 import com.minseok.wheple.R
-
+import com.minseok.wheple.afterTextChanged
 import kotlinx.android.synthetic.main.activity_signup_others.*
 
 
-
-class SignupOthersActivity : AppCompatActivity(),
- SignupOthersContract.View{
+class SignupOthersActivity : AppCompatActivity(), SignupOthersContract.View{
 
     private lateinit var mPresenter : SignupOthersContract.Presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup_others)
-
-        signup_finish_Button.isEnabled = false
 
 
         signup_email_editText.afterTextChanged {
@@ -66,7 +62,8 @@ class SignupOthersActivity : AppCompatActivity(),
             signup_password_editText.text.toString(),
             signup_repassword_editText.text.toString(),
             signup_nickname_editText.text.toString(),
-            intent.getStringExtra("phone")
+            intent.getStringExtra("phone"),
+            signup_agree_checkBox.isChecked
         )
     }
 
@@ -76,7 +73,6 @@ class SignupOthersActivity : AppCompatActivity(),
         startActivity(nextIntent)
 
     }
-
 
     override fun showToast(string: String) {
         Toast.makeText(this, string, Toast.LENGTH_SHORT).show()
@@ -96,24 +92,13 @@ class SignupOthersActivity : AppCompatActivity(),
         } else if(int == 2){ // 2면 닉네임 중복
             signup_nickname_editText.text.clear()
             signup_nickname_editText.requestFocus()
+        } else if(int==3){
+            signup_agree_checkBox.requestFocus()
         }
 
     }
 
-    fun EditText.afterTextChanged(afterTextChanged: (String) -> Unit) {
-        this.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            }
 
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-
-            }
-
-            override fun afterTextChanged(editable: Editable?) {
-                afterTextChanged.invoke(editable.toString())
-            }
-        })
-    }
 
     internal fun editTextCheck(){
 
@@ -121,8 +106,13 @@ class SignupOthersActivity : AppCompatActivity(),
                               signup_nickname_editText.text.toString(), signup_agree_checkBox.isChecked)
     }
 
-    override fun signupbutton(email: Boolean, password: Boolean, repassword:Boolean, nickname: Boolean, agreement: Boolean) {
-        signup_finish_Button.isEnabled = email && password && repassword && nickname && agreement
+
+    override fun signupbutton_on() {
+        signup_finish_Button.setBackgroundResource(R.drawable.button_on)
+    }
+
+    override fun signupbutton_off() {
+        signup_finish_Button.setBackgroundResource(R.drawable.button_off)
     }
 
 

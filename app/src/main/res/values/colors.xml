@@ -9,7 +9,10 @@
     <color name="lightgrey">#E2E2E2</color>
     <color name="bluegrey">#B1BCBE</color>
     <color name="white">#FFFFFF</color>
-
+    <color name="filter_possible">#636363</color>
+    <color name="filter_impossible">#E0E0E0</color>
+    <color name="darkPrimary">#1751C9</color>
+    <color name="red">#D14949</color>
 
 
 

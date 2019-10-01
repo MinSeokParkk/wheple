@@ -9,7 +9,8 @@ interface LoginContract {
         fun loginSuccess()
         fun showToast(string: String)
         fun wrongInput(int: Int)
-        fun loginbutton(email: Boolean, password: Boolean)
+        fun loginbutton_off()
+        fun loginbutton_on()
 
     }
 
