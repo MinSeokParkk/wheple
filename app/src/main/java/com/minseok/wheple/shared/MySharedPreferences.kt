@@ -19,4 +19,13 @@ class MySharedPreferences (context: Context) {
     var autologin: String
         get() = prefs.getString(PREF_KEY_MY_EDITTEXT, "")
         set(value) = prefs.edit().putString(PREF_KEY_MY_EDITTEXT,  value).apply()
+
+    val editor: SharedPreferences.Editor = prefs.edit()
+
+    fun logout(){
+        editor.clear()
+        editor.commit()
+    }
+
+
 }

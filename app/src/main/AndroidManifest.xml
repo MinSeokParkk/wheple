@@ -38,6 +38,9 @@
 
         <activity android:name=".signup_others.SignupOthersActivity"></activity>
 
+        <activity android:name=".myReservation.MyreservationActivity"></activity>
+
+        <activity android:name=".myResDetail.MyResDetailActivity"></activity>
 
         <!-- 테스트 용-->
         <activity android:name=".test.TestActivity"></activity>

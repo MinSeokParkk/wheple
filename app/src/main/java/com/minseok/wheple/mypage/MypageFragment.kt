@@ -12,6 +12,7 @@ import com.minseok.wheple.R
 import kotlinx.android.synthetic.main.fragment_mypage.view.*
 import com.minseok.wheple.login.LoginActivity
 import com.minseok.wheple.main.MainActivity
+import com.minseok.wheple.myReservation.MyreservationActivity
 import kotlinx.android.synthetic.main.fragment_mypage.*
 
 
@@ -37,16 +38,12 @@ class MypageFragment : Fragment(), MypageContract.View {
                 }
             }
 
-          //나중에 지울 계획 (로그아웃 : 쉐어드 지우는 코드)
-           val sharedPreferences = context?.getSharedPreferences("currentuser", Context.MODE_PRIVATE)
-           val editor: SharedPreferences.Editor = sharedPreferences!!.edit()
-        ////////////////////
 
-            view.logout_Button.setOnClickListener {
+
+            view.constraint_logout.setOnClickListener {
 
                 //나중에 옮길 계획 (로그아웃 : 쉐어드 지우는 코드)
-                editor.clear()
-                editor.commit()
+                    mPresenter.logout()
                 ////////////////
 
                 activity?.let {
@@ -54,6 +51,13 @@ class MypageFragment : Fragment(), MypageContract.View {
                 it.startActivity(intent)
                }
 
+            }
+
+            view.constraint_reservation.setOnClickListener {
+                activity?.let {
+                    val intent = Intent(it, MyreservationActivity::class.java)
+                    it.startActivity(intent)
+                }
             }
 
         MypagePresenter(this)
@@ -75,6 +79,11 @@ class MypageFragment : Fragment(), MypageContract.View {
     override fun guest_mode() {
         constraint_mypage_guest.visibility = View.VISIBLE
         constraint_mypage_user.visibility = View.GONE
+    }
+
+    override fun set_myinfo(nickname:String, point:String){
+        text_mypage_nickname.text = nickname
+        text_mypage_point.text = point
     }
 
 
