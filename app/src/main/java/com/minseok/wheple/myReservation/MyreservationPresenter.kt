@@ -43,6 +43,9 @@ class MyreservationPresenter (private val view : MyreservationContract.View): My
 
     fun showResult(myres: Result.Connectresult ){
 println(myres.myres)
+        if(myres.myres.toString().equals("[]")){
+            view.showTextNothing()
+        }
         myadapter.addItems(myres.myres)
         myadapter.notifyAdapter()
 

@@ -1,6 +1,7 @@
 package com.minseok.wheple.retrofit
 
 import com.minseok.wheple.home.PlaceItem
+import com.minseok.wheple.myResDetail.MyResDetailItem
 import com.minseok.wheple.myReservation.MyreservationItem
 import com.minseok.wheple.mypage.MypageItem
 import com.minseok.wheple.place.PlaceDetailItem
@@ -14,7 +15,8 @@ object Result {
                              val date : SelectTimeItem,
                              val res: ReservationItem,
                              val mypage: MypageItem,
-                             val myres:ArrayList<MyreservationItem>
+                             val myres:ArrayList<MyreservationItem>,
+                             val myres_de:MyResDetailItem
                              )
 
 }

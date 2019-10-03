@@ -8,6 +8,9 @@ interface MyreservationContract {
 
     interface View : BaseView<Presenter> {
         fun connectAdapter()
+        fun showTextNothing()
+        fun makeRecycler()
+        fun destroyRecycler()
     }
 
     interface Presenter : BasePresenter {

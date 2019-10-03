@@ -4,11 +4,17 @@
                                              xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
                                              android:layout_height="match_parent">
 
-    <android.support.constraint.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" android:id="@+id/scrollView4">
+    <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintVertical_bias="1.0"
+            android:fillViewport="true"
+            android:id="@+id/ScrollView4">
+
         <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" app:layout_constraintStart_toStartOf="parent"
@@ -22,7 +28,7 @@
                     android:id="@+id/guideline14"/>
             <ImageView
                     android:layout_width="0dp"
-                    android:layout_height="200dp"        app:srcCompat="@drawable/img_gym"
+                    android:layout_height="200dp" app:srcCompat="@drawable/img_gym"
                     android:id="@+id/img_res_detail_place"
                     android:scaleType="centerCrop"
                     app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
@@ -49,12 +55,12 @@
                     android:textStyle="bold"
                     android:textSize="19dp"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView73" app:layout_constraintEnd_toEndOf="parent"
+                    android:id="@+id/text_myres_de_place" app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp" app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginLeft="8dp" android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
-                    app:layout_constraintTop_toBottomOf="@+id/textView26"/>
+                    app:layout_constraintTop_toBottomOf="@+id/text_myres_de_state"/>
             <TextView
                     android:text="이용전"
                     android:background="@color/colorPrimary"
@@ -63,7 +69,7 @@
                     android:padding="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView26"
+                    android:id="@+id/text_myres_de_state"
                     android:layout_marginTop="48dp"
                     app:layout_constraintTop_toTopOf="parent"
                     android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
@@ -77,26 +83,26 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/textView77" android:layout_marginTop="10dp"
-                    app:layout_constraintTop_toBottomOf="@+id/textView73" android:layout_marginStart="175dp"
-                    app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="175dp"
+                    app:layout_constraintTop_toBottomOf="@+id/text_myres_de_place" android:layout_marginStart="179dp"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="179dp"
             />
             <TextView
                     android:text="\uf105"
-                    android:textSize="16dp"
+                    android:textSize="15dp"
                     android:fontFamily="@font/fontawesome_webfont"
                     android:textColor="@color/white"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView84" android:layout_marginTop="8dp"
-                    app:layout_constraintTop_toBottomOf="@+id/textView73" android:layout_marginEnd="182dp"
-                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="182dp"/>
+                    android:id="@+id/textView84" android:layout_marginTop="10dp"
+                    app:layout_constraintTop_toBottomOf="@+id/text_myres_de_place" android:layout_marginEnd="179dp"
+                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="179dp"/>
             <TextView
                     android:text="예약 날짜"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/textView85" app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginLeft="40dp" android:layout_marginStart="40dp" android:layout_marginTop="24dp"
-                    app:layout_constraintTop_toBottomOf="@+id/img_res_detail_place"/>
+                    app:layout_constraintTop_toBottomOf="@+id/textView27"/>
             <TextView
                     android:text="예약 시간"
                     android:layout_width="wrap_content"
@@ -109,16 +115,19 @@
                     android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView91" android:layout_marginTop="24dp"
-                    app:layout_constraintTop_toBottomOf="@+id/img_res_detail_place" app:layout_constraintEnd_toEndOf="parent"
+                    android:id="@+id/text_myres_de_date" android:layout_marginTop="24dp"
+                    app:layout_constraintTop_toBottomOf="@+id/textView27"
+                    app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginEnd="40dp" android:layout_marginRight="40dp"/>
             <TextView
                     android:text="12:00 ~ 14:00"
                     android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView93" android:layout_marginEnd="40dp" android:layout_marginRight="40dp"
-                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toBottomOf="@+id/textView91"
+                    android:id="@+id/text_myres_de_time" android:layout_marginEnd="40dp"
+                    android:layout_marginRight="40dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_myres_de_date"
                     android:layout_marginTop="24dp"/>
 
             <View
@@ -128,7 +137,7 @@
 
                     app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
+                    app:layout_constraintTop_toBottomOf="@+id/constraint_myres_de_cancel"
                     android:id="@+id/view14" android:layout_marginTop="24dp"/>
             <View
                     android:layout_width="match_parent"
@@ -144,8 +153,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/textView94"
-                    app:layout_constraintTop_toBottomOf="@+id/view13" app:layout_constraintStart_toStartOf="parent"
-                    android:layout_marginLeft="40dp" android:layout_marginStart="40dp" android:layout_marginTop="24dp"/>
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginLeft="40dp" android:layout_marginStart="40dp"
+                    app:layout_constraintTop_toBottomOf="@+id/textView22" android:layout_marginTop="24dp"/>
             <TextView
                     android:text="휴대폰 번호"
                     android:layout_width="wrap_content"
@@ -159,31 +169,32 @@
                     android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView125" android:layout_marginTop="24dp"
-                    app:layout_constraintTop_toBottomOf="@+id/view13" app:layout_constraintEnd_toEndOf="parent"
+                    android:id="@+id/text_myres_de_name" android:layout_marginTop="24dp"
+                    app:layout_constraintTop_toBottomOf="@+id/textView22" app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginEnd="40dp" android:layout_marginRight="40dp"/>
             <TextView
                     android:text="010-7658-0050"
                     android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView126" android:layout_marginEnd="40dp" android:layout_marginRight="40dp"
+                    android:id="@+id/text_myres_de_phone" android:layout_marginEnd="40dp"
+                    android:layout_marginRight="40dp"
                     app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="24dp"
-                    app:layout_constraintTop_toBottomOf="@+id/textView125"/>
+                    app:layout_constraintTop_toBottomOf="@+id/text_myres_de_name"/>
             <TextView
                     android:text="예약 금액"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/textView127" android:layout_marginTop="24dp"
-                    app:layout_constraintTop_toBottomOf="@+id/view14" app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView26" app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginLeft="40dp" android:layout_marginStart="40dp"/>
             <TextView
                     android:text="40,000"
                     android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView128" android:layout_marginTop="24dp"
-                    app:layout_constraintTop_toBottomOf="@+id/view14" app:layout_constraintEnd_toEndOf="parent"
+                    android:id="@+id/text_myres_de_price" android:layout_marginTop="24dp"
+                    app:layout_constraintTop_toBottomOf="@+id/textView26" app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginEnd="40dp" android:layout_marginRight="40dp"/>
             <TextView
                     android:text="포인트 사용"
@@ -197,8 +208,9 @@
                     android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView130" android:layout_marginTop="24dp"
-                    app:layout_constraintTop_toBottomOf="@+id/textView132" app:layout_constraintEnd_toEndOf="parent"
+                    android:id="@+id/text_myres_de_point" android:layout_marginTop="24dp"
+                    app:layout_constraintTop_toBottomOf="@+id/text_myres_de_coupon"
+                    app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginEnd="40dp" android:layout_marginRight="40dp"/>
             <TextView
                     android:text="쿠폰 사용"
@@ -208,12 +220,13 @@
                     app:layout_constraintTop_toBottomOf="@+id/textView127" app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginLeft="40dp" android:layout_marginStart="40dp"/>
             <TextView
-                    android:text="2,000"
+                    android:text="0"
                     android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView132" android:layout_marginTop="24dp"
-                    app:layout_constraintTop_toBottomOf="@+id/textView128" app:layout_constraintEnd_toEndOf="parent"
+                    android:id="@+id/text_myres_de_coupon" android:layout_marginTop="24dp"
+                    app:layout_constraintTop_toBottomOf="@+id/text_myres_de_price"
+                    app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginEnd="40dp" android:layout_marginRight="40dp"/>
             <TextView
                     android:text="총 결제금액"
@@ -221,8 +234,10 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/textView133" app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginLeft="40dp" android:layout_marginStart="40dp" android:layout_marginTop="32dp"
-                    app:layout_constraintTop_toBottomOf="@+id/textView129" android:layout_marginBottom="24dp"
-                    app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.0"/>
+                    app:layout_constraintTop_toBottomOf="@+id/textView129"
+                    android:layout_marginBottom="40dp"
+                    app:layout_constraintBottom_toTopOf="@+id/button_myres_de_cancel"
+                    app:layout_constraintVertical_bias="0.0"/>
             <TextView
                     android:text="38,800"
                     android:textSize="20dp"
@@ -230,28 +245,31 @@
                     android:textColor="@color/colorPrimary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView134" android:layout_marginTop="24dp"
-                    app:layout_constraintTop_toBottomOf="@+id/textView130" app:layout_constraintEnd_toEndOf="parent"
+                    android:id="@+id/text_myres_de_payment" android:layout_marginTop="27dp"
+                    app:layout_constraintTop_toBottomOf="@+id/text_myres_de_point"
+                    app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginEnd="40dp" android:layout_marginRight="40dp"/>
             <Button
                     android:text="예약 취소하기"
                     android:background="@drawable/button_on"
                     android:textColor="@color/white"
+
                     android:layout_width="330dp"
                     android:layout_height="55dp"
-                    android:id="@+id/button2" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+                    android:id="@+id/button_myres_de_cancel" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp" app:layout_constraintStart_toStartOf="parent"
-                    android:layout_marginLeft="8dp" android:layout_marginStart="8dp" android:layout_marginTop="32dp"
-                    app:layout_constraintTop_toBottomOf="@+id/textView133" android:layout_marginBottom="16dp"
-                    app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.0"/>
+                    android:layout_marginLeft="8dp" android:layout_marginStart="8dp"
+                    android:layout_marginBottom="24dp"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
             <android.support.constraint.ConstraintLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
-                    android:visibility="gone"
-                    android:id="@+id/constraintLayout2" android:layout_marginTop="24dp"
+                     android:visibility="gone"
+                    android:id="@+id/constraint_myres_de_cancel" android:layout_marginTop="24dp"
                     app:layout_constraintTop_toBottomOf="@+id/textView101">
 
                 <View
@@ -263,8 +281,9 @@
                         app:layout_constraintHorizontal_bias="0.0"
                         android:id="@+id/view15" app:layout_constraintTop_toTopOf="parent"/>
                 <TextView
-                        android:text="취소 내역"
+                        android:text="취소내역"
                         android:textColor="@color/black"
+                        android:textSize="16dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/textView135"
@@ -275,7 +294,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/textView136"
-                        app:layout_constraintTop_toBottomOf="@+id/textView135" android:layout_marginTop="24dp"
+                        app:layout_constraintTop_toBottomOf="@+id/textView135" android:layout_marginTop="29dp"
                         app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="40dp"
                         android:layout_marginStart="40dp" android:text="총 환불금액"/>
                 <TextView
@@ -296,20 +315,22 @@
                 />
                 <TextView
                         android:text="28,800"
-                        android:textColor="@color/black"
+                        android:textColor="@color/red"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/textView139"
+                        android:id="@+id/text_myres_de_refund"
                         app:layout_constraintTop_toBottomOf="@+id/textView135" android:layout_marginTop="24dp"
                         app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="40dp"
                         android:layout_marginRight="40dp"/>
                 <TextView
-                        android:text="2,000"
+                        android:text="0"
                         android:textColor="@color/black"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/textView140"
-                        app:layout_constraintTop_toBottomOf="@+id/textView139" android:layout_marginEnd="40dp"
+                        android:id="@+id/text_myres_de_refund_coupon"
+                        app:layout_constraintTop_toBottomOf="@+id/textView136" android:layout_marginEnd="40dp"
                         android:layout_marginRight="40dp" app:layout_constraintEnd_toEndOf="parent"
                         android:layout_marginTop="24dp"/>
                 <TextView
@@ -317,12 +338,41 @@
                         android:textColor="@color/black"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/textView141"
-                        app:layout_constraintTop_toBottomOf="@+id/textView140" android:layout_marginEnd="40dp"
+                        android:id="@+id/text_myres_de_refund_point"
+                        app:layout_constraintTop_toBottomOf="@+id/text_myres_de_refund_coupon" android:layout_marginEnd="40dp"
                         android:layout_marginRight="40dp" app:layout_constraintEnd_toEndOf="parent"
                         android:layout_marginTop="24dp"/>
             </android.support.constraint.ConstraintLayout>
+            <TextView
+                    android:text="예약자 정보"
+                    android:textColor="@color/black"
+                    android:textSize="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView22"
+                    app:layout_constraintTop_toBottomOf="@+id/view13" android:layout_marginTop="24dp"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="40dp"
+                    android:layout_marginStart="40dp"/>
+            <TextView
+                    android:text="결제내역"
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="16dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView26" android:layout_marginTop="24dp"
+                    app:layout_constraintTop_toBottomOf="@+id/view14" app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginLeft="40dp" android:layout_marginStart="40dp"/>
+            <TextView
+                    android:text="예약일시"
+                    android:textColor="@color/black"
+                    android:textSize="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView27" android:layout_marginTop="24dp"
+                    app:layout_constraintTop_toBottomOf="@+id/img_res_detail_place"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="40dp"
+                    android:layout_marginStart="40dp"/>
         </android.support.constraint.ConstraintLayout>
-    </android.support.constraint.ConstraintLayout>
+    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>

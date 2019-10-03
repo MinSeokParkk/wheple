@@ -82,6 +82,7 @@ class PlacePresenter (private val view: PlaceContract.View, private val no:Strin
 
     }
     override fun calling(){
+        //나중에 수정 예정
         view.showToast(phone!!)
     }
 

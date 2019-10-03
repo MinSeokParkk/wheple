@@ -5,10 +5,9 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 import com.minseok.wheple.R
 import com.minseok.wheple.myResDetail.MyResDetailActivity
-import com.minseok.wheple.myReservation.CheckFinishTime
+import com.minseok.wheple.CheckReservationTime
 import com.minseok.wheple.myReservation.MyreservationItem
 
 
@@ -20,19 +19,23 @@ class MyreservationViewHolder(itemView: View): RecyclerView.ViewHolder(itemView)
     var reviewbutton = itemView.findViewById<Button>(R.id.button_item_myres_review)
     var state = itemView.findViewById<TextView>(R.id.text_item_myres_state)
 
-    var comparetime = CheckFinishTime()
+    var comparetime = CheckReservationTime()
 
-    fun bind(myresItem: MyreservationItem){
+    fun bind(myresItem: MyreservationItem) {
         myresName.text = myresItem.name
         myresDate.text = myresItem.date
         myresTime.text = myresItem.time
 
-        if(myresItem.cancel.equals("t")){
+        if (myresItem.cancel.equals("t")) {
             state.text = "예약취소"
             state.setBackgroundResource(R.color.red)
             reviewbutton.visibility = View.GONE
 
-        }else if(comparetime.comparetime(myresItem.date, myresItem.time)){
+        }else if(comparetime.comparetime(myresItem.date, myresItem.time).equals("now")){
+            reviewbutton.visibility = View.GONE
+            state.text = "이용중"
+            state.setBackgroundResource(R.color.bluegrey)
+    }else if(comparetime.comparetime(myresItem.date, myresItem.time).equals("after")){
             reviewbutton.visibility = View.VISIBLE
             state.text = "이용완료"
             state.setBackgroundResource(R.color.bluegrey)
@@ -45,6 +48,7 @@ class MyreservationViewHolder(itemView: View): RecyclerView.ViewHolder(itemView)
 //                    Toast.makeText(itemView.context, myresItem.no, Toast.LENGTH_SHORT).show()
 
             val nextIntent = Intent(itemView.context, MyResDetailActivity::class.java)
+                nextIntent.putExtra("no",  myresItem.no)
               itemView.context.startActivity(nextIntent)
 
         }

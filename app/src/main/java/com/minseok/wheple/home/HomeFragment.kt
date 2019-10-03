@@ -39,26 +39,11 @@ class HomeFragment : Fragment(), HomeContract.View {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-
-
+        makeRecycler()
 
 
     }
 
-    override fun onStart() {
-        super.onStart()
-        recycler_home.layoutManager = linearLayoutManager
-
-        placeAdapter = PlaceAdapter()
-
-        mPresenter.getlist(placeAdapter)
-    }
-
-
-    override fun onStop() {
-        super.onStop()
-        recycler_home.layoutManager = null
-    }
 
     override  fun connectAdapter(){
 
@@ -70,6 +55,18 @@ class HomeFragment : Fragment(), HomeContract.View {
 
         this.mPresenter = presenter
 
+    }
+
+    override fun makeRecycler() {
+        recycler_home.layoutManager = linearLayoutManager
+
+        placeAdapter = PlaceAdapter()
+
+        mPresenter.getlist(placeAdapter)
+    }
+
+    override fun destroyRecycler() {
+        recycler_home.layoutManager = null
     }
 
 

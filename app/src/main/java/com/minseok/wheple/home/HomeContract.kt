@@ -8,7 +8,8 @@ interface HomeContract {
 
     interface View : BaseView<Presenter> {
         fun connectAdapter()
-
+        fun makeRecycler()
+        fun destroyRecycler()
     }
 
     interface Presenter : BasePresenter {
