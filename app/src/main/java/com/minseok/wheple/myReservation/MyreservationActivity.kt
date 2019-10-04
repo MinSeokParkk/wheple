@@ -1,8 +1,10 @@
 package com.minseok.wheple.myReservation
 
+import android.app.Activity
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.View
 import com.minseok.wheple.R
 import com.minseok.wheple.myReservation.adapter.MyreservationAdapter
@@ -13,6 +15,15 @@ class MyreservationActivity: AppCompatActivity(), MyreservationContract.View {
     private lateinit var mPresenter: MyreservationContract.Presenter
     private val linearLayoutManager by lazy { LinearLayoutManager(this) }
     private lateinit var myreservationAdapter: MyreservationAdapter
+
+
+    class MyClass{
+        companion object{
+            var activity: Activity? = null
+            var cancel : Boolean = false
+        }
+
+    }
 
     override fun setPresenter(presenter: MyreservationContract.Presenter) {
         this.mPresenter = presenter
@@ -30,26 +41,41 @@ class MyreservationActivity: AppCompatActivity(), MyreservationContract.View {
 
     }
 
+    override fun onStart() {
+
+
+        if(MyClass.cancel){
+             destroyRecycler()
+             makeRecycler()
+            MyClass.cancel=false
+        }
+
+        super.onStart()
+    }
+
+
 
 
     override  fun connectAdapter(){
 
         recycler_myreservation.adapter = myreservationAdapter
 
+
     }
 
     override fun showTextNothing(){
-        text_myres_nothing.visibility= View.VISIBLE
+        text_myres_nothing.visibility = View.VISIBLE
     }
 
-    override fun makeRecycler(){
+    fun makeRecycler(){
         recycler_myreservation.layoutManager = linearLayoutManager
-        myreservationAdapter = MyreservationAdapter()
+        myreservationAdapter = MyreservationAdapter(mPresenter)
 
         mPresenter.getlist(myreservationAdapter)
     }
 
-    override fun destroyRecycler(){
+    fun destroyRecycler(){
         recycler_myreservation.layoutManager = null
     }
+
 }

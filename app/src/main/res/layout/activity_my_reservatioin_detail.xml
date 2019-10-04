@@ -13,7 +13,7 @@
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintVertical_bias="1.0"
             android:fillViewport="true"
-            android:id="@+id/ScrollView4">
+            android:id="@+id/scroll_myres_detail">
 
         <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"

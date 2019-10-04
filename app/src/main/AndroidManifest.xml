@@ -42,6 +42,8 @@
 
         <activity android:name=".myResDetail.MyResDetailActivity"></activity>
 
+        <activity android:name=".cancel.CancelActivity"></activity>
+
         <!-- 테스트 용-->
         <activity android:name=".test.TestActivity"></activity>
         <activity android:name=".test.Test2Activity"></activity>

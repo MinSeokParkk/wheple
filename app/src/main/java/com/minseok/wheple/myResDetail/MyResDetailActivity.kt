@@ -1,13 +1,16 @@
 package com.minseok.wheple.myResDetail
 
+import android.app.Activity
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.PorterDuff
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
+import android.widget.ScrollView
 import com.bumptech.glide.Glide
 import com.minseok.wheple.R
+import com.minseok.wheple.cancel.CancelActivity
 import com.minseok.wheple.place.PlaceActivity
 import kotlinx.android.synthetic.main.activity_my_reservatioin_detail.*
 import kotlinx.android.synthetic.main.activity_place.*
@@ -35,12 +38,23 @@ class MyResDetailActivity : AppCompatActivity(),  MyResDetailContract.View {
             onBackPressed()
         }
 
-        mPresenter.bringData(intent.getStringExtra("no"))
+        mPresenter.rememeberNo(intent.getStringExtra("no"))
+
+
 
         button_myres_de_cancel.setOnClickListener {
-            mPresenter.cancelRes(intent.getStringExtra("no"),text_myres_de_payment.text.toString(),  text_myres_de_point.text.toString())
+            val nextIntent = Intent(this, CancelActivity::class.java)
+            nextIntent.putExtra("no",  intent.getStringExtra("no"))
+            startActivity(nextIntent)
         }
 
+    }
+
+    override fun onStart() {
+
+        scroll_myres_detail.fullScroll(ScrollView.FOCUS_UP)
+        mPresenter.bringData()
+        super.onStart()
     }
 
     override fun setData(place: String,photo: String, date: String, time: String, name: String, phone: String,

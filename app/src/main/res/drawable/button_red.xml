@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--클릭했을때-->
+    <item android:state_pressed="true">
+        <shape>
+            <solid android:color = "#DA7B7C"/>
+
+        </shape>
+    </item>
+    <!--평상시-->
+    <item android:state_pressed="false">
+        <shape>
+            <solid android:color="@color/red" />
+
+
+
+        </shape>
+    </item>
+</selector>

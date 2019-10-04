@@ -18,6 +18,7 @@ class MyResDetailPresenter (private val view : MyResDetailContract.View): MyResD
     var disposable: Disposable? = null
 
     var comparetime = CheckReservationTime()
+    var rembers = RememberSpace()
     var placeNo =""
 
     init {
@@ -27,8 +28,12 @@ class MyResDetailPresenter (private val view : MyResDetailContract.View): MyResD
     override fun start() {
     }
 
-    override fun bringData(no: String) {
-        var sending = "{ \"no\" : \""+ no + "\"}"
+    override fun rememeberNo(no: String){
+        rembers.remember(no)
+    }
+
+    override fun bringData() {
+        var sending = "{ \"no\" : \""+ rembers.putspace() + "\"}"
 
 
         disposable =
@@ -46,7 +51,9 @@ class MyResDetailPresenter (private val view : MyResDetailContract.View): MyResD
         var myd = myres_de.myres_de
         placeNo = myd.placeNo
 
-        view.setData(myd.place, myd.photo,myd.date, myd.time, myd.name, myd.phone, myd.price, myd.usedpoint, myd.payment,
+       val phone =  PhoneChange().check(myd.phone)
+
+        view.setData(myd.place, myd.photo,myd.date, myd.time, myd.name, phone, myd.price, myd.usedpoint, myd.payment,
                      myd.refund_price, myd.refund_point)
 
         if (myd.cancel.equals("t")) {

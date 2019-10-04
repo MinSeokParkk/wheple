@@ -15,7 +15,8 @@ interface MyResDetailContract {
     }
 
     interface Presenter : BasePresenter {
-        fun bringData(no:String)
+        fun rememeberNo(no: String)
+        fun bringData()
         fun settingExtra()
 
     }

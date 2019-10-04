@@ -42,7 +42,7 @@ class MyreservationPresenter (private val view : MyreservationContract.View): My
     }
 
     fun showResult(myres: Result.Connectresult ){
-println(myres.myres)
+      println(myres.myres)
         if(myres.myres.toString().equals("[]")){
             view.showTextNothing()
         }
@@ -50,6 +50,24 @@ println(myres.myres)
         myadapter.notifyAdapter()
 
         view.connectAdapter()
+
+    }
+
+    override fun delete(no: String) {
+        println("실험중입니다. : "+no.toString())
+
+        var sending = "{ \"no\" : \""+ no + "\"}"
+        disposable =
+            apiService.connect_server("notShowingReview.php", sending)
+
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                    { result ->
+
+                    }
+                )
+
     }
 
 }
