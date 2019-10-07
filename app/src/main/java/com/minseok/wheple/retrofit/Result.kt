@@ -8,6 +8,7 @@ import com.minseok.wheple.mypage.MypageItem
 import com.minseok.wheple.place.PlaceDetailItem
 import com.minseok.wheple.reservation.ReservationItem
 import com.minseok.wheple.select_date_time.SelectTimeItem
+import com.minseok.wheple.writiingReview.WritingReviewItem
 
 object Result {
     data class Connectresult(val result: String,
@@ -18,7 +19,8 @@ object Result {
                              val mypage: MypageItem,
                              val myres:ArrayList<MyreservationItem>,
                              val myres_de:MyResDetailItem,
-                             val cancelSet:CancelItem
+                             val cancelSet:CancelItem,
+                             val reW:WritingReviewItem
                              )
 
 }

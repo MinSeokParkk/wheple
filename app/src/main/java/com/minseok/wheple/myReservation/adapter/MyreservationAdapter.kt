@@ -17,6 +17,7 @@ import com.minseok.wheple.myResDetail.MyResDetailActivity
 import com.minseok.wheple.myReservation.MyreservationContract
 import com.minseok.wheple.myReservation.MyreservationItem
 import com.minseok.wheple.myReservation.MyreservationPresenter
+import com.minseok.wheple.writiingReview.WritingReviewActivity
 
 class MyreservationAdapter(private var mpresenter: MyreservationContract.Presenter) : RecyclerView.Adapter<MyreservationAdapter.MyreservationViewHolder>() {
 
@@ -40,7 +41,7 @@ class MyreservationAdapter(private var mpresenter: MyreservationContract.Present
 
             val builder = AlertDialog.Builder(holder.itemView.context)
 
-            builder.setMessage(itemsList[position].no+"\n삭제한 예약내역은 복구할 수 없습니다.\n\n정말로 삭제하시겠습니까?" +
+            builder.setMessage("삭제한 예약내역은 복구할 수 없습니다.\n\n정말로 삭제하시겠습니까?" +
                     "\n")
 
             builder.setPositiveButton(android.R.string.yes) { dialog, which ->
@@ -136,7 +137,12 @@ class MyreservationAdapter(private var mpresenter: MyreservationContract.Present
 
             }
 
+            reviewbutton.setOnClickListener {
+                val nextIntent = Intent(itemView.context, WritingReviewActivity::class.java)
+                nextIntent.putExtra("no",  myresItem.no)
+                itemView.context.startActivity(nextIntent)
 
+            }
 
 
         }
