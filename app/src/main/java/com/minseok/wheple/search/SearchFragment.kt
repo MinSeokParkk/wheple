@@ -20,6 +20,7 @@ class SearchFragment : Fragment(), SearchContract.View {
 
        SearchPresenter(this)
         return view
+
     }
 
     companion object {

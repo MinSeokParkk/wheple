@@ -124,7 +124,7 @@ class SelectDateTimeActivity : AppCompatActivity(), SelectDateTimeContract.View{
     }
 
     override fun gotoNext(space:String,date:String,  timeNo:String, timeText:String) {
-         Toast.makeText(this, timeAdapter.timeNo.toString()+"  &  "+timeAdapter.timeText, Toast.LENGTH_SHORT).show()
+//         Toast.makeText(this, timeAdapter.timeNo.toString()+"  &  "+timeAdapter.timeText, Toast.LENGTH_SHORT).show()
 
         val nextIntent = Intent(this, ReservationActivity::class.java)
         nextIntent.putExtra("space", space)

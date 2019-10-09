@@ -20,11 +20,14 @@ class MainPresenter (private val view : MainContract.View): MainContract.Present
     override fun navListener(): BottomNavigationView.OnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener {
             menuItem ->
         val selectedFragment: Fragment
-        when(menuItem.itemId){
+          when(menuItem.itemId){
             R.id.navigation_home -> {
-                selectedFragment = HomeFragment()
-                view.openFragment(selectedFragment)
-                return@OnNavigationItemSelectedListener true
+
+                    selectedFragment = HomeFragment()
+                    view.openFragment(selectedFragment)
+                    return@OnNavigationItemSelectedListener true
+
+
             }
             R.id.navigation_search -> {
                 selectedFragment = SearchFragment()
@@ -37,9 +40,11 @@ class MainPresenter (private val view : MainContract.View): MainContract.Present
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_mypage -> {
-                selectedFragment = MypageFragment()
-                view.openFragment(selectedFragment)
-                return@OnNavigationItemSelectedListener true
+
+                    selectedFragment = MypageFragment()
+                    view.openFragment(selectedFragment)
+                    return@OnNavigationItemSelectedListener true
+
             }
         }
         false

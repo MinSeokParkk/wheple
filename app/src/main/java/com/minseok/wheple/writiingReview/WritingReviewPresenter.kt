@@ -42,7 +42,6 @@ class WritingReviewPresenter (private val view : WritingReviewContract.View): Wr
         if(rating==0f || review.trim().length<5){
             view.buttonOff()
         }else{
-            println("통과$$$$$$$$$$$$$$$$$$$$$")
             view.buttonOn()
         }
     }
@@ -58,6 +57,19 @@ class WritingReviewPresenter (private val view : WritingReviewContract.View): Wr
             println("통과$$$$$$$$$$$$$$$$$$$$$")
 
         }
+    }
+
+    override fun ChooseGalleryClick() {
+        if(!view.checkPermission()){
+            view.showPermissionDialog()
+            return
+        }
+
+         view.chooseGallery()
+    }
+
+    override fun showPreview(mFilePath: String) {
+        view.displayImagePreview(mFilePath)
     }
 
 

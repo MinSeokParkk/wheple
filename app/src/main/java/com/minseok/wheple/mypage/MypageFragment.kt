@@ -62,13 +62,16 @@ class MypageFragment : Fragment(), MypageContract.View {
 
         MypagePresenter(this)
 
+
+
         // Return the fragment view/layout
         return view
+
     }
 
-    override fun onResume() {
-        super.onResume()
+    override fun onStart() {
         mPresenter.check_preference()
+        super.onStart()
     }
 
     override fun login_mode() {

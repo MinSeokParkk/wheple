@@ -39,10 +39,13 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         val bottomNavigation: BottomNavigationView = findViewById(R.id.nav_view)
         bottomNavigation.setOnNavigationItemSelectedListener(mPresenter.navListener())
 
+
+
         if (savedInstanceState == null) { //기본은 homefragment로 한다.
 
             supportFragmentManager.beginTransaction().replace(R.id.container, HomeFragment()).commit()
         }
+
 
     }
 
