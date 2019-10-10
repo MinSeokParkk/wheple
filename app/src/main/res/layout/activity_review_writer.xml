@@ -98,9 +98,9 @@
             android:textSize="14dp"
             android:id="@+id/edit_rev_writer"
             android:background="@drawable/edittext_background"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="40dp"
-            android:layout_marginStart="40dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="40dp"
-            android:layout_marginRight="40dp" app:layout_constraintTop_toBottomOf="@+id/view16"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp" app:layout_constraintTop_toBottomOf="@+id/view16"
             android:layout_marginTop="24dp"
             android:padding="10dp"
             android:hint="이 곳에 대한 리뷰를 작성해주세요.\n(5자 이상 작성해주세요.)"/>
@@ -115,30 +115,108 @@
             android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"/>
-    <ImageView
-            android:layout_width="95dp"
-            android:layout_height="95dp" app:srcCompat="@drawable/img_emptyphoto"
-            android:scaleType="centerCrop"
-            android:id="@+id/img_rev_writer_1"
-            android:layout_marginTop="24dp"
-            app:layout_constraintTop_toBottomOf="@+id/edit_rev_writer" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginLeft="40dp" android:layout_marginStart="40dp"/>
-    <ImageView
-            android:layout_width="95dp"
-            android:layout_height="95dp" app:srcCompat="@drawable/img_emptyphoto"
-            android:scaleType="centerCrop"
-            android:id="@+id/img_rev_writer_3"
-            android:layout_marginTop="24dp"
+
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="286dp"
+            android:layout_height="95dp" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
+            app:layout_constraintStart_toEndOf="@+id/constraint_rev_addphoto" android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp" android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/edit_rev_writer" app:layout_constraintHorizontal_bias="0.0">
+
+        <TextView
+                android:text="3"
+                android:textColor="@color/grey"
+                android:textSize="25dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/textView126"
+                app:layout_constraintEnd_toEndOf="@+id/view19"
+                app:layout_constraintBottom_toBottomOf="@+id/view19" app:layout_constraintTop_toTopOf="@+id/view19"
+                app:layout_constraintStart_toStartOf="@+id/view19"/>
+        <TextView
+                android:text="2"
+                android:textColor="@color/grey"
+                android:textSize="25dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/textView125"
+                app:layout_constraintEnd_toEndOf="@+id/view18"
+                app:layout_constraintStart_toStartOf="@+id/view18"
+                app:layout_constraintTop_toTopOf="@+id/view18" app:layout_constraintBottom_toBottomOf="@+id/view18"/>
+        <TextView
+                android:text="1"
+                android:textColor="@color/grey"
+                android:textSize="25dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/textView93"
+                app:layout_constraintTop_toTopOf="@+id/view17"
+                app:layout_constraintBottom_toBottomOf="@+id/view17" app:layout_constraintEnd_toEndOf="@+id/view17"
+                app:layout_constraintStart_toStartOf="@+id/view17"/>
+        <View
+                android:layout_width="84.8dp"
+                android:layout_height="85dp"
+                android:background="@drawable/edittext_background"
+                android:id="@+id/view19"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="5dp" android:layout_marginLeft="10dp" android:layout_marginStart="10dp"
+                app:layout_constraintStart_toEndOf="@+id/view18" android:layout_marginBottom="5dp"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+        <View
+                android:layout_width="85dp"
+                android:layout_height="85dp"
+                android:background="@drawable/edittext_background"
+                android:id="@+id/view18"
+                app:layout_constraintStart_toEndOf="@+id/view17" android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp" app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="5dp"/>
+        <View
+                android:layout_width="85dp"
+                android:background="@drawable/edittext_background"
+                android:layout_height="85dp" android:id="@+id/view17" app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp" android:layout_marginTop="5dp"/>
+    </android.support.constraint.ConstraintLayout>
+    <android.support.v7.widget.RecyclerView
+            android:orientation="horizontal"
+            android:layout_width="286dp"
+            android:background="@color/tp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/constraint_rev_addphoto"
+            android:layout_marginTop="16dp"
             app:layout_constraintTop_toBottomOf="@+id/edit_rev_writer" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="40dp" android:layout_marginRight="40dp"/>
-    <ImageView
-            android:layout_width="95dp"
-            android:layout_height="95dp" app:srcCompat="@drawable/img_emptyphoto"
-            android:scaleType="centerCrop"
-            android:id="@+id/img_rev_writer_2"
-            android:layout_marginTop="24dp"
-            app:layout_constraintTop_toBottomOf="@+id/edit_rev_writer"
-            app:layout_constraintStart_toEndOf="@+id/img_rev_writer_1"
-            app:layout_constraintEnd_toStartOf="@+id/img_rev_writer_3"
+            app:layout_constraintHorizontal_bias="0.0" android:id="@+id/recycler_rev_photos"
+            android:layout_marginLeft="8dp" android:layout_marginStart="8dp" android:layout_marginRight="8dp"
+            android:layout_marginEnd="8dp"/>
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="80dp"
+            android:layout_height="80dp" android:layout_marginTop="24dp"
+            android:background="@color/lightgrey"
+            app:layout_constraintTop_toBottomOf="@+id/edit_rev_writer" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="22dp" android:layout_marginStart="22dp" android:id="@+id/constraint_rev_addphoto">
+
+        <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp" app:srcCompat="@drawable/icon_addphoto"
+                android:id="@+id/imageView4"
+                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="16dp"/>
+        <TextView
+                android:text="사진 첨부 3장까지"
+                android:textColor="@color/black"
+                android:textSize="9dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView73"
+                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="16dp"/>
+    </android.support.constraint.ConstraintLayout>
+    <TextView
+            android:text="사진을 길게 누른 후 순서를 변경해보세요"
+            android:textSize="11dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView76"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/constraint_rev_addphoto"
+            app:layout_constraintStart_toStartOf="parent"
     />
 </android.support.constraint.ConstraintLayout>

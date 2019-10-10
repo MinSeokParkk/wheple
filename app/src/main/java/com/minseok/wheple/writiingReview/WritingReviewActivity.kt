@@ -4,21 +4,26 @@ import android.Manifest
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.support.v4.app.ActivityCompat
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.DividerItemDecoration
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.helper.ItemTouchHelper
 import android.widget.Toast
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
 import com.minseok.wheple.R
 import com.minseok.wheple.afterTextChanged
+import com.minseok.wheple.writiingReview.adapter.DragManageAdapter
+import com.minseok.wheple.writiingReview.adapter.WritingReviewPhotoAdapter
 import kotlinx.android.synthetic.main.activity_review_writer.*
 
 class WritingReviewActivity  : AppCompatActivity(), WritingReviewContract.View {
     private lateinit var mPresenter: WritingReviewContract.Presenter
+
+    private val linearLayoutManager by lazy { LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false) }
+    private lateinit var writingReviewPhotoAdapter: WritingReviewPhotoAdapter
 
     override fun setPresenter(presenter: WritingReviewContract.Presenter) {
         this.mPresenter = presenter
@@ -28,12 +33,16 @@ class WritingReviewActivity  : AppCompatActivity(), WritingReviewContract.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_review_writer)
         mPresenter = WritingReviewPresenter(this)
+        recycler_rev_photos.layoutManager = linearLayoutManager
+        writingReviewPhotoAdapter = WritingReviewPhotoAdapter()
+
+
 
         img_rev_writer_back.setOnClickListener {
             onBackPressed()
         }
 
-        mPresenter.getinfo(intent.getStringExtra("no"))
+        mPresenter.getinfo(intent.getStringExtra("no"), writingReviewPhotoAdapter)
 
         rating_rev_writer.setOnRatingBarChangeListener { ratingBar, rating, fromUser ->
             if (rating < 0.5f) {
@@ -55,10 +64,22 @@ class WritingReviewActivity  : AppCompatActivity(), WritingReviewContract.View {
             )
         }
 
-        img_rev_writer_1.setOnClickListener {
+
+
+        constraint_rev_addphoto.setOnClickListener {
             mPresenter.ChooseGalleryClick()
         }
 
+
+    ////////////////////////
+
+       // Setup ItemTouchHelper
+        val callback = DragManageAdapter(writingReviewPhotoAdapter, this,
+            ItemTouchHelper.LEFT.or(ItemTouchHelper.RIGHT).or(ItemTouchHelper.LEFT).or(ItemTouchHelper.RIGHT), -1)
+        val helper = ItemTouchHelper(callback)
+        helper.attachToRecyclerView(recycler_rev_photos)
+
+        /////////////////
 
     }
 
@@ -118,10 +139,11 @@ class WritingReviewActivity  : AppCompatActivity(), WritingReviewContract.View {
     }
 
     override fun displayImagePreview(mFilePath: String) {
-        Glide.with(this)
-            .load(mFilePath)
-            .apply(RequestOptions().centerCrop())
-            .into(img_rev_writer_1)
+//        Glide.with(this)
+//            .load(mFilePath)
+//            .apply(RequestOptions().centerCrop())
+//            .into(img_rev_writer)
+        mPresenter.addphoto(mFilePath)
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
@@ -131,5 +153,12 @@ class WritingReviewActivity  : AppCompatActivity(), WritingReviewContract.View {
                 mPresenter.ChooseGalleryClick()
             }
         }
+    }
+
+
+    override  fun connectAdapter(){
+
+        recycler_rev_photos.adapter = writingReviewPhotoAdapter
+
     }
 }

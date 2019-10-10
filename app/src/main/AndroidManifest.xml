@@ -51,7 +51,8 @@
 
         <activity android:name=".cancel.CancelActivity"></activity>
 
-        <activity android:name=".writiingReview.WritingReviewActivity"></activity>
+        <activity android:name=".writiingReview.WritingReviewActivity"
+                  android:windowSoftInputMode="adjustNothing"></activity>
 
         <!-- 테스트 용-->
         <activity android:name=".test.TestActivity"></activity>

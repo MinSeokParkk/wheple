@@ -2,6 +2,7 @@ package com.minseok.wheple.writiingReview
 
 import com.minseok.wheple.base.BasePresenter
 import com.minseok.wheple.base.BaseView
+import com.minseok.wheple.writiingReview.adapter.WritingReviewPhotoAdapter
 
 interface WritingReviewContract {
     interface View : BaseView<Presenter> {
@@ -15,14 +16,17 @@ interface WritingReviewContract {
         fun showPermissionDialog()
         fun chooseGallery()
         fun displayImagePreview(mFilePath : String)
+
+        fun connectAdapter()
     }
 
     interface Presenter : BasePresenter {
-        fun getinfo(no:String)
+        fun getinfo(no:String, writingReviewPhotoAdapter: WritingReviewPhotoAdapter)
         fun reviewCheck(rating:Float, review:String)
         fun sendReview(no:String, rating:Float, review:String)
 
         fun ChooseGalleryClick()
         fun showPreview(mFilePath : String)
+        fun addphoto(mFilePath: String)
     }
 }

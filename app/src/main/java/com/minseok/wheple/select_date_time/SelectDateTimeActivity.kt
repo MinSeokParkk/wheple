@@ -100,11 +100,7 @@ class SelectDateTimeActivity : AppCompatActivity(), SelectDateTimeContract.View{
         }
 
 
-
     }
-
-
-
 
 
 

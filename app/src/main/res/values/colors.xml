@@ -13,6 +13,8 @@
     <color name="filter_impossible">#E0E0E0</color>
     <color name="darkPrimary">#1751C9</color>
     <color name="red">#E05151</color>
+    <color name="tp_black">#80000000</color>
+    <color name="tp">#00FFFFFF</color>
 
 
 
