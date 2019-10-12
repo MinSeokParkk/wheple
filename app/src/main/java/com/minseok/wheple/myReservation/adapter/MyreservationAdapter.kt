@@ -111,6 +111,10 @@ class MyreservationAdapter(private var mpresenter: MyreservationContract.Present
             state.setBackgroundResource(R.color.bluegrey)
             deletetext.visibility = View.VISIBLE
 
+            if(myresItem.review == "t"){
+                reviewbutton.visibility = View.GONE
+            }
+
         }else{
             state.text = "이용전"
             state.setBackgroundResource(R.color.colorPrimary)

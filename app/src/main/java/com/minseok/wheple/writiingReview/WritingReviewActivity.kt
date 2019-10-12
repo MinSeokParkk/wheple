@@ -7,6 +7,7 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.provider.Settings
 import android.support.v4.app.ActivityCompat
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.DividerItemDecoration
@@ -38,6 +39,7 @@ class WritingReviewActivity  : AppCompatActivity(), WritingReviewContract.View {
 
 
 
+
         img_rev_writer_back.setOnClickListener {
             onBackPressed()
         }
@@ -60,7 +62,8 @@ class WritingReviewActivity  : AppCompatActivity(), WritingReviewContract.View {
             mPresenter.sendReview(
                 intent.getStringExtra("no"),
                 rating_rev_writer.rating,
-                edit_rev_writer.text.toString()
+                edit_rev_writer.text.toString(),
+                writingReviewPhotoAdapter.wr_itemsList
             )
         }
 
@@ -139,10 +142,6 @@ class WritingReviewActivity  : AppCompatActivity(), WritingReviewContract.View {
     }
 
     override fun displayImagePreview(mFilePath: String) {
-//        Glide.with(this)
-//            .load(mFilePath)
-//            .apply(RequestOptions().centerCrop())
-//            .into(img_rev_writer)
         mPresenter.addphoto(mFilePath)
     }
 
@@ -160,5 +159,14 @@ class WritingReviewActivity  : AppCompatActivity(), WritingReviewContract.View {
 
         recycler_rev_photos.adapter = writingReviewPhotoAdapter
 
+    }
+
+    override fun getPath(uri: Uri): String {
+        val projection = arrayOf(MediaStore.Images.Media.DATA)
+        val cursor = managedQuery(uri, projection, null, null, null)
+        startManagingCursor(cursor)
+        val column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
+        cursor.moveToFirst()
+        return cursor.getString(column_index)
     }
 }

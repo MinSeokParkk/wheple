@@ -70,24 +70,18 @@ class WritingReviewPhotoAdapter : RecyclerView.Adapter<WritingReviewPhotoAdapter
     }
 
 
-    ////////////////////////
+
     fun swapItems(fromPosition:Int, toPosition:Int){
         println("frompositon : "+fromPosition.toString()+"     toposition :"+toPosition.toString())
         if(fromPosition>toPosition){
             println("from이 커요!!!!!!!!!!!!!!!!!!!")
-//            for (i in fromPosition until toPosition) {
-//                wr_itemsList[i + 1] = wr_itemsList[i]
-//                wr_itemsList[i] = wr_itemsList[i + 1]
-//            }
+
             for (i in fromPosition..toPosition + 1) {
                 wr_itemsList.set(i, wr_itemsList.set(i-1, wr_itemsList.get(i)))
             }
         }else{
             println("to가 커요!!!!!!!!!!!!!!!!!!!")
-//            for (i in fromPosition..toPosition + 1) {
-//                wr_itemsList[i + 1] = wr_itemsList[i]
-//                wr_itemsList[i] = wr_itemsList[i + 1]
-//            }
+
             for (i in fromPosition..toPosition - 1) {
                 wr_itemsList.set(i, wr_itemsList.set(i+1, wr_itemsList.get(i)))
             }
@@ -97,7 +91,7 @@ class WritingReviewPhotoAdapter : RecyclerView.Adapter<WritingReviewPhotoAdapter
 
 
     }
-    //////////////////////
+
 
     inner class WritingReviewPhotoViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
         var reviewImage = itemView.findViewById<ImageView>(R.id.img_rew)

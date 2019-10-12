@@ -211,7 +211,7 @@
     </android.support.constraint.ConstraintLayout>
     <TextView
             android:text="사진을 길게 누른 후 순서를 변경해보세요"
-            android:textSize="11dp"
+            android:textSize="13dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView76"

@@ -1,5 +1,6 @@
 package com.minseok.wheple.writiingReview
 
+import android.net.Uri
 import com.minseok.wheple.base.BasePresenter
 import com.minseok.wheple.base.BaseView
 import com.minseok.wheple.writiingReview.adapter.WritingReviewPhotoAdapter
@@ -18,12 +19,13 @@ interface WritingReviewContract {
         fun displayImagePreview(mFilePath : String)
 
         fun connectAdapter()
+        fun getPath(uri: Uri): String
     }
 
     interface Presenter : BasePresenter {
         fun getinfo(no:String, writingReviewPhotoAdapter: WritingReviewPhotoAdapter)
         fun reviewCheck(rating:Float, review:String)
-        fun sendReview(no:String, rating:Float, review:String)
+        fun sendReview(no:String, rating:Float, review:String, wr_itemsList:ArrayList<String>)
 
         fun ChooseGalleryClick()
         fun showPreview(mFilePath : String)

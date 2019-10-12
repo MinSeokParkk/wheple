@@ -60,6 +60,7 @@ class LoginPresenter (private val view : LoginContract.View): LoginContract.Pres
     }
 
     fun  showResult(result: Result.Connectresult, email: String){
+
         if(result.result.equals("0")){
             view.loginSuccess()
 
