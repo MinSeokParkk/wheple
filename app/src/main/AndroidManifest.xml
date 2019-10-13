@@ -54,6 +54,11 @@
         <activity android:name=".writiingReview.WritingReviewActivity"
                   android:windowSoftInputMode="adjustNothing"></activity>
 
+        <activity android:name=".myReview.MyreviewActivity"></activity>
+
+        <activity android:name=".modifyingReview.ModifyingReviewActivity"
+                  android:windowSoftInputMode="adjustNothing"></activity>
+
         <!-- 테스트 용-->
         <activity android:name=".test.TestActivity"></activity>
         <activity android:name=".test.Test2Activity"></activity>

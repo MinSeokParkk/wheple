@@ -1,6 +1,6 @@
-package com.minseok.wheple.myReservation
+package com.minseok.wheple.myReview
 
-import com.minseok.wheple.myReservation.adapter.MyreservationAdapter
+import com.minseok.wheple.myReview.adapter.MyreviewAdapter
 import com.minseok.wheple.retrofit.APIService
 import com.minseok.wheple.retrofit.Result
 import com.minseok.wheple.shared.App
@@ -8,9 +8,9 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 
-class MyreservationPresenter (private val view : MyreservationContract.View): MyreservationContract.Presenter{
+class MyreviewPresenter(private val view : MyreviewContract.View): MyreviewContract.Presenter{
 
-    lateinit var myadapter :MyreservationAdapter
+    lateinit var myadapter : MyreviewAdapter
 
     val apiService by lazy {
         APIService.create()
@@ -24,29 +24,29 @@ class MyreservationPresenter (private val view : MyreservationContract.View): My
     override fun start() {
     }
 
-    override fun getlist(myreservationAdapter: MyreservationAdapter) {
-        myadapter = myreservationAdapter
+    override fun getlist(myreviewAdapter: MyreviewAdapter) {
+        myadapter = myreviewAdapter
 
         var sending = "{ \"email\" : \""+ App.prefs.autologin + "\"}"
         disposable =
-            apiService.connect_server("myreservation.php", sending)
+            apiService.connect_server("myreview.php", sending)
 
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
-                    { myres -> showResult(myres)
+                    { myrev -> showResult(myrev)
 
                     }
                 )
 
     }
 
-    fun showResult(myres: Result.Connectresult ){
-      println(myres.myres)
-        if(myres.myres.toString().equals("[]")){
+    fun showResult(myrev: Result.Connectresult ){
+        println(myrev.myrev)
+        if(myrev.myrev.toString().equals("[]")){
             view.showTextNothing()
         }
-        myadapter.addItems(myres.myres)
+        myadapter.addItems(myrev.myrev, view.get_base_url())
         myadapter.notifyAdapter()
 
         view.connectAdapter()
@@ -54,11 +54,11 @@ class MyreservationPresenter (private val view : MyreservationContract.View): My
     }
 
     override fun delete(no: String) {
-        println("실험중입니다. : "+no.toString())
+        println("실험중입니다. : "+no)
 
         var sending = "{ \"no\" : \""+ no + "\"}"
         disposable =
-            apiService.connect_server("notShowingReservation.php", sending)
+            apiService.connect_server("deleteReview.php", sending)
 
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -67,7 +67,7 @@ class MyreservationPresenter (private val view : MyreservationContract.View): My
 
                     }
                 )
-
     }
+
 
 }

@@ -20,12 +20,13 @@ interface WritingReviewContract {
 
         fun connectAdapter()
         fun getPath(uri: Uri): String
+        fun reviewsuccess()
     }
 
     interface Presenter : BasePresenter {
         fun getinfo(no:String, writingReviewPhotoAdapter: WritingReviewPhotoAdapter)
         fun reviewCheck(rating:Float, review:String)
-        fun sendReview(no:String, rating:Float, review:String, wr_itemsList:ArrayList<String>)
+        fun sendReview(no:String, rating:Float, review:String, wr_itemsList:ArrayList<String>,datetime: String)
 
         fun ChooseGalleryClick()
         fun showPreview(mFilePath : String)

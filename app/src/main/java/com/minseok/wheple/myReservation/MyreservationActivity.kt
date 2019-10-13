@@ -34,6 +34,9 @@ class MyreservationActivity: AppCompatActivity(), MyreservationContract.View {
         setContentView(R.layout.activity_my_reservation)
         mPresenter = MyreservationPresenter(this)
 
+        MyClass.activity = this@MyreservationActivity
+
+
         img_my_res_back.setOnClickListener {
             onBackPressed()
         }

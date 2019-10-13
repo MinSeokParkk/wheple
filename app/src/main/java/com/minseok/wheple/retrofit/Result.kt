@@ -2,8 +2,10 @@ package com.minseok.wheple.retrofit
 
 import com.minseok.wheple.cancel.CancelItem
 import com.minseok.wheple.home.PlaceItem
+import com.minseok.wheple.modifyingReview.ModifyingReviewItem
 import com.minseok.wheple.myResDetail.MyResDetailItem
 import com.minseok.wheple.myReservation.MyreservationItem
+import com.minseok.wheple.myReview.MyreviewItem
 import com.minseok.wheple.mypage.MypageItem
 import com.minseok.wheple.place.PlaceDetailItem
 import com.minseok.wheple.reservation.ReservationItem
@@ -20,7 +22,9 @@ object Result {
                              val myres:ArrayList<MyreservationItem>,
                              val myres_de:MyResDetailItem,
                              val cancelSet:CancelItem,
-                             val reW:WritingReviewItem
+                             val reW:WritingReviewItem,
+                             val myrev:ArrayList<MyreviewItem>,
+                             val mod : ModifyingReviewItem
                              )
 
 }

@@ -19,7 +19,8 @@ import com.minseok.wheple.myReservation.MyreservationItem
 import com.minseok.wheple.myReservation.MyreservationPresenter
 import com.minseok.wheple.writiingReview.WritingReviewActivity
 
-class MyreservationAdapter(private var mpresenter: MyreservationContract.Presenter) : RecyclerView.Adapter<MyreservationAdapter.MyreservationViewHolder>() {
+class MyreservationAdapter(private var mpresenter: MyreservationContract.Presenter)
+    : RecyclerView.Adapter<MyreservationAdapter.MyreservationViewHolder>() {
 
 
     private lateinit var itemsList:ArrayList<MyreservationItem>
@@ -45,7 +46,6 @@ class MyreservationAdapter(private var mpresenter: MyreservationContract.Present
                     "\n")
 
             builder.setPositiveButton(android.R.string.yes) { dialog, which ->
-
 
                 mpresenter.delete(itemsList[position].no)
 
@@ -80,6 +80,8 @@ class MyreservationAdapter(private var mpresenter: MyreservationContract.Present
     fun clearItem() {
         itemsList.clear()
     }
+
+
 
     inner class MyreservationViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 

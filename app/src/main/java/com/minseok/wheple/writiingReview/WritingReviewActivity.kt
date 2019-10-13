@@ -16,6 +16,9 @@ import android.support.v7.widget.helper.ItemTouchHelper
 import android.widget.Toast
 import com.minseok.wheple.R
 import com.minseok.wheple.afterTextChanged
+import com.minseok.wheple.myReservation.MyreservationActivity
+import com.minseok.wheple.myReservation.MyreservationContract
+import com.minseok.wheple.myReview.MyreviewActivity
 import com.minseok.wheple.writiingReview.adapter.DragManageAdapter
 import com.minseok.wheple.writiingReview.adapter.WritingReviewPhotoAdapter
 import kotlinx.android.synthetic.main.activity_review_writer.*
@@ -63,7 +66,8 @@ class WritingReviewActivity  : AppCompatActivity(), WritingReviewContract.View {
                 intent.getStringExtra("no"),
                 rating_rev_writer.rating,
                 edit_rev_writer.text.toString(),
-                writingReviewPhotoAdapter.wr_itemsList
+                writingReviewPhotoAdapter.wr_itemsList,
+                text_rev_writer_daytime.text.toString()
             )
         }
 
@@ -168,5 +172,15 @@ class WritingReviewActivity  : AppCompatActivity(), WritingReviewContract.View {
         val column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
         cursor.moveToFirst()
         return cursor.getString(column_index)
+    }
+
+    override fun reviewsuccess(){
+        MyreservationActivity.MyClass.activity?.finish()
+        val nextIntent = Intent(this, MyreviewActivity::class.java)
+        startActivity(nextIntent)
+
+
+        finish()
+
     }
 }

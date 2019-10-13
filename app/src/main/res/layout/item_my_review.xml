@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:background="@color/white"
+                                             android:layout_height="wrap_content" android:layout_width="match_parent">
+
+    <View
+            android:layout_width="0dp"
+            android:layout_height="0.5dp"
+            android:background="#B8B8B8"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/viewds9"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+            android:layout_width="40dp"
+            android:scaleType="centerCrop"
+            android:layout_height="40dp" app:srcCompat="@drawable/img_emptyphoto"
+            android:id="@+id/img_myr_place_photo" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="22dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="24dp" android:layout_marginStart="24dp"/>
+    <TextView
+            android:text="장소 이름"
+            android:textSize="17dp"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_myr_place_name" app:layout_constraintStart_toEndOf="@+id/img_myr_place_photo"
+            android:layout_marginLeft="16dp" android:layout_marginStart="16dp" android:layout_marginTop="21dp"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    <RatingBar
+            android:progressTint="@color/ratingYellow"
+            android:secondaryProgressTint="@android:color/transparent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/rating_myr_place"
+            style="@android:style/Widget.DeviceDefault.Light.RatingBar.Small"
+            android:layout_marginLeft="16dp" android:layout_marginStart="16dp"
+            app:layout_constraintStart_toEndOf="@+id/img_myr_place_photo"
+            app:layout_constraintTop_toBottomOf="@+id/text_myr_place_name" android:layout_marginTop="2dp"/>
+    <TextView
+            android:text="리뷰 내용 블라블라 블라 블라 블라 블라 블라 라블 라블 라블 리뷰 내용 블라블라 블라 블라 블라 블라 블라 라블 라블 라블 라블라블"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:id="@+id/text_myr_review" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="26dp"
+            android:layout_marginRight="26dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="26dp" android:layout_marginStart="26dp" android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@+id/img_myr_place_photo"/>
+    <ImageView
+            android:scaleType="centerCrop"
+            android:layout_width="110dp"
+            android:layout_height="110dp" app:srcCompat="@drawable/img_emptyphoto"
+            android:id="@+id/img_myr_photo1"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="24dp"
+            android:layout_marginStart="24dp" android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/text_myr_review" tools:visibility="gone"/>
+    <ImageView
+            android:scaleType="centerCrop"
+            android:layout_width="110dp"
+            android:layout_height="110dp" app:srcCompat="@drawable/img_emptyphoto"
+            android:id="@+id/img_myr_photo2"
+            app:layout_constraintEnd_toStartOf="@+id/img_myr_photo3" android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp" app:layout_constraintStart_toEndOf="@+id/img_myr_photo1"
+            android:layout_marginLeft="8dp" android:layout_marginStart="8dp" android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/text_myr_review" android:visibility="gone"/>
+    <ImageView
+            android:scaleType="centerCrop"
+            android:layout_width="110dp"
+            android:layout_height="110dp" app:srcCompat="@drawable/img_emptyphoto"
+            android:id="@+id/img_myr_photo3" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="24dp" android:layout_marginRight="24dp" android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/text_myr_review" android:visibility="gone"/>
+    <TextView
+            android:text="2019-12-12 12:22:11"
+            android:textSize="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_myr_datetime" android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/img_myr_photo1" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="26dp" android:layout_marginStart="26dp" android:layout_marginBottom="32dp"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.0"/>
+    <TextView
+            android:text="\uf141"
+            android:textSize="22dp"
+            android:gravity="center"
+            android:textColor="@color/grey"
+            android:fontFamily="@font/fontawesome_webfont"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_myr_more" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="24dp"
+            android:layout_marginRight="24dp" android:layout_marginTop="20dp"
+            app:layout_constraintTop_toTopOf="parent"/>
+</android.support.constraint.ConstraintLayout>

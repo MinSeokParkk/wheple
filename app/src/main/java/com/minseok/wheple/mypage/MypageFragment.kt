@@ -13,6 +13,7 @@ import kotlinx.android.synthetic.main.fragment_mypage.view.*
 import com.minseok.wheple.login.LoginActivity
 import com.minseok.wheple.main.MainActivity
 import com.minseok.wheple.myReservation.MyreservationActivity
+import com.minseok.wheple.myReview.MyreviewActivity
 import kotlinx.android.synthetic.main.fragment_mypage.*
 
 
@@ -56,6 +57,13 @@ class MypageFragment : Fragment(), MypageContract.View {
             view.constraint_reservation.setOnClickListener {
                 activity?.let {
                     val intent = Intent(it, MyreservationActivity::class.java)
+                    it.startActivity(intent)
+                }
+            }
+
+            view.constraint_myreview.setOnClickListener{
+                activity?.let {
+                    val intent = Intent(it, MyreviewActivity::class.java)
                     it.startActivity(intent)
                 }
             }

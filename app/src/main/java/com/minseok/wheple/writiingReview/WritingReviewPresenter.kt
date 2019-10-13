@@ -65,7 +65,7 @@ class WritingReviewPresenter (private val view : WritingReviewContract.View): Wr
         }
     }
 
-    override fun sendReview(no: String, rating: Float, review: String, wr_itemsList:ArrayList<String>) {
+    override fun sendReview(no: String, rating: Float, review: String, wr_itemsList:ArrayList<String>,datetime:String) {
         if(rating==0f){
             view.showToast("별점을 선택해주세요.")
 
@@ -90,10 +90,12 @@ class WritingReviewPresenter (private val view : WritingReviewContract.View): Wr
             val time = SimpleDateFormat("yyyy-MM-dd|HH:mm:ss").format(Date())
 
             var sending : String
+            var reviewC = review.replace("\n","|||")
             sending = "{ \"writer\" : \""+ App.prefs.autologin + "\", \r\n" +
                     "\"time\" : \""+ time + "\", \r\n" +
                     "\"rating\" : \""+ rating + "\", \r\n" +
-                    "\"review\" : \""+ review + "\", \r\n" +
+                    "\"review\" : \""+ reviewC + "\", \r\n" +
+                    "\"datetime\" : \""+ datetime + "\", \r\n" +
                     "\"no\" : \""+ no +"\"}"
             println("sending은 ? : " +sending)
 
@@ -111,8 +113,8 @@ class WritingReviewPresenter (private val view : WritingReviewContract.View): Wr
 
     fun  showResult1(result: Result.Connectresult){
 
-
-        view.showToast(result.result)
+        view.showToast("리뷰가 등록되었습니다.")
+        view.reviewsuccess()
         println("통신내용 : " +result.toString())
     }
 
