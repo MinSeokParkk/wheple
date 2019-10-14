@@ -1,4 +1,4 @@
-package com.minseok.wheple.writiingReview.adapter
+package com.minseok.wheple.reviewEditorPhotoadapter
 
 import android.os.Handler
 import android.support.v7.widget.RecyclerView
@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.minseok.wheple.R
 
-class WritingReviewPhotoAdapter : RecyclerView.Adapter<WritingReviewPhotoAdapter.WritingReviewPhotoViewHolder>(){
+class ReviewEditorPhotoAdapter : RecyclerView.Adapter<ReviewEditorPhotoAdapter.WritingReviewPhotoViewHolder>(){
 
 
  lateinit var wr_itemsList:ArrayList<String>

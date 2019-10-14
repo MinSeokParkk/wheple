@@ -7,27 +7,24 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
-import android.provider.Settings
 import android.support.v4.app.ActivityCompat
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.helper.ItemTouchHelper
 import android.widget.Toast
+import com.minseok.wheple.reviewEditorPhotoadapter.DragManageAdapter
 import com.minseok.wheple.R
 import com.minseok.wheple.afterTextChanged
 import com.minseok.wheple.myReservation.MyreservationActivity
-import com.minseok.wheple.myReservation.MyreservationContract
 import com.minseok.wheple.myReview.MyreviewActivity
-import com.minseok.wheple.writiingReview.adapter.DragManageAdapter
-import com.minseok.wheple.writiingReview.adapter.WritingReviewPhotoAdapter
+import com.minseok.wheple.reviewEditorPhotoadapter.ReviewEditorPhotoAdapter
 import kotlinx.android.synthetic.main.activity_review_writer.*
 
 class WritingReviewActivity  : AppCompatActivity(), WritingReviewContract.View {
     private lateinit var mPresenter: WritingReviewContract.Presenter
 
     private val linearLayoutManager by lazy { LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false) }
-    private lateinit var writingReviewPhotoAdapter: WritingReviewPhotoAdapter
+    private lateinit var writingReviewPhotoAdapter: ReviewEditorPhotoAdapter
 
     override fun setPresenter(presenter: WritingReviewContract.Presenter) {
         this.mPresenter = presenter
@@ -38,7 +35,7 @@ class WritingReviewActivity  : AppCompatActivity(), WritingReviewContract.View {
         setContentView(R.layout.activity_review_writer)
         mPresenter = WritingReviewPresenter(this)
         recycler_rev_photos.layoutManager = linearLayoutManager
-        writingReviewPhotoAdapter = WritingReviewPhotoAdapter()
+        writingReviewPhotoAdapter = ReviewEditorPhotoAdapter()
 
 
 
@@ -77,16 +74,15 @@ class WritingReviewActivity  : AppCompatActivity(), WritingReviewContract.View {
             mPresenter.ChooseGalleryClick()
         }
 
-
-    ////////////////////////
-
-       // Setup ItemTouchHelper
-        val callback = DragManageAdapter(writingReviewPhotoAdapter, this,
-            ItemTouchHelper.LEFT.or(ItemTouchHelper.RIGHT).or(ItemTouchHelper.LEFT).or(ItemTouchHelper.RIGHT), -1)
+       // 아이템 드래그앤드롭으로 순서 바꾸기 Setup ItemTouchHelper
+        val callback = DragManageAdapter(
+            writingReviewPhotoAdapter, this,
+            ItemTouchHelper.LEFT.or(ItemTouchHelper.RIGHT).or(ItemTouchHelper.LEFT).or(ItemTouchHelper.RIGHT), -1
+        )
         val helper = ItemTouchHelper(callback)
         helper.attachToRecyclerView(recycler_rev_photos)
 
-        /////////////////
+
 
     }
 
@@ -142,12 +138,8 @@ class WritingReviewActivity  : AppCompatActivity(), WritingReviewContract.View {
                 }
             }
         }
-
     }
 
-    override fun displayImagePreview(mFilePath: String) {
-        mPresenter.addphoto(mFilePath)
-    }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
@@ -182,5 +174,9 @@ class WritingReviewActivity  : AppCompatActivity(), WritingReviewContract.View {
 
         finish()
 
+    }
+
+    override fun shortedittext(){
+        edit_rev_writer.requestFocus()
     }
 }

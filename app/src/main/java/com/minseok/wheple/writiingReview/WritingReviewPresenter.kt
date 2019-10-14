@@ -1,11 +1,10 @@
 package com.minseok.wheple.writiingReview
 
 import android.net.Uri
-import com.minseok.wheple.R
 import com.minseok.wheple.retrofit.APIService
 import com.minseok.wheple.retrofit.Result
 import com.minseok.wheple.shared.App
-import com.minseok.wheple.writiingReview.adapter.WritingReviewPhotoAdapter
+import com.minseok.wheple.reviewEditorPhotoadapter.ReviewEditorPhotoAdapter
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
@@ -19,7 +18,7 @@ import kotlin.collections.ArrayList
 
 class WritingReviewPresenter (private val view : WritingReviewContract.View): WritingReviewContract.Presenter{
 
-    lateinit var wAdapter : WritingReviewPhotoAdapter
+    lateinit var wAdapter : ReviewEditorPhotoAdapter
 
     val apiService by lazy {
         APIService.create()
@@ -33,7 +32,7 @@ class WritingReviewPresenter (private val view : WritingReviewContract.View): Wr
         this.view.setPresenter(this)
     }
 
-    override fun getinfo(no: String, writingReviewPhotoAdapter: WritingReviewPhotoAdapter) {
+    override fun getinfo(no: String, writingReviewPhotoAdapter: ReviewEditorPhotoAdapter) {
         var sending = "{ \"no\" : \""+ no + "\"}"
         wAdapter = writingReviewPhotoAdapter
 
@@ -65,13 +64,13 @@ class WritingReviewPresenter (private val view : WritingReviewContract.View): Wr
         }
     }
 
-    override fun sendReview(no: String, rating: Float, review: String, wr_itemsList:ArrayList<String>,datetime:String) {
+    override fun sendReview(resevationNo: String, rating: Float, review: String, wr_itemsList:ArrayList<String>,datetime:String) {
         if(rating==0f){
             view.showToast("별점을 선택해주세요.")
 
         }else if(review.trim().length<5){
             view.showToast("리뷰는 5자 이상 작성해주세요.")
-
+            view.shortedittext()
         }else{
 
             var images = ArrayList<MultipartBody.Part>()
@@ -80,8 +79,10 @@ class WritingReviewPresenter (private val view : WritingReviewContract.View): Wr
                 val timeStamp = SimpleDateFormat("yyyyMMddHHmmss").format(Date())
 
                 val file = File(view.getPath(Uri.parse(wr_itemsList[index])))
+                val rnds = Random().nextDouble().toString().replace(".","")
+
                 var fileName = App.prefs.autologin.replace("@", "").replace(".", "")+
-                               "-"+file.name.replace(".", "") +"-" +timeStamp
+                               "-"+rnds +"-" +timeStamp
                 fileName = fileName + ".png"
                 var requestBody: RequestBody = RequestBody.create(MediaType.parse("multipart/form-data"), file)
                 images.add(MultipartBody.Part.createFormData("uploaded_file[]", fileName, requestBody))
@@ -96,7 +97,7 @@ class WritingReviewPresenter (private val view : WritingReviewContract.View): Wr
                     "\"rating\" : \""+ rating + "\", \r\n" +
                     "\"review\" : \""+ reviewC + "\", \r\n" +
                     "\"datetime\" : \""+ datetime + "\", \r\n" +
-                    "\"no\" : \""+ no +"\"}"
+                    "\"no\" : \""+ resevationNo +"\"}"
             println("sending은 ? : " +sending)
 
             disposable =
@@ -133,19 +134,15 @@ class WritingReviewPresenter (private val view : WritingReviewContract.View): Wr
     }
 
     override fun showPreview(mFilePath: String) {
-        view.displayImagePreview(mFilePath)
-    }
-
-    override fun addphoto(mFilePath: String){
         var oldlist: ArrayList<String>
-           oldlist = wAdapter.wr_itemsList
-            oldlist.add(mFilePath)
-            wAdapter.addItems(oldlist)
-
+        oldlist = wAdapter.wr_itemsList
+        oldlist.add(mFilePath)
+        wAdapter.addItems(oldlist)
 
         wAdapter.notifyAdapter()
-
     }
+
+
 
 
 

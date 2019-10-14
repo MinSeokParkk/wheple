@@ -153,12 +153,13 @@
                 app:layout_constraintBottom_toBottomOf="@+id/view17" app:layout_constraintEnd_toEndOf="@+id/view17"
                 app:layout_constraintStart_toStartOf="@+id/view17"/>
         <View
-                android:layout_width="84.8dp"
+                android:layout_width="85dp"
                 android:layout_height="85dp"
                 android:background="@drawable/edittext_background"
                 android:id="@+id/view19"
                 app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="5dp" android:layout_marginLeft="10dp" android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp" android:layout_marginLeft="10dp"
+                android:layout_marginStart="9.5dp"
                 app:layout_constraintStart_toEndOf="@+id/view18" android:layout_marginBottom="5dp"
                 app:layout_constraintBottom_toBottomOf="parent"/>
         <View
@@ -167,7 +168,7 @@
                 android:background="@drawable/edittext_background"
                 android:id="@+id/view18"
                 app:layout_constraintStart_toEndOf="@+id/view17" android:layout_marginLeft="10dp"
-                android:layout_marginStart="10dp" app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="9.5dp" app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginTop="5dp"/>
         <View
                 android:layout_width="85dp"

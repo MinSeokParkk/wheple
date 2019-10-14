@@ -83,11 +83,11 @@ class MyreviewAdapter (private var mpresenter: MyreviewContract.Presenter)
     fun deletedialog(context: Context, position: Int){
         val builder = AlertDialog.Builder(context)
 
-        builder.setMessage("삭제한 예약내역은 복구할 수 없습니다.\n\n정말로 삭제하시겠습니까?" +
+        builder.setMessage("삭제한 리뷰는 복구할 수 없습니다.\n\n정말로 삭제하시겠습니까?" +
                 "\n")
 
         builder.setPositiveButton(android.R.string.yes) { dialog, which ->
-            Toast.makeText(context, itemsList[position].no, Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "리뷰가 삭제되었습니다.", Toast.LENGTH_SHORT).show()
 
             mpresenter.delete(itemsList[position].no)
 

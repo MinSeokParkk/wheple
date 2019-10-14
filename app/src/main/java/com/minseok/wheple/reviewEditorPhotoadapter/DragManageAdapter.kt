@@ -1,10 +1,10 @@
-package com.minseok.wheple.writiingReview.adapter
+package com.minseok.wheple.reviewEditorPhotoadapter
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.helper.ItemTouchHelper
 
-class DragManageAdapter(adapter: WritingReviewPhotoAdapter, context: Context, dragDirs:Int, swipeDirs:Int)
+class DragManageAdapter(adapter: ReviewEditorPhotoAdapter, context: Context, dragDirs:Int, swipeDirs:Int)
     : ItemTouchHelper.SimpleCallback(dragDirs, swipeDirs) {
 
 
