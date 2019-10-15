@@ -8,7 +8,7 @@ interface MypageContract {
     interface View : BaseView<Presenter>{
         fun login_mode()
         fun guest_mode()
-        fun set_myinfo(nickname:String, point:String)
+        fun set_myinfo(nickname:String, point:String, photo:String)
     }
 
     interface Presenter : BasePresenter{

@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.helper.ItemTouchHelper
 import android.widget.Toast
+import com.minseok.wheple.Gallery
 import com.minseok.wheple.R
 import com.minseok.wheple.afterTextChanged
 import com.minseok.wheple.myReview.MyreviewActivity
@@ -29,12 +30,16 @@ class ModifyingReviewActivity :AppCompatActivity(), ModifyingReviewContract.View
         this.mPresenter = presenter
     }
 
+    private lateinit var gallery : Gallery
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_review_writer)
         mPresenter = ModifyingReviewPresenter(this)
         recycler_rev_photos.layoutManager = linearLayoutManager
         modifyingReviewPhotoAdapter = ReviewEditorPhotoAdapter()
+
+        gallery = Gallery()
 
         img_rev_writer_back.setOnClickListener {
             onBackPressed()
@@ -113,20 +118,22 @@ class ModifyingReviewActivity :AppCompatActivity(), ModifyingReviewContract.View
     }
 
     override fun checkPermission(): Boolean {
-        val result = ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-        if (result == PackageManager.PERMISSION_DENIED) return false
-        return true
+//        val result = ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+//        if (result == PackageManager.PERMISSION_DENIED) return false
+//        return true
+        return gallery.checkPermission(this)
     }
 
     override fun showPermissionDialog() {
         println("퍼미션 다이얼로그")
-        ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), 1000)
-
+//        ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), 1000)
+        gallery.showPermissionDialog(this)
     }
     override fun chooseGallery() {
-        val pickPhoto = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-        pickPhoto.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-        startActivityForResult(pickPhoto, 102)
+//        val pickPhoto = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+//        pickPhoto.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+//        startActivityForResult(pickPhoto, 102)
+        gallery.chooseGallery(this)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -145,11 +152,12 @@ class ModifyingReviewActivity :AppCompatActivity(), ModifyingReviewContract.View
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if(requestCode==1000){
-            if(grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
-                mPresenter.ChooseGalleryClick()
-            }
-        }
+//        if(requestCode==1000){
+//            if(grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+//                mPresenter.ChooseGalleryClick()
+//            }
+//        }
+        gallery.requestpermissionresult(requestCode, grantResults, this)
     }
 
     override fun getPath(uri: Uri): String {

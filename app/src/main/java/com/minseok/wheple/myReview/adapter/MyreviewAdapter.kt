@@ -21,7 +21,7 @@ import kotlinx.android.synthetic.main.dialog_my_review_more.view.*
 class MyreviewAdapter (private var mpresenter: MyreviewContract.Presenter)
    : RecyclerView.Adapter<MyreviewAdapter.MyreviewViewHolder>() {
 
-    private lateinit var itemsList: ArrayList<MyreviewItem>
+    lateinit var itemsList: ArrayList<MyreviewItem>
     var baseurl = ""
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyreviewViewHolder {

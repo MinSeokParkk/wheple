@@ -34,7 +34,7 @@
 
         <ImageView
                 android:layout_width="40dp"
-                android:layout_height="30dp" app:srcCompat="@drawable/img_person_test"
+                android:layout_height="30dp" app:srcCompat="@drawable/img_person"
                 android:id="@+id/imageView10"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginLeft="24dp" android:layout_marginStart="24dp"

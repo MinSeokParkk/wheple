@@ -63,11 +63,17 @@ class MyreservationPresenter (private val view : MyreservationContract.View): My
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
-                    { result ->
+                    { result ->resultdelete()
 
                     }
                 )
 
+    }
+
+    fun resultdelete(){
+        if(myadapter.itemsList.isEmpty()){
+            view.showTextNothing()
+        }
     }
 
 }

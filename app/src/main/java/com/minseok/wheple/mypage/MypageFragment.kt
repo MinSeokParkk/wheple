@@ -8,6 +8,8 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import com.bumptech.glide.Glide
 import com.minseok.wheple.R
 import kotlinx.android.synthetic.main.fragment_mypage.view.*
 import com.minseok.wheple.login.LoginActivity
@@ -68,7 +70,13 @@ class MypageFragment : Fragment(), MypageContract.View {
                 }
             }
 
+            view.constraint_mypage_myinto.setOnClickListener{
+               println("나중에 지워라\n")
+            }
+
         MypagePresenter(this)
+
+
 
 
 
@@ -92,9 +100,17 @@ class MypageFragment : Fragment(), MypageContract.View {
         constraint_mypage_user.visibility = View.GONE
     }
 
-    override fun set_myinfo(nickname:String, point:String){
+    override fun set_myinfo(nickname:String, point:String, photo:String){
         text_mypage_nickname.text = nickname
         text_mypage_point.text = point
+
+        Glide.with(this)
+            .load(get_base_url()+photo)
+            .into(img_mypage_myphoto)
+    }
+
+    fun get_base_url() :String{
+        return getString(R.string.base_url)
     }
 
 

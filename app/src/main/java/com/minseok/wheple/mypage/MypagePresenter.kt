@@ -45,7 +45,7 @@ class MypagePresenter (private val view: MypageContract.View): MypageContract.Pr
 
     fun showResult(mypage: Result.Connectresult){
         println("return ======"+mypage.mypage )
-            view.set_myinfo(mypage.mypage.nickname, mypage.mypage.point)
+            view.set_myinfo(mypage.mypage.nickname, mypage.mypage.point, mypage.mypage.photo)
 
     }
 

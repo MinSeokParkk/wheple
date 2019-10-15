@@ -23,7 +23,7 @@ class MyreservationAdapter(private var mpresenter: MyreservationContract.Present
     : RecyclerView.Adapter<MyreservationAdapter.MyreservationViewHolder>() {
 
 
-    private lateinit var itemsList:ArrayList<MyreservationItem>
+    lateinit var itemsList:ArrayList<MyreservationItem>
 
     var comparetime = CheckReservationTime()
 

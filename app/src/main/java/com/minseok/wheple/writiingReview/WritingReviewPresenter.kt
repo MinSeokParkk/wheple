@@ -1,6 +1,7 @@
 package com.minseok.wheple.writiingReview
 
 import android.net.Uri
+import android.provider.MediaStore
 import com.minseok.wheple.retrofit.APIService
 import com.minseok.wheple.retrofit.Result
 import com.minseok.wheple.shared.App
@@ -126,7 +127,6 @@ class WritingReviewPresenter (private val view : WritingReviewContract.View): Wr
                 return
             }
 
-
             view.chooseGallery()
         }else{
             view.showToast("사진을 모두 선택했습니다.")
@@ -141,10 +141,6 @@ class WritingReviewPresenter (private val view : WritingReviewContract.View): Wr
 
         wAdapter.notifyAdapter()
     }
-
-
-
-
 
 
 }

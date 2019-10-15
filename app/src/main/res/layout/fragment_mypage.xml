@@ -52,34 +52,46 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         android:background="@color/colorPrimary" app:layout_constraintHorizontal_bias="0.0"
-                        android:id="@+id/constraintLayout3">
+                        android:id="@+id/constraddint_sfo">
 
-                    <ImageView
-                            android:layout_width="70dp"
-                            android:layout_height="70dp" app:srcCompat="@drawable/img_person_test"
-                            android:id="@+id/imageView2" app:layout_constraintStart_toStartOf="parent"
-                            android:layout_marginLeft="48dp" android:layout_marginStart="48dp" android:layout_marginTop="32dp"
-                            app:layout_constraintTop_toTopOf="parent"/>
-                    <TextView
+                    <android.support.constraint.ConstraintLayout
                             android:layout_width="wrap_content"
-                            android:textColor="@color/white"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/text_mypage_nickname" app:layout_constraintStart_toEndOf="@+id/imageView2"
-                            android:layout_marginLeft="28dp" android:layout_marginStart="28dp"
-                            android:layout_marginTop="48dp"
-                            app:layout_constraintTop_toTopOf="parent" android:textSize="23sp"/>
-                    <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="\uf105"
-                            android:textSize="32sp"
-                            android:textColor="@color/white"
-                            android:fontFamily="@font/fontawesome_webfont"
-                            android:id="@+id/textView14"
-                            android:layout_marginTop="47dp"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/text_mypage_nickname" android:layout_marginLeft="20dp"
-                            android:layout_marginStart="20dp"/>
+                            android:layout_height="70dp"
+                            android:layout_marginTop="32dp" app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="48dp"
+                            android:layout_marginStart="48dp" android:id="@+id/constraint_mypage_myinto">
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="\uf105"
+                                android:textSize="32sp"
+                                android:textColor="@color/white"
+                                android:fontFamily="@font/fontawesome_webfont"
+                                android:id="@+id/textView14"
+                                android:layout_marginTop="15dp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/text_mypage_nickname"
+                                android:layout_marginLeft="20dp" android:layout_marginStart="20dp"
+                                android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
+                                android:layout_marginRight="8dp" app:layout_constraintHorizontal_bias="0.0"/>
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:textColor="@color/white"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/text_mypage_nickname"
+                                android:textSize="23sp"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginStart="20dp"
+                                app:layout_constraintStart_toEndOf="@+id/img_mypage_myphoto"
+                                android:layout_marginTop="16dp" app:layout_constraintTop_toTopOf="parent"/>
+                        <de.hdodenhof.circleimageview.CircleImageView
+                                android:layout_width="70dp"
+                                android:layout_height="70dp" app:srcCompat="@drawable/img_person"
+                                android:id="@+id/img_mypage_myphoto"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"/>
+                    </android.support.constraint.ConstraintLayout>
                     <View
                             android:layout_width="375dp"
                             android:background="@color/white"
@@ -173,59 +185,51 @@
                                 app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="14dp"/>
                     </android.support.constraint.ConstraintLayout>
                     <!--<android.support.constraint.ConstraintLayout-->
-                            <!--android:layout_width="105dp"-->
-                            <!--android:layout_height="105dp"-->
-                            <!--app:layout_constraintTop_toTopOf="@+id/guideline13" android:id="@+id/constraintLayout2"-->
-                            <!--app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="27dp"-->
-                            <!--android:layout_marginRight="27dp">-->
+                    <!--android:layout_width="105dp"-->
+                    <!--android:layout_height="105dp"-->
+                    <!--app:layout_constraintTop_toTopOf="@+id/guideline13" android:id="@+id/constraintLayout2"-->
+                    <!--app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="27dp"-->
+                    <!--android:layout_marginRight="27dp">-->
 
-                        <!--<TextView-->
-                                <!--android:text="\uf040"-->
-                                <!--android:textSize="21sp"-->
-                                <!--android:textColor="@color/white"-->
-                                <!--android:fontFamily="@font/fontawesome_webfont"-->
-                                <!--android:layout_width="wrap_content"-->
-                                <!--android:layout_height="wrap_content"-->
-                                <!--android:id="@+id/textView26"-->
-                                <!--android:layout_marginTop="14dp" app:layout_constraintTop_toTopOf="parent"-->
-                                <!--app:layout_constraintEnd_toEndOf="parent"-->
-                                <!--app:layout_constraintStart_toStartOf="parent"-->
-                        <!--/>-->
-                        <!--<TextView-->
-                                <!--android:text="리뷰 작성"-->
-                                <!--android:textColor="@color/white"-->
-                                <!--android:textSize="11sp"-->
-                                <!--android:layout_width="wrap_content"-->
-                                <!--android:layout_height="wrap_content"-->
-                                <!--android:id="@+id/textView27" app:layout_constraintStart_toStartOf="parent"-->
-                                <!--app:layout_constraintEnd_toEndOf="parent"-->
-                                <!--android:layout_marginBottom="6dp"-->
-                                <!--app:layout_constraintBottom_toTopOf="@+id/textView28"/>-->
-                        <!--<TextView-->
-                                <!--android:text="100"-->
-                                <!--android:textColor="@color/white"-->
-                                <!--android:textSize="14sp"-->
+                    <!--<TextView-->
+                    <!--android:text="\uf040"-->
+                    <!--android:textSize="21sp"-->
+                    <!--android:textColor="@color/white"-->
+                    <!--android:fontFamily="@font/fontawesome_webfont"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:id="@+id/textView26"-->
+                    <!--android:layout_marginTop="14dp" app:layout_constraintTop_toTopOf="parent"-->
+                    <!--app:layout_constraintEnd_toEndOf="parent"-->
+                    <!--app:layout_constraintStart_toStartOf="parent"-->
+                    <!--/>-->
+                    <!--<TextView-->
+                    <!--android:text="리뷰 작성"-->
+                    <!--android:textColor="@color/white"-->
+                    <!--android:textSize="11sp"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:id="@+id/textView27" app:layout_constraintStart_toStartOf="parent"-->
+                    <!--app:layout_constraintEnd_toEndOf="parent"-->
+                    <!--android:layout_marginBottom="6dp"-->
+                    <!--app:layout_constraintBottom_toTopOf="@+id/textView28"/>-->
+                    <!--<TextView-->
+                    <!--android:text="100"-->
+                    <!--android:textColor="@color/white"-->
+                    <!--android:textSize="14sp"-->
 
-                                <!--android:layout_width="wrap_content"-->
-                                <!--android:layout_height="wrap_content"-->
-                                <!--android:id="@+id/textView28" app:layout_constraintStart_toStartOf="parent"-->
-                                <!--app:layout_constraintEnd_toEndOf="parent"-->
-                                <!--app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="14dp"/>-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:id="@+id/textView28" app:layout_constraintStart_toStartOf="parent"-->
+                    <!--app:layout_constraintEnd_toEndOf="parent"-->
+                    <!--app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="14dp"/>-->
                     <!--</android.support.constraint.ConstraintLayout>-->
-                    <LinearLayout
-                            android:orientation="vertical"
-                            android:layout_width="143dp"
-                            android:layout_height="52dp"
-                            app:layout_constraintStart_toEndOf="@+id/imageView2" android:layout_marginLeft="20dp"
-                            android:layout_marginStart="20dp" android:layout_marginTop="40dp"
-                            app:layout_constraintTop_toTopOf="parent" android:id="@+id/layout_gotoProfile">
-                    </LinearLayout>
                 </android.support.constraint.ConstraintLayout>
                 <android.support.constraint.ConstraintLayout
                         android:layout_width="382dp"
                         android:layout_height="60dp"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3"
+                        app:layout_constraintTop_toBottomOf="@+id/constraddint_sfo"
                         app:layout_constraintEnd_toEndOf="parent"
                         android:layout_marginTop="24dp" android:id="@+id/constraint_reservation"
                         android:layout_marginLeft="8dp" android:layout_marginStart="8dp" android:layout_marginEnd="8dp"
