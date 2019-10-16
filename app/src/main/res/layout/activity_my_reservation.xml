@@ -18,6 +18,7 @@
             android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/guideline15"></ImageView>
     <TextView
             android:text="예약내역"
+            android:textSize="18dp"
             android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

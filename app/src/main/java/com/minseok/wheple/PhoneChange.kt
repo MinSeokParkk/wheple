@@ -1,4 +1,4 @@
-package com.minseok.wheple.myResDetail
+package com.minseok.wheple
 
 class PhoneChange{
     var newphone =""

@@ -59,13 +59,16 @@
         <activity android:name=".modifyingReview.ModifyingReviewActivity"
                   android:windowSoftInputMode="adjustNothing"></activity>
 
+        <activity android:name=".myinfo.MyinfoActivity"></activity>
+
+
         <!-- 테스트 용-->
         <activity android:name=".test.TestActivity"></activity>
         <activity android:name=".test.Test2Activity"></activity>
 
         <provider
                 android:name="android.support.v4.content.FileProvider"
-                android:authorities="com.minseok.wheple"
+                android:authorities="${applicationId}.provider"
                 android:exported="false"
                 android:grantUriPermissions="true">
             <meta-data

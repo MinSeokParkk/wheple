@@ -111,7 +111,7 @@ class WritingReviewActivity  : AppCompatActivity(), WritingReviewContract.View {
     }
 
     override fun checkPermission(): Boolean {
-//        val result = ActivityCompat.checkS elfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+//        val result = ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
 //        if (result == PackageManager.PERMISSION_DENIED) return false
 //        return true
         return gallery.checkPermission(this)

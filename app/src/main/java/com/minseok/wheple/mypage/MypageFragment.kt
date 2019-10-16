@@ -1,14 +1,11 @@
 package com.minseok.wheple.mypage
 
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.minseok.wheple.R
 import kotlinx.android.synthetic.main.fragment_mypage.view.*
@@ -16,6 +13,7 @@ import com.minseok.wheple.login.LoginActivity
 import com.minseok.wheple.main.MainActivity
 import com.minseok.wheple.myReservation.MyreservationActivity
 import com.minseok.wheple.myReview.MyreviewActivity
+import com.minseok.wheple.myinfo.MyinfoActivity
 import kotlinx.android.synthetic.main.fragment_mypage.*
 
 
@@ -70,8 +68,11 @@ class MypageFragment : Fragment(), MypageContract.View {
                 }
             }
 
-            view.constraint_mypage_myinto.setOnClickListener{
-               println("나중에 지워라\n")
+            view.constraint_mypage_gotomyinfo.setOnClickListener{
+                activity?.let {
+                    val intent = Intent(it, MyinfoActivity::class.java)
+                    it.startActivity(intent)
+                }
             }
 
         MypagePresenter(this)

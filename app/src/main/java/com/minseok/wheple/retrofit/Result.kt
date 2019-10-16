@@ -6,6 +6,7 @@ import com.minseok.wheple.modifyingReview.ModifyingReviewItem
 import com.minseok.wheple.myResDetail.MyResDetailItem
 import com.minseok.wheple.myReservation.MyreservationItem
 import com.minseok.wheple.myReview.MyreviewItem
+import com.minseok.wheple.myinfo.MyinfoItem
 import com.minseok.wheple.mypage.MypageItem
 import com.minseok.wheple.place.PlaceDetailItem
 import com.minseok.wheple.reservation.ReservationItem
@@ -24,7 +25,8 @@ object Result {
                              val cancelSet:CancelItem,
                              val reW:WritingReviewItem,
                              val myrev:ArrayList<MyreviewItem>,
-                             val mod : ModifyingReviewItem
+                             val mod : ModifyingReviewItem,
+                             val myinfo:MyinfoItem
                              )
 
 }

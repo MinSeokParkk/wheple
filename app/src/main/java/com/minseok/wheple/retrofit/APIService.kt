@@ -34,9 +34,7 @@ interface APIService {
 
     companion object {
 
-
         fun create(): APIService {
-
 
             val retrofit = Retrofit.Builder()
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())

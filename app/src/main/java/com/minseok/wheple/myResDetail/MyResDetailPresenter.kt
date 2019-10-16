@@ -1,10 +1,9 @@
 package com.minseok.wheple.myResDetail
 
 import com.minseok.wheple.CheckReservationTime
-import com.minseok.wheple.place.PlaceDetailItem
+import com.minseok.wheple.PhoneChange
 import com.minseok.wheple.retrofit.APIService
 import com.minseok.wheple.retrofit.Result
-import com.minseok.wheple.shared.App
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
