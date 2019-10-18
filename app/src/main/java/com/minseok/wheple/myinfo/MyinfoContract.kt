@@ -22,6 +22,10 @@ interface MyinfoContract {
         fun startCamera(file: File)
         fun getPath(uri: Uri): String
         fun displayImagePreview(photo:String)
+        fun modifynickname(nickname : String)
+        fun modifyname(name:String)
+        fun modifyphone(phone: String)
+
     }
 
     interface Presenter : BasePresenter {
@@ -29,5 +33,8 @@ interface MyinfoContract {
         fun ChooseGalleryClick()
         fun ChooseCameraClick()
         fun savephoto(photo: String)
+        fun nicknamechange(nickname:String)
+        fun namechange(name:String)
+        fun phonechange(phone:String)
     }
 }

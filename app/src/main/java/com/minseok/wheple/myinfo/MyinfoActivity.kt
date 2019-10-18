@@ -17,6 +17,9 @@ import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.minseok.wheple.BuildConfig
 import com.minseok.wheple.R
+import com.minseok.wheple.myinfoName.MyinfoNameActivity
+import com.minseok.wheple.myinfoNickname.MyinfoNicknameActivity
+import com.minseok.wheple.myinfoPhone.MyinfoPhoneActivity
 import kotlinx.android.synthetic.main.activity_myinformation.*
 import kotlinx.android.synthetic.main.dialog_way_to_get_photo.view.*
 import java.io.File
@@ -24,6 +27,14 @@ import java.io.IOException
 import java.util.*
 
 class MyinfoActivity : AppCompatActivity(), MyinfoContract.View {
+
+    class MyClass{
+        companion object{
+            var activity: Activity? = null
+            var change : Boolean = false
+        }
+    }
+
     private lateinit var mPresenter: MyinfoContract.Presenter
 
     override fun setPresenter(presenter: MyinfoContract.Presenter) {
@@ -36,6 +47,8 @@ class MyinfoActivity : AppCompatActivity(), MyinfoContract.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_myinformation)
         mPresenter = MyinfoPresenter(this)
+
+        MyClass.activity = this@MyinfoActivity
 
         mPresenter.bringData()
 
@@ -51,23 +64,50 @@ class MyinfoActivity : AppCompatActivity(), MyinfoContract.View {
                 .setView(mDialogView)
 
             val mAlertDialog = mBuilder.show()
-// 크기조정           mAlertDialog.window.setLayout(620, 375)
+           mAlertDialog.window.setLayout(520, 420)  //다이얼로그 크기 조정하자
 
-            mDialogView.button_camera.setOnClickListener {
+            mDialogView.constraint_myinfo_camera.setOnClickListener {
                 mAlertDialog.dismiss()
                 mPresenter.ChooseCameraClick()
             }
 
-            mDialogView.button_album.setOnClickListener {
+            mDialogView.constraint_myinfo_album.setOnClickListener {
                 mAlertDialog.dismiss()
                 mPresenter.ChooseGalleryClick()
 
             }
-            mDialogView.button_basicphoto.setOnClickListener {
+            mDialogView.constraint_myinfo_basic.setOnClickListener {
+                mAlertDialog.dismiss()
+                mPresenter.savephoto("")
+            }
+            mDialogView.constraint_myinfo_cancel.setOnClickListener {
                 mAlertDialog.dismiss()
             }
         }
 
+        constraint_myinfo_modify_nickname.setOnClickListener{
+            mPresenter.nicknamechange(text_myinfo_nickname.text.toString())
+        }
+
+        text_myinfo_modify_name.setOnClickListener {
+            mPresenter.namechange(text_myinfo_name.text.toString())
+        }
+
+        text_myinfo_modify_phone.setOnClickListener {
+            mPresenter.phonechange(text_myinfo_phone.text.toString())
+        }
+
+
+    }
+
+    override fun onStart() {
+
+        if(MyClass.change){
+            mPresenter.bringData()
+            MyClass.change=false
+        }
+
+        super.onStart()
 
     }
 
@@ -212,9 +252,33 @@ class MyinfoActivity : AppCompatActivity(), MyinfoContract.View {
 
     override fun  displayImagePreview(photo:String){
         Glide.with(this)
-            .load(photo)
+            .load(get_base_url()+photo)
             .into(img_myinfo_photo)
 
     }
+
+    override fun modifynickname(nickname : String) {
+
+        val nextIntent = Intent(this, MyinfoNicknameActivity::class.java)
+        nextIntent.putExtra("nickname", nickname)
+        startActivity(nextIntent)
+
+    }
+
+    override fun modifyname(name: String) {
+        val nextIntent = Intent(this, MyinfoNameActivity::class.java)
+        nextIntent.putExtra("name", name)
+        startActivity(nextIntent)
+    }
+
+    override fun modifyphone(phone: String){
+        val nextIntent = Intent(this, MyinfoPhoneActivity::class.java)
+        nextIntent.putExtra("phone", phone)
+        startActivity(nextIntent)
+    }
+
+
+
+
 
 }

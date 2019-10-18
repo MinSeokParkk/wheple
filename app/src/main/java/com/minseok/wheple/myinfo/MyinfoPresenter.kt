@@ -95,17 +95,19 @@ class MyinfoPresenter (private val view : MyinfoContract.View): MyinfoContract.P
 
         var images = ArrayList<MultipartBody.Part>()
 
-           val timeStamp = SimpleDateFormat("yyyyMMddHHmmss").format(Date())
-        val file = File(photo)
-        val rnds = Random().nextDouble().toString().replace(".","")
-        var fileName = App.prefs.autologin.replace("@", "").replace(".", "")+
-                "-"+rnds +"-" +timeStamp
-        fileName = fileName + ".png"
-        var requestBody: RequestBody = RequestBody.create(MediaType.parse("multipart/form-data"), file)
-        images.add(MultipartBody.Part.createFormData("uploaded_file[]", fileName, requestBody))
+        if(photo!="") {
+            val timeStamp = SimpleDateFormat("yyyyMMddHHmmss").format(Date())
+            val file = File(photo)
+            val rnds = Random().nextDouble().toString().replace(".", "")
+            var fileName = App.prefs.autologin.replace("@", "").replace(".", "") +
+                    "-" + rnds + "-" + timeStamp
+            fileName = fileName + ".png"
+            var requestBody: RequestBody = RequestBody.create(MediaType.parse("multipart/form-data"), file)
+            images.add(MultipartBody.Part.createFormData("uploaded_file[]", fileName, requestBody))
+        }
 
         var sending : String
-        sending = "{ \"email\" : \""+ App.prefs.autologin  +"\"}"
+        sending = "{ \"email\" : \""+ App.prefs.autologin  + "\"}"
         println("sending은 ? : " +sending)
 
         disposable =
@@ -114,15 +116,31 @@ class MyinfoPresenter (private val view : MyinfoContract.View): MyinfoContract.P
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
-                    { result -> showResult1(result, photo) }
+                    { result -> showResult1(result) }
                 )
 
     }
 
-    fun  showResult1(result: Result.Connectresult, photo:String){
+    fun  showResult1(result: Result.Connectresult){
 
-        view.displayImagePreview(photo)
+        view.displayImagePreview(result.result)
         println("통신내용 : " +result.toString())
+    }
+
+    override fun nicknamechange(nickname: String) {
+        view.modifynickname(nickname)
+    }
+
+    override fun namechange(name: String) {
+        var sendname = name
+        if(name=="미등록"){
+            sendname = ""
+        }
+        view.modifyname(sendname)
+    }
+
+    override fun phonechange(phone: String) {
+        view.modifyphone(phone.replace("-",""))
     }
 
 

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+                                             android:layout_height="match_parent">
+
+    <android.support.constraint.Guideline
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" app:layout_constraintGuide_begin="46dp" android:id="@+id/guideline20"/>
+    <TextView
+            android:text="전화번호 수정"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView145" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline20" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="parent"/>
+    <ImageView
+            android:layout_width="22dp"
+            android:layout_height="22dp" app:srcCompat="@drawable/icon_back"
+            android:id="@+id/img_myinfoM_phone_back" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline20" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="8dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="16dp" android:layout_marginStart="16dp"/>
+    <EditText
+            android:layout_width="330dp"
+            android:layout_height="50dp"
+            android:digits="0123456789"
+            android:maxLength="11"
+            android:singleLine="true"
+            android:background="@drawable/edittext_background"
+            android:padding="10dp"
+            android:textSize="15dp"
+            android:inputType="phone"
+            android:ems="10"
+            android:id="@+id/edit_myinfoM_phone" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="57dp"
+            android:hint="01012345678" app:layout_constraintTop_toTopOf="@+id/guideline20"/>
+
+    <TextView
+            android:text="\uf057"
+            android:textSize="16dp"
+            android:fontFamily="@font/fontawesome_webfont"
+            android:layout_width="20dp"
+            android:gravity="center"
+            android:layout_height="20dp"
+            android:id="@+id/text_myinfoM_phone_delete"
+            app:layout_constraintBottom_toBottomOf="@+id/edit_myinfoM_phone" app:layout_constraintTop_toTopOf="@+id/edit_myinfoM_phone"
+            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="@+id/edit_myinfoM_phone"
+            android:layout_marginRight="8dp"/>
+
+    <Button
+            android:text="전화번호 저장"
+            android:enabled="false"
+            android:background="@drawable/button_on"
+            android:visibility="gone"
+            android:textColor="@color/white"
+            android:layout_width="330dp"
+            android:layout_height="55dp"
+            android:id="@+id/button_myinfoM_phone" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="24dp"/>
+    <TextView
+            android:text="닉네임은 2~8자 한글만 가능합니다."
+            android:textColor="@color/red"
+            android:visibility="gone"
+            android:textSize="13dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_myinfoM_phone_alarm" app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="50dp"
+            android:layout_marginStart="50dp" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/edit_myinfoM_phone"/>
+
+</android.support.constraint.ConstraintLayout>

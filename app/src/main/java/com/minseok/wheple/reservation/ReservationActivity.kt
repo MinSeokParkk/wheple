@@ -103,6 +103,7 @@ class ReservationActivity : AppCompatActivity(), ReservationContract.View{
     override fun writePoint(point: String) {
         println("롸이트 포인트")
         edit_res_point.setText(point)
+        edit_res_point.setSelection(edit_res_point.text.length)
     }
 
     override fun setPrice(price: String) {

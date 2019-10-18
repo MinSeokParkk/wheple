@@ -61,6 +61,15 @@
 
         <activity android:name=".myinfo.MyinfoActivity"></activity>
 
+        <activity android:name=".myinfoNickname.MyinfoNicknameActivity"
+                  android:windowSoftInputMode="adjustResize"></activity>
+
+        <activity android:name=".myinfoName.MyinfoNameActivity"
+                  android:windowSoftInputMode="adjustResize"></activity>
+
+        <activity android:name=".myinfoPhone.MyinfoPhoneActivity"
+                  android:windowSoftInputMode="adjustResize"></activity>
+
 
         <!-- 테스트 용-->
         <activity android:name=".test.TestActivity"></activity>

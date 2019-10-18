@@ -217,7 +217,7 @@
         <TextView
                 android:text="닉네임"
                 android:textColor="@color/black"
-                android:textSize="17dp"
+                android:textSize="19dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/text_myinfo_nickname"
