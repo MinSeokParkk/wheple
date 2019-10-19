@@ -70,6 +70,9 @@
         <activity android:name=".myinfoPhone.MyinfoPhoneActivity"
                   android:windowSoftInputMode="adjustResize"></activity>
 
+        <activity android:name=".myinfoPw.MyinfoPwActivity"
+                  android:windowSoftInputMode="adjustResize"></activity>
+
 
         <!-- 테스트 용-->
         <activity android:name=".test.TestActivity"></activity>

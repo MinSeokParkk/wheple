@@ -20,6 +20,7 @@ import com.minseok.wheple.R
 import com.minseok.wheple.myinfoName.MyinfoNameActivity
 import com.minseok.wheple.myinfoNickname.MyinfoNicknameActivity
 import com.minseok.wheple.myinfoPhone.MyinfoPhoneActivity
+import com.minseok.wheple.myinfoPw.MyinfoPwActivity
 import kotlinx.android.synthetic.main.activity_myinformation.*
 import kotlinx.android.synthetic.main.dialog_way_to_get_photo.view.*
 import java.io.File
@@ -95,6 +96,11 @@ class MyinfoActivity : AppCompatActivity(), MyinfoContract.View {
 
         text_myinfo_modify_phone.setOnClickListener {
             mPresenter.phonechange(text_myinfo_phone.text.toString())
+        }
+
+        text_myinfo_modify_pw.setOnClickListener {
+            val nextIntent = Intent(this, MyinfoPwActivity::class.java)
+            startActivity(nextIntent)
         }
 
 

@@ -14,7 +14,6 @@ interface MyinfoPhoneContract {
         fun wrongInput()
         fun showToast(string: String)
         fun back()
-//        fun setName(name:String)
 
     }
 
