@@ -17,6 +17,7 @@ import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.minseok.wheple.BuildConfig
 import com.minseok.wheple.R
+import com.minseok.wheple.deleteAccountBefore.DeleteAccountBeforeActivity
 import com.minseok.wheple.myinfoName.MyinfoNameActivity
 import com.minseok.wheple.myinfoNickname.MyinfoNicknameActivity
 import com.minseok.wheple.myinfoPhone.MyinfoPhoneActivity
@@ -65,7 +66,7 @@ class MyinfoActivity : AppCompatActivity(), MyinfoContract.View {
                 .setView(mDialogView)
 
             val mAlertDialog = mBuilder.show()
-           mAlertDialog.window.setLayout(520, 420)  //다이얼로그 크기 조정하자
+           mAlertDialog.window.setLayout(520, 510)  //다이얼로그 크기 조정하자
 
             mDialogView.constraint_myinfo_camera.setOnClickListener {
                 mAlertDialog.dismiss()
@@ -100,6 +101,11 @@ class MyinfoActivity : AppCompatActivity(), MyinfoContract.View {
 
         text_myinfo_modify_pw.setOnClickListener {
             val nextIntent = Intent(this, MyinfoPwActivity::class.java)
+            startActivity(nextIntent)
+        }
+
+        view_myinfo_delete_account.setOnClickListener {
+            val nextIntent = Intent(this, DeleteAccountBeforeActivity::class.java)
             startActivity(nextIntent)
         }
 

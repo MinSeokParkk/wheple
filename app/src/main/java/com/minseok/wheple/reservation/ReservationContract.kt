@@ -6,7 +6,8 @@ import com.minseok.wheple.base.BaseView
 interface ReservationContract {
 
     interface View : BaseView<Presenter> {
-        fun setRes(name:String, date: String, timeText: String, price:String, hour:String, totalprice:String, phone:String, point:String)
+        fun setRes(name:String, date: String, timeText: String, price:String, hour:String, totalprice:String,
+                   phone:String, point:String, username:String)
         fun otherscheck(check:Boolean)
         fun writePoint(point: String)
         fun setPrice(price:String)

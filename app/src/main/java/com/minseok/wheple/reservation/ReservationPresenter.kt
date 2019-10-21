@@ -82,8 +82,13 @@ class ReservationPresenter (private val view : ReservationContract.View): Reserv
 
         var totalprice = re.hour.toInt()*re.price.toInt()
 
+        var userName = re.username
+        if(re.username==null){
+            userName = ""
+        }
+
         view.setRes(re.name, date, timeText, NumberFormat.getNumberInstance(Locale.US).format(re.price.toInt()), re.hour,
-            NumberFormat.getNumberInstance(Locale.US).format(totalprice), re.phone,re.point)
+            NumberFormat.getNumberInstance(Locale.US).format(totalprice), re.phone,re.point, userName)
 
     }
 

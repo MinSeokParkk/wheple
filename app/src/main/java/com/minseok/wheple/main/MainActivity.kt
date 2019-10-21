@@ -8,14 +8,28 @@ import android.os.Handler
 import android.support.annotation.RequiresApi
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
 import com.minseok.wheple.*
 import com.minseok.wheple.HomeFragment
+import com.minseok.wheple.chatlist.ChatlistFragment
+import com.minseok.wheple.mypage.MypageFragment
+import com.minseok.wheple.search.SearchFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity(), MainContract.View {
     private lateinit var mPresenter : MainContract.Presenter
+
+    val fragment1 = HomeFragment()
+    val fragment2 = SearchFragment()
+    val fragment3 = ChatlistFragment()
+    val fragment4 = MypageFragment()
+    val fm = supportFragmentManager
+    var active:Fragment = fragment1
+
+
 
     override fun setPresenter(presenter: MainContract.Presenter) {
         this.mPresenter = presenter
@@ -24,10 +38,9 @@ class MainActivity : AppCompatActivity(), MainContract.View {
 
 
     override fun openFragment(fragment: Fragment) {
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.container, fragment)
-        transaction.addToBackStack(null)
-        transaction.commit()
+        val transaction = fm.beginTransaction()
+        transaction.hide(active).show(fragment).commit()
+        active = fragment
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,14 +50,13 @@ class MainActivity : AppCompatActivity(), MainContract.View {
 
 
         val bottomNavigation: BottomNavigationView = findViewById(R.id.nav_view)
-        bottomNavigation.setOnNavigationItemSelectedListener(mPresenter.navListener())
+        bottomNavigation.setOnNavigationItemSelectedListener(mPresenter.navListener(fragment1, fragment2, fragment3, fragment4))
 
+            fm.beginTransaction().add(R.id.container, fragment4).hide(fragment4).commit()
+            fm.beginTransaction().add(R.id.container, fragment3).hide(fragment3).commit()
+            fm.beginTransaction().add(R.id.container, fragment2).hide(fragment2).commit()
+            fm.beginTransaction().add(R.id.container, fragment1).commit()
 
-
-        if (savedInstanceState == null) { //기본은 homefragment로 한다.
-
-            supportFragmentManager.beginTransaction().replace(R.id.container, HomeFragment()).commit()
-        }
 
 
     }
@@ -61,6 +73,13 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         }
 
     }
+
+//    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+//        menuInflater.inflate(R.menu.bottom_nav_menu, menu)
+//        return super.onCreateOptionsMenu(menu)
+//    }
+
+
 
 }
 

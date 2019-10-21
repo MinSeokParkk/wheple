@@ -79,7 +79,8 @@ class ReservationActivity : AppCompatActivity(), ReservationContract.View{
         this.mPresenter = presenter
     }
 
-    override fun setRes(name:String, date: String, timeText: String, price:String, hour:String, totalprice:String, phone:String, point:String) {
+    override fun setRes(name:String, date: String, timeText: String, price:String, hour:String, totalprice:String,
+                        phone:String, point:String, username:String) {
         text_res_name.text = name
         text_res_date.text = date
         text_res_time.text = timeText
@@ -91,6 +92,7 @@ class ReservationActivity : AppCompatActivity(), ReservationContract.View{
         edit_res_point.hint = point+"P 보유"
         text_res_finalprice.text = totalprice+"원"
         button_gotopay.text = totalprice+"원 결제하기"
+        edit_res_name.setText(username)
 
     }
 

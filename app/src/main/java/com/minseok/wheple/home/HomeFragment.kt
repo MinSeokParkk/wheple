@@ -3,6 +3,7 @@ package com.minseok.wheple
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.app.AlertDialog
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
@@ -41,6 +42,15 @@ class HomeFragment : Fragment(), HomeContract.View {
 
         makeRecycler()
 
+        layout_filter_sports.setOnClickListener{
+            val mDialogView = LayoutInflater.from(this.context).inflate(R.layout.dialog_filter_sports, null)
+            val mBuilder = AlertDialog.Builder(this.context!!)
+                .setView(mDialogView)
+            val mAlertDialog = mBuilder.show()
+//            AlertDialog.window.setLayout(520, 510)  //다이얼로그 크기 조정하자
+        }
+
+
 
     }
 
@@ -67,6 +77,10 @@ class HomeFragment : Fragment(), HomeContract.View {
 
     override fun destroyRecycler() {
         recycler_home.layoutManager = null
+    }
+
+    override fun setPlaceNumber(string: String){
+        text_home_number.text = string
     }
 
 

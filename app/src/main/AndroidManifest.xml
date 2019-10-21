@@ -73,6 +73,10 @@
         <activity android:name=".myinfoPw.MyinfoPwActivity"
                   android:windowSoftInputMode="adjustResize"></activity>
 
+        <activity android:name=".deleteAccountBefore.DeleteAccountBeforeActivity"
+                  android:windowSoftInputMode="adjustResize" ></activity>
+        <activity android:name=".deleteAccountAgree.DeleteAccountAgreeActivity"></activity>
+
 
         <!-- 테스트 용-->
         <activity android:name=".test.TestActivity"></activity>

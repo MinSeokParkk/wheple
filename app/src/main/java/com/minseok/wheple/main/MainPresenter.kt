@@ -17,32 +17,36 @@ class MainPresenter (private val view : MainContract.View): MainContract.Present
         this.view.setPresenter(this)
     }
 
-    override fun navListener(): BottomNavigationView.OnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener {
+    override fun navListener(fragment1: HomeFragment, fragment2: SearchFragment,
+                             fragment3: ChatlistFragment, fragment4 : MypageFragment
+    ): BottomNavigationView.OnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener {
             menuItem ->
         val selectedFragment: Fragment
           when(menuItem.itemId){
             R.id.navigation_home -> {
 
-                    selectedFragment = HomeFragment()
-                    view.openFragment(selectedFragment)
+                    view.openFragment(fragment1)
+
                     return@OnNavigationItemSelectedListener true
 
 
             }
             R.id.navigation_search -> {
-                selectedFragment = SearchFragment()
-                view.openFragment(selectedFragment)
+                view.openFragment(fragment2)
+
                 return@OnNavigationItemSelectedListener true
+
+
             }
             R.id.navigation_chat -> {
-                selectedFragment = ChatlistFragment()
-                view.openFragment(selectedFragment)
+                view.openFragment(fragment3)
+
                 return@OnNavigationItemSelectedListener true
+
             }
             R.id.navigation_mypage -> {
+                view.openFragment(fragment4)
 
-                    selectedFragment = MypageFragment()
-                    view.openFragment(selectedFragment)
                     return@OnNavigationItemSelectedListener true
 
             }

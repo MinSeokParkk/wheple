@@ -10,7 +10,7 @@ import com.minseok.wheple.home.PlaceItem
 
 class PlaceAdapter : RecyclerView.Adapter<PlaceViewHolder>() {
 
-    private lateinit var itemsList:ArrayList<PlaceItem>
+    lateinit var itemsList:ArrayList<PlaceItem>
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PlaceViewHolder {

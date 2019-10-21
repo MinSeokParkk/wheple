@@ -10,6 +10,7 @@ interface HomeContract {
         fun connectAdapter()
         fun makeRecycler()
         fun destroyRecycler()
+        fun setPlaceNumber(string: String)
     }
 
     interface Presenter : BasePresenter {

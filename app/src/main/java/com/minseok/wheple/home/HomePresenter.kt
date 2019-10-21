@@ -55,6 +55,7 @@ class HomePresenter  (private val view : HomeContract.View): HomeContract.Presen
                 placeAdapter1.notifyAdapter()
 
                view.connectAdapter()
+               view.setPlaceNumber(placeAdapter1.itemsList.size.toString())
     }
 
     override fun clear(){ //테스트용

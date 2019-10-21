@@ -12,8 +12,7 @@
             android:state_checked="true"/>
     <item
             android:drawable="@drawable/radio_disabled"
-            android:state_enabled="false"
-        />
+            android:state_enabled="false" />
 
 
     <item
