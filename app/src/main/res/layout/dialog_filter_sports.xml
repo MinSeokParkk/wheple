@@ -9,14 +9,14 @@
         android:id="@+id/textView59"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="18dp"
         android:fontFamily="@font/fontawesome_webfont"
         android:text="\uf1e3"
         android:textColor="@color/black"
-        android:textSize="18dp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="13dp"
+        app:layout_constraintStart_toStartOf="@+id/checkBox6"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -25,10 +25,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
-        android:text="종목으로 선택"
+        android:layout_marginTop="14dp"
+        android:text="종목별 선택"
         android:textColor="@color/black"
-        android:textSize="17dp"
+        android:textSize="15dp"
         app:layout_constraintStart_toEndOf="@+id/textView59"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,32 +36,39 @@
         android:id="@+id/checkBox6"
         android:layout_width="65dp"
         android:layout_height="40dp"
-        android:layout_marginTop="19dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/checkbutton"
         android:button="@android:color/transparent"
         android:gravity="center"
         android:text="축구"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@drawable/check_text"
+        android:textSize="13dp"
         app:layout_constraintEnd_toStartOf="@+id/checkBox7"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView124" />
 
     <CheckBox
+        android:textSize="13dp"
         android:id="@+id/checkBox"
         android:layout_width="65dp"
         android:layout_height="40dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:background="@drawable/checkbutton"
         android:button="@android:color/transparent"
         android:gravity="center"
         android:text="농구"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@drawable/check_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/checkBox2"
         app:layout_constraintTop_toTopOf="@+id/checkBox2" />
 
     <CheckBox
+        android:textSize="13dp"
         android:id="@+id/checkBox2"
         android:layout_width="65dp"
         android:layout_height="40dp"
@@ -69,13 +76,14 @@
         android:button="@android:color/transparent"
         android:gravity="center"
         android:text="야구"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@drawable/check_text"
         app:layout_constraintEnd_toStartOf="@+id/checkBox"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/checkBox7"
         app:layout_constraintTop_toTopOf="@+id/checkBox7" />
 
     <CheckBox
+        android:textSize="13dp"
         android:id="@+id/checkBox4"
         android:layout_width="65dp"
         android:layout_height="40dp"
@@ -83,13 +91,14 @@
         android:button="@android:color/transparent"
         android:gravity="center"
         android:text="테니스"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@drawable/check_text"
         app:layout_constraintEnd_toStartOf="@+id/checkBox9"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/checkBox5"
         app:layout_constraintTop_toTopOf="@+id/checkBox5" />
 
     <CheckBox
+        android:textSize="13dp"
         android:id="@+id/checkBox9"
         android:layout_width="65dp"
         android:layout_height="40dp"
@@ -97,42 +106,50 @@
         android:button="@android:color/transparent"
         android:gravity="center"
         android:text="탁구"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@drawable/check_text"
         app:layout_constraintEnd_toStartOf="@+id/checkBox8"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/checkBox4"
         app:layout_constraintTop_toTopOf="@+id/checkBox4" />
 
     <CheckBox
+        android:textSize="13dp"
         android:id="@+id/checkBox8"
         android:layout_width="65dp"
         android:layout_height="40dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:background="@drawable/checkbutton"
         android:button="@android:color/transparent"
         android:gravity="center"
         android:text="배구"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@drawable/check_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/checkBox9"
         app:layout_constraintTop_toTopOf="@+id/checkBox9" />
 
     <CheckBox
+
         android:id="@+id/checkBox5"
         android:layout_width="65dp"
         android:layout_height="40dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="12dp"
         android:background="@drawable/checkbutton"
         android:button="@android:color/transparent"
         android:gravity="center"
         android:text="배드민턴"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@drawable/check_text"
+        android:textSize="13dp"
         app:layout_constraintEnd_toStartOf="@+id/checkBox4"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkBox6" />
 
     <CheckBox
+        android:textSize="13dp"
         android:id="@+id/checkBox7"
         android:layout_width="65dp"
         android:layout_height="40dp"
@@ -140,7 +157,7 @@
         android:button="@android:color/transparent"
         android:gravity="center"
         android:text="풋살"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@drawable/check_text"
         app:layout_constraintEnd_toStartOf="@+id/checkBox2"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/checkBox6"
@@ -149,25 +166,25 @@
     <View
         android:id="@+id/vie1sddsd3s"
         android:layout_width="wrap_content"
-        android:layout_height="3dp"
+        android:layout_height="6dp"
         android:background="@color/lightgrey"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayoutd"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/linearLayoutd"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="60dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkBox5">
 
         <TextView
-            android:id="@+id/textView157"
+            android:id="@+id/dialog_sports_cancel"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -175,7 +192,7 @@
             android:text="취소" />
 
         <TextView
-            android:id="@+id/textView156"
+            android:id="@+id/dialog_sports_apply"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -184,5 +201,17 @@
             android:text="적용"
             android:textColor="@color/white" />
     </LinearLayout>
+
+    <TextView
+        android:textSize="13dp"
+        android:id="@+id/textView152"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:text="중복 선택 가능합니다."
+        app:layout_constraintBottom_toBottomOf="@+id/textView124"
+        app:layout_constraintStart_toEndOf="@+id/textView124"
+        app:layout_constraintTop_toTopOf="@+id/textView124" />
 
 </android.support.constraint.ConstraintLayout>

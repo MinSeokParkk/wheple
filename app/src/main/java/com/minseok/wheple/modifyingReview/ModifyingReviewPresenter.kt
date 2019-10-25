@@ -100,10 +100,13 @@ class ModifyingReviewPresenter (private val view : ModifyingReviewContract.View)
 
             for (index in 0..wr_itemsList.size - 1) {
                 if(wr_itemsList[index].startsWith("http://")){
+                    println("새로운게 없어여ㅛ`~~~~")
                     val strs = wr_itemsList[index].split("/").toTypedArray()
 
-                    photo[index] = strs[3]+"/"+strs[4]
+                    photo[index] = strs[3]+"/"+strs[4]+"/"+strs[5]
+
                 }else{
+                    println("새로운게 있어여ㅛ`~~~~")
                     val timeStamp = SimpleDateFormat("yyyyMMddHHmmss").format(Date())
                     val file = File(view.getPath(Uri.parse(wr_itemsList[index])))
                     val rnds = Random().nextDouble().toString().replace(".","")

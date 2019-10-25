@@ -2,5 +2,89 @@
     <string name="app_name">wheple</string>
     <string name ="base_url">http://172.30.1.27:9999/</string>
     <string name="cancel_option">· 취소 규정이 적용되는 기준일은 입실일입니다.\n\n· 취소수수료는 판매금액을 기준으로 계산됩니다.\n\n· 취소수수료 계산 기준\n\n· PG사를 통한 현금 결제금액 → 포인트 사용금액 순으로 차감\n   처리 됩니다.\n\n· 취소수수료 금액이 실 결제금액(현금/PG 결제금액 + 포인트\n   사용금액)을 초과 발생하는 경우, 초과 수수료금액에 대한 추가\n   청구는 없습니다.\n\n· 연박 예약건의 취소 시, 취소일시를 기준으로 일할 계산됩니다.\n\n· 예약정보 변경을 위한 결제 취소 시에도 취소수수료가\n   부과됩니다.\n\n\n  [사용한 쿠폰의 반환]\n\n· 결제 시 사용한 쿠폰은 해당 쿠폰의 사용 유효기간이 남아있는\n   경우, 취소수수료 발생 여부와 무관하게 반환됩니다.\n\n\n  [취소 불가 사항]\n\n· 입실시간 경과 (No-Show 포함)또는 실제 입실이 발생한 경우\n\n※ No-Show : 사전 연락없이 예약된 숙소를 이용하지 않음 </string>
+
+
+    <string-array name = "spinner_loc">
+        <item>전체</item>
+        <item>서울</item>
+        <item>인천</item>
+        <item>경기</item>
+    </string-array>
+
+    <string-array name = "spinner_loc_seoul">
+        <item>서울 전체</item>
+        <item>강남구</item>
+        <item>강남구</item>
+        <item>강동구</item>
+        <item>강북구</item>
+        <item>강서구</item>
+        <item>관악구</item>
+        <item>광진구</item>
+        <item>구로구</item>
+        <item>금천구</item>
+        <item>노원구</item>
+        <item>도봉구</item>
+        <item>동대문구</item>
+        <item>동작구</item>
+        <item>마포구</item>
+        <item>서대문구</item>
+        <item>서초구</item>
+        <item>성동구</item>
+        <item>성북구</item>
+        <item>송파구</item>
+        <item>양천구</item>
+        <item>영등포구</item>
+        <item>용산구</item>
+        <item>은평구</item>
+        <item>종로구</item>
+        <item>중구</item>
+        <item>중랑구</item>
+   </string-array>
+
+    <string-array name = "spinner_loc_incheon">
+        <item>인천 전체</item>
+        <item>강화군</item>
+        <item>계양구</item>
+        <item>남동구</item>
+        <item>동구</item>
+        <item>미추홀구</item>
+        <item>부평구</item>
+        <item>서구</item>
+        <item>연수구</item>
+        <item>옹진군</item>
+        <item>중구</item>
+    </string-array>
+    
+    <string-array name="spinner_loc_gg">
+        <item>경기 전체</item>
+        <item>고양시</item>
+        <item>과천시</item>
+        <item>광명시</item>
+        <item>광주시</item>
+        <item>구리시</item>
+        <item>군포시</item>
+        <item>김포시</item>
+        <item>남양주시</item>
+        <item>동두천시</item>
+        <item>부천시</item>
+        <item>성남시</item>
+        <item>수원시</item>
+        <item>시흥시</item>
+        <item>안산시</item>
+        <item>안성시</item>
+        <item>안양시</item>
+        <item>양주시</item>
+        <item>여주시</item>
+        <item>오산시</item>
+        <item>용인시</item>
+        <item>의왕시</item>
+        <item>의정부시</item>
+        <item>이천시</item>
+        <item>파주시</item>
+        <item>평택시</item>
+        <item>포천시</item>
+        <item>하남시</item>
+        <item>화성시</item>
+    </string-array>
 </resources>
 

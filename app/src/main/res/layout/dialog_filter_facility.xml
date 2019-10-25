@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="320dp"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/textView153"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="18dp"
+        android:fontFamily="@font/fontawesome_webfont"
+        android:text="\uf1ad"
+        android:textColor="@color/black"
+        android:textSize="13dp"
+        app:layout_constraintStart_toStartOf="@+id/checkBox6sd"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView156"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="14dp"
+        android:text="편의시설별 선택"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        app:layout_constraintStart_toEndOf="@+id/textView153"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView157"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:text="중복 선택 가능합니다."
+        android:textSize="13dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView156"
+        app:layout_constraintStart_toEndOf="@+id/textView156"
+        app:layout_constraintTop_toTopOf="@+id/textView156" />
+
+    <CheckBox
+        android:id="@+id/checkBox6sd"
+        android:layout_width="65dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/checkbutton"
+        android:button="@android:color/transparent"
+        android:gravity="center"
+        android:text="주차"
+        android:textColor="@drawable/check_text"
+        android:textSize="13dp"
+        app:layout_constraintEnd_toStartOf="@+id/checkBox6sd2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView156" />
+
+    <CheckBox
+        android:id="@+id/checkBox6sd2"
+        android:layout_width="65dp"
+        android:layout_height="40dp"
+        android:background="@drawable/checkbutton"
+        android:button="@android:color/transparent"
+        android:gravity="center"
+        android:text="샤워"
+        android:textColor="@drawable/check_text"
+        android:textSize="13dp"
+        app:layout_constraintEnd_toStartOf="@+id/checkBox6sd4"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/checkBox6sd"
+        app:layout_constraintTop_toTopOf="@+id/checkBox6sd" />
+
+    <CheckBox
+        android:id="@+id/checkBox6sd4"
+        android:layout_width="65dp"
+        android:layout_height="40dp"
+        android:background="@drawable/checkbutton"
+        android:button="@android:color/transparent"
+        android:gravity="center"
+        android:text="냉방"
+        android:textColor="@drawable/check_text"
+        android:textSize="13dp"
+        app:layout_constraintEnd_toStartOf="@+id/checkBox6sd5"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/checkBox6sd2"
+        app:layout_constraintTop_toTopOf="@+id/checkBox6sd2" />
+
+
+    <CheckBox
+        android:id="@+id/checkBox6sd5"
+        android:layout_width="65dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/checkbutton"
+        android:button="@android:color/transparent"
+        android:gravity="center"
+        android:text="난방"
+        android:textColor="@drawable/check_text"
+        android:textSize="13dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/checkBox6sd4"
+        app:layout_constraintTop_toTopOf="@+id/checkBox6sd4" />
+
+    <View
+        android:id="@+id/vie1sddsd3s"
+        android:layout_width="wrap_content"
+        android:layout_height="6dp"
+        android:background="@color/lightgrey"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayoutd2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayoutd2"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox6sd">
+
+        <TextView
+            android:id="@+id/dialog_facility_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="취소" />
+
+        <TextView
+            android:id="@+id/dialog_facility_apply"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:text="적용"
+            android:textColor="@color/white" />
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
