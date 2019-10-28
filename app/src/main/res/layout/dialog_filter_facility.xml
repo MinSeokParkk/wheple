@@ -16,7 +16,7 @@
         android:text="\uf1ad"
         android:textColor="@color/black"
         android:textSize="13dp"
-        app:layout_constraintStart_toStartOf="@+id/checkBox6sd"
+        app:layout_constraintStart_toStartOf="@+id/check_parking"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -26,7 +26,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="14dp"
-        android:text="편의시설별 선택"
+        android:text="편의시설 선택"
         android:textColor="@color/black"
         android:textSize="15dp"
         app:layout_constraintStart_toEndOf="@+id/textView153"
@@ -38,14 +38,14 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:text="중복 선택 가능합니다."
+        android:text="필요한 편의시설을 선택해주세요."
         android:textSize="13dp"
         app:layout_constraintBottom_toBottomOf="@+id/textView156"
         app:layout_constraintStart_toEndOf="@+id/textView156"
         app:layout_constraintTop_toTopOf="@+id/textView156" />
 
     <CheckBox
-        android:id="@+id/checkBox6sd"
+        android:id="@+id/check_parking"
         android:layout_width="65dp"
         android:layout_height="40dp"
         android:layout_marginStart="16dp"
@@ -57,13 +57,13 @@
         android:text="주차"
         android:textColor="@drawable/check_text"
         android:textSize="13dp"
-        app:layout_constraintEnd_toStartOf="@+id/checkBox6sd2"
+        app:layout_constraintEnd_toStartOf="@+id/check_shower"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView156" />
 
     <CheckBox
-        android:id="@+id/checkBox6sd2"
+        android:id="@+id/check_shower"
         android:layout_width="65dp"
         android:layout_height="40dp"
         android:background="@drawable/checkbutton"
@@ -72,13 +72,13 @@
         android:text="샤워"
         android:textColor="@drawable/check_text"
         android:textSize="13dp"
-        app:layout_constraintEnd_toStartOf="@+id/checkBox6sd4"
+        app:layout_constraintEnd_toStartOf="@+id/check_cooling"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/checkBox6sd"
-        app:layout_constraintTop_toTopOf="@+id/checkBox6sd" />
+        app:layout_constraintStart_toEndOf="@+id/check_parking"
+        app:layout_constraintTop_toTopOf="@+id/check_parking" />
 
     <CheckBox
-        android:id="@+id/checkBox6sd4"
+        android:id="@+id/check_cooling"
         android:layout_width="65dp"
         android:layout_height="40dp"
         android:background="@drawable/checkbutton"
@@ -87,14 +87,14 @@
         android:text="냉방"
         android:textColor="@drawable/check_text"
         android:textSize="13dp"
-        app:layout_constraintEnd_toStartOf="@+id/checkBox6sd5"
+        app:layout_constraintEnd_toStartOf="@+id/check_heating"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/checkBox6sd2"
-        app:layout_constraintTop_toTopOf="@+id/checkBox6sd2" />
+        app:layout_constraintStart_toEndOf="@+id/check_shower"
+        app:layout_constraintTop_toTopOf="@+id/check_shower" />
 
 
     <CheckBox
-        android:id="@+id/checkBox6sd5"
+        android:id="@+id/check_heating"
         android:layout_width="65dp"
         android:layout_height="40dp"
         android:layout_marginEnd="16dp"
@@ -107,8 +107,8 @@
         android:textSize="13dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/checkBox6sd4"
-        app:layout_constraintTop_toTopOf="@+id/checkBox6sd4" />
+        app:layout_constraintStart_toEndOf="@+id/check_cooling"
+        app:layout_constraintTop_toTopOf="@+id/check_cooling" />
 
     <View
         android:id="@+id/vie1sddsd3s"
@@ -127,7 +127,7 @@
         android:layout_marginTop="60dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox6sd">
+        app:layout_constraintTop_toBottomOf="@+id/check_parking">
 
         <TextView
             android:id="@+id/dialog_facility_cancel"

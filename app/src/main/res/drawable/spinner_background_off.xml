@@ -4,22 +4,22 @@
         <item>
             <shape>
                 <solid
-                        android:color="@color/white">
+                    android:color="@color/white">
                 </solid>
 
                 <corners android:radius="2dp" />
 
                 <padding
-                        android:right="10dp"
-                        />
+                    android:right="10dp"
+                    />
                 <stroke
-                        android:width="1dp"
-                        android:color="@color/grey"/>
+                    android:width="1dp"
+                    android:color="@color/lightgrey"/>
             </shape>
         </item>
         <item >
             <bitmap android:gravity="center_vertical|right"
-                    android:src="@drawable/icon_drop_down_arrow" />
+                android:src="@drawable/icon_drop_down_arrow_grey" />
         </item>
     </layer-list></item>
 </selector>

@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="46dp" />
+
+    <ImageView
+        android:id="@+id/img_fil_back"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/icon_back" />
+
+    <TextView
+        android:textSize="18dp"
+        android:textColor="@color/black"
+        android:id="@+id/textView161"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="필터"
+        app:layout_constraintBottom_toTopOf="@+id/guideline24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:gravity="center"
+        android:id="@+id/text_filter_reset"
+        android:layout_width="45dp"
+        android:layout_height="25dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:text="초기화"
+        app:layout_constraintBottom_toTopOf="@+id/guideline24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scrollView4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="24dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@+id/button_filter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline24"
+        app:layout_constraintVertical_bias="1.0">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView166"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="14dp"
+                android:text="종목별 선택"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                app:layout_constraintStart_toEndOf="@+id/textView165"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView167"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:text="중복 선택이 가능합니다."
+                android:textSize="13dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView166"
+                app:layout_constraintStart_toEndOf="@+id/textView166"
+                app:layout_constraintTop_toTopOf="@+id/textView166" />
+
+            <TextView
+                android:id="@+id/textView165"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/fontawesome_webfont"
+                android:text="\uf1e3"
+                android:textColor="@color/black"
+                android:textSize="13dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <CheckBox
+                android:id="@+id/Fcheck_soccer"
+                android:layout_width="65dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/checkbutton"
+                android:button="@android:color/transparent"
+                android:gravity="center"
+                android:text="축구"
+                android:textColor="@drawable/check_text"
+                android:textSize="13dp"
+                app:layout_constraintEnd_toStartOf="@+id/Fcheck_futsal"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView166" />
+
+            <CheckBox
+                android:id="@+id/Fcheck_futsal"
+                android:layout_width="65dp"
+                android:layout_height="40dp"
+                android:background="@drawable/checkbutton"
+                android:button="@android:color/transparent"
+                android:gravity="center"
+                android:text="풋살"
+                android:textColor="@drawable/check_text"
+                android:textSize="13dp"
+                app:layout_constraintEnd_toStartOf="@+id/Fcheck_baseball"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/Fcheck_soccer"
+                app:layout_constraintTop_toTopOf="@+id/Fcheck_soccer" />
+
+            <CheckBox
+                android:id="@+id/Fcheck_basketball"
+                android:layout_width="65dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginRight="32dp"
+                android:background="@drawable/checkbutton"
+                android:button="@android:color/transparent"
+                android:gravity="center"
+                android:text="농구"
+                android:textColor="@drawable/check_text"
+                android:textSize="13dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/Fcheck_baseball"
+                app:layout_constraintTop_toTopOf="@+id/Fcheck_baseball" />
+
+            <CheckBox
+                android:id="@+id/Fcheck_baseball"
+                android:layout_width="65dp"
+                android:layout_height="40dp"
+                android:background="@drawable/checkbutton"
+                android:button="@android:color/transparent"
+                android:gravity="center"
+                android:text="야구"
+                android:textColor="@drawable/check_text"
+                android:textSize="13dp"
+                app:layout_constraintEnd_toStartOf="@+id/Fcheck_basketball"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/Fcheck_futsal"
+                app:layout_constraintTop_toTopOf="@+id/Fcheck_futsal" />
+
+            <CheckBox
+                android:id="@+id/Fcheck_badminton"
+                android:layout_width="65dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/checkbutton"
+                android:button="@android:color/transparent"
+                android:gravity="center"
+                android:text="배드민턴"
+                android:textColor="@drawable/check_text"
+                android:textSize="13dp"
+                app:layout_constraintEnd_toStartOf="@+id/Fcheck_tennis"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Fcheck_soccer" />
+
+            <CheckBox
+                android:id="@+id/Fcheck_pingpong"
+                android:layout_width="65dp"
+                android:layout_height="40dp"
+                android:background="@drawable/checkbutton"
+                android:button="@android:color/transparent"
+                android:gravity="center"
+                android:text="탁구"
+                android:textColor="@drawable/check_text"
+                android:textSize="13dp"
+                app:layout_constraintEnd_toStartOf="@+id/Fcheck_volleyball"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/Fcheck_tennis"
+                app:layout_constraintTop_toTopOf="@+id/Fcheck_tennis" />
+
+            <CheckBox
+                android:id="@+id/Fcheck_volleyball"
+                android:layout_width="65dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginRight="32dp"
+                android:background="@drawable/checkbutton"
+                android:button="@android:color/transparent"
+                android:gravity="center"
+                android:text="배구"
+                android:textColor="@drawable/check_text"
+                android:textSize="13dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/Fcheck_pingpong"
+                app:layout_constraintTop_toTopOf="@+id/Fcheck_pingpong" />
+
+            <CheckBox
+                android:id="@+id/Fcheck_tennis"
+                android:layout_width="65dp"
+                android:layout_height="40dp"
+                android:background="@drawable/checkbutton"
+                android:button="@android:color/transparent"
+                android:gravity="center"
+                android:text="테니스"
+                android:textColor="@drawable/check_text"
+                android:textSize="13dp"
+                app:layout_constraintEnd_toStartOf="@+id/Fcheck_pingpong"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/Fcheck_badminton"
+                app:layout_constraintTop_toTopOf="@+id/Fcheck_badminton" />
+
+            <View
+                android:id="@+id/vie1sddsd3s"
+                android:layout_width="wrap_content"
+                android:layout_height="2dp"
+                android:layout_marginTop="32dp"
+                android:background="@color/lightgrey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Fcheck_tennis" />
+
+            <TextView
+                android:id="@+id/textView168"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/fontawesome_webfont"
+                android:text="\uf1ad"
+                android:textColor="@color/black"
+                android:textSize="13dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/vie1sddsd3s" />
+
+            <TextView
+                android:id="@+id/textView169"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="14dp"
+                android:text="편의시설 선택"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                app:layout_constraintStart_toEndOf="@+id/textView168"
+                app:layout_constraintTop_toBottomOf="@+id/vie1sddsd3s" />
+
+            <TextView
+                android:id="@+id/textView170"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:text="필요한 편의시설을 선택해주세요."
+                android:textSize="13dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView169"
+                app:layout_constraintStart_toEndOf="@+id/textView169"
+                app:layout_constraintTop_toTopOf="@+id/textView169" />
+
+            <CheckBox
+                android:id="@+id/Fcheck_parking"
+                android:layout_width="65dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/checkbutton"
+                android:button="@android:color/transparent"
+                android:gravity="center"
+                android:text="주차"
+                android:textColor="@drawable/check_text"
+                android:textSize="13dp"
+                app:layout_constraintEnd_toStartOf="@+id/Fcheck_shower"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView169" />
+
+            <CheckBox
+                android:id="@+id/Fcheck_heating"
+                android:layout_width="65dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginRight="32dp"
+                android:background="@drawable/checkbutton"
+                android:button="@android:color/transparent"
+                android:gravity="center"
+                android:text="난방"
+                android:textColor="@drawable/check_text"
+                android:textSize="13dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/Fcheck_cooling"
+                app:layout_constraintTop_toTopOf="@+id/Fcheck_cooling" />
+
+            <CheckBox
+                android:id="@+id/Fcheck_shower"
+                android:layout_width="65dp"
+                android:layout_height="40dp"
+                android:background="@drawable/checkbutton"
+                android:button="@android:color/transparent"
+                android:gravity="center"
+                android:text="샤워"
+                android:textColor="@drawable/check_text"
+                android:textSize="13dp"
+                app:layout_constraintEnd_toStartOf="@+id/Fcheck_cooling"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/Fcheck_parking"
+                app:layout_constraintTop_toTopOf="@+id/Fcheck_parking" />
+
+            <CheckBox
+                android:id="@+id/Fcheck_cooling"
+                android:layout_width="65dp"
+                android:layout_height="40dp"
+                android:background="@drawable/checkbutton"
+                android:button="@android:color/transparent"
+                android:gravity="center"
+                android:text="냉방"
+                android:textColor="@drawable/check_text"
+                android:textSize="13dp"
+                app:layout_constraintEnd_toStartOf="@+id/Fcheck_heating"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/Fcheck_shower"
+                app:layout_constraintTop_toTopOf="@+id/Fcheck_shower" />
+
+            <View
+                android:id="@+id/vie1sddsd3s2"
+                android:layout_width="wrap_content"
+                android:layout_height="2dp"
+                android:layout_marginTop="32dp"
+                android:background="@color/lightgrey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Fcheck_shower" />
+
+            <TextView
+                android:id="@+id/textView171"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/fontawesome_webfont"
+                android:text="\uf041"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/vie1sddsd3s2" />
+
+            <TextView
+                android:id="@+id/textView172"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="14dp"
+                android:text="지역별 선택"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                app:layout_constraintStart_toEndOf="@+id/textView171"
+                app:layout_constraintTop_toBottomOf="@+id/vie1sddsd3s2" />
+
+            <Spinner
+                android:id="@+id/Fspinner_loc1"
+                android:layout_width="130dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/spinner_background"
+                android:dropDownWidth="130dp"
+                app:layout_constraintEnd_toStartOf="@+id/Fspinner_loc2"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView172" />
+
+            <Spinner
+                android:id="@+id/Fspinner_loc2"
+                android:layout_width="130dp"
+                android:layout_height="45dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginRight="32dp"
+                android:background="@drawable/spinner_background"
+                android:dropDownWidth="130dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/Fspinner_loc1"
+                app:layout_constraintTop_toTopOf="@+id/Fspinner_loc1" />
+
+
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/button_filter"
+        android:layout_width="330dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/button_on"
+        android:text="적용"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

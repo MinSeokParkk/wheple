@@ -75,7 +75,10 @@
 
         <activity android:name=".deleteAccountBefore.DeleteAccountBeforeActivity"
                   android:windowSoftInputMode="adjustResize" ></activity>
+
         <activity android:name=".deleteAccountAgree.DeleteAccountAgreeActivity"></activity>
+
+        <activity android:name=".filter.FilterActivity"></activity>
 
 
         <!-- 테스트 용-->
