@@ -1,22 +1,21 @@
 package com.minseok.wheple
 
 
+import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Typeface
 import android.os.Build
 import android.os.Bundle
-import android.support.annotation.RequiresApi
-import android.support.v4.app.Fragment
-import android.support.v7.app.AlertDialog
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.annotation.RequiresApi
+import androidx.fragment.app.Fragment
+import androidx.appcompat.app.AlertDialog
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.CheckBox
-import android.widget.Spinner
+import android.widget.*
 import com.minseok.wheple.filter.FilterActivity
 import com.minseok.wheple.home.HomeContract
 import com.minseok.wheple.home.HomePresenter
@@ -26,6 +25,7 @@ import kotlinx.android.synthetic.main.dialog_filter_facility.*
 import kotlinx.android.synthetic.main.dialog_filter_location.*
 import kotlinx.android.synthetic.main.dialog_filter_location.view.*
 import kotlinx.android.synthetic.main.dialog_filter_sports.*
+import kotlinx.android.synthetic.main.dialog_home_sort.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import java.lang.Exception
 import java.lang.reflect.AccessibleObject.setAccessible
@@ -34,11 +34,15 @@ import java.lang.reflect.AccessibleObject.setAccessible
 
 
 
-class HomeFragment : Fragment(), HomeContract.View {
+class HomeFragment : androidx.fragment.app.Fragment(), HomeContract.View {
 
     private lateinit var mPresenter : HomeContract.Presenter
 
-    private val linearLayoutManager by lazy { LinearLayoutManager(context) }
+    private val linearLayoutManager by lazy {
+        androidx.recyclerview.widget.LinearLayoutManager(
+            context
+        )
+    }
     private lateinit var placeAdapter: PlaceAdapter
 
 
@@ -58,6 +62,8 @@ class HomeFragment : Fragment(), HomeContract.View {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        //기본 정렬 텍스트 만들기
+        mPresenter.setSort()
 
         makeRecycler()
 
@@ -67,6 +73,7 @@ class HomeFragment : Fragment(), HomeContract.View {
             val mBuilder = AlertDialog.Builder(this.context!!)
                 .setView(mDialogView)
             val mAlertDialog = mBuilder.show()
+
 
             //기존 조건에 맞게 체크박스 세팅
             mPresenter.setfilter_sports(mAlertDialog.check_soccer, mAlertDialog.check_futsal, mAlertDialog.check_baseball, mAlertDialog.check_basketball,
@@ -196,6 +203,75 @@ class HomeFragment : Fragment(), HomeContract.View {
             }
         }
 
+        layout_home_sort.setOnClickListener {
+            val mDialogView = LayoutInflater.from(this.context).inflate(R.layout.dialog_home_sort, null)
+            val mBuilder = AlertDialog.Builder(this.context!!)
+                .setView(mDialogView)
+            val mAlertDialog = mBuilder.show()
+
+            mAlertDialog.window.setLayout(520, 600)
+
+            //기존 선택되어있는 정렬 text 색 다르게 나오게 세팅
+            mPresenter.basicSort(mAlertDialog.text_sort_rating, mAlertDialog.text_sort_review,
+                                 mAlertDialog.text_sort_cheap, mAlertDialog.text_sort_expensive)
+
+            mAlertDialog.const_sort_rating.setOnClickListener {
+                mPresenter.sortSelected("별점순")
+
+                destroyRecycler()
+                makeRecycler()
+
+                mAlertDialog.dismiss()
+            }
+
+            mAlertDialog.const_sort_review.setOnClickListener {
+                mPresenter.sortSelected("리뷰 많은순")
+
+                destroyRecycler()
+                makeRecycler()
+
+                mAlertDialog.dismiss()
+            }
+
+            mAlertDialog.const_sort_cheap.setOnClickListener {
+                mPresenter.sortSelected("가격 낮은순")
+
+                destroyRecycler()
+                makeRecycler()
+
+                mAlertDialog.dismiss()
+            }
+
+            mAlertDialog.const_sort_expensive.setOnClickListener {
+                mPresenter.sortSelected("가격 높은순")
+
+                destroyRecycler()
+                makeRecycler()
+
+                mAlertDialog.dismiss()
+            }
+
+            mAlertDialog.const_sort__cancel.setOnClickListener {
+                mAlertDialog.dismiss()
+            }
+        }
+
+        img_logo.setOnClickListener {
+
+        }
+
+        recycler_home.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                super.onScrollStateChanged(recyclerView, newState)
+                if(!recycler_home.canScrollVertically(1)) {
+                    // 최하단
+                    println("아래로 드래그!!!!!!!!!!!!!!!!!!!!!")
+                    mPresenter.paging(placeAdapter)
+                }
+            }
+
+        })
+
 
     }
 
@@ -230,11 +306,13 @@ class HomeFragment : Fragment(), HomeContract.View {
     }
 
     override fun destroyRecycler() {
+        mPresenter.page0()
         recycler_home.layoutManager = null
     }
 
-    override fun setPlaceNumber(string: String){
-        text_home_number.text = string
+
+    override fun setPlaceNumber(num:Int){
+        text_home_number.text = num.toString()
     }
 
 
@@ -332,5 +410,16 @@ class HomeFragment : Fragment(), HomeContract.View {
             img_home_nothing.visibility = View.GONE
             text_home_nothing.visibility = View.GONE
         }
+    }
+
+
+    override fun sortTextChange(textview:TextView){
+        textview.setTextColor(resources.getColor(R.color.colorPrimary))
+        textview.setTypeface(null, Typeface.BOLD)
+
+    }
+
+    override fun setSortText(text:String){
+        text_home_sort.text = text
     }
 }

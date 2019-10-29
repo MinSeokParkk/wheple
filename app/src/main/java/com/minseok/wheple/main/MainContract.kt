@@ -1,7 +1,7 @@
 package com.minseok.wheple.main
 
-import android.support.design.widget.BottomNavigationView
-import android.support.v4.app.Fragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import androidx.fragment.app.Fragment
 import com.minseok.wheple.HomeFragment
 import com.minseok.wheple.base.BasePresenter
 import com.minseok.wheple.base.BaseView
@@ -12,7 +12,7 @@ import com.minseok.wheple.search.SearchFragment
 interface MainContract {
 
     interface View : BaseView<Presenter> {
-        fun openFragment(fragment: Fragment)
+        fun openFragment(fragment: androidx.fragment.app.Fragment)
     }
 
     interface Presenter : BasePresenter {

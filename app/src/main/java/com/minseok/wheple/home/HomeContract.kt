@@ -1,6 +1,7 @@
 package com.minseok.wheple.home
 
 import android.widget.CheckBox
+import android.widget.TextView
 import com.minseok.wheple.base.BasePresenter
 import com.minseok.wheple.base.BaseView
 import com.minseok.wheple.home.adapter.PlaceAdapter
@@ -11,7 +12,7 @@ interface HomeContract {
         fun connectAdapter()
         fun makeRecycler()
         fun destroyRecycler()
-        fun setPlaceNumber(string: String)
+        fun setPlaceNumber(num:Int)
         fun set_sports(c1: CheckBox, c2: CheckBox, c3: CheckBox, c4: CheckBox,
                       c5:CheckBox, c6:CheckBox, c7:CheckBox, c8:CheckBox,
                       soccer:Boolean, futsal:Boolean, baseball:Boolean, basketball:Boolean,
@@ -23,6 +24,8 @@ interface HomeContract {
         fun filter_locationBack(change:Boolean)
         fun homefilter_Back(change:Boolean)
         fun showNothing(itemsize:Int)
+        fun sortTextChange(textview: TextView)
+        fun setSortText(text:String)
     }
 
     interface Presenter : BasePresenter {
@@ -42,6 +45,12 @@ interface HomeContract {
         fun set_facilityBack()
         fun set_locationBack()
         fun set_homefilterBack()
+        fun setSort()
+        fun basicSort(rating:TextView, review:TextView, cheap:TextView, expensive:TextView)
+        fun sortSelected(sort:String)
+
+        fun paging(placeAdapter: PlaceAdapter)
+        fun page0()
 
      }
 }

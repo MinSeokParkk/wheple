@@ -7,10 +7,10 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
-import android.support.v4.app.ActivityCompat
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.helper.ItemTouchHelper
+import androidx.core.app.ActivityCompat
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.ItemTouchHelper
 import android.widget.Toast
 import com.minseok.wheple.Gallery
 import com.minseok.wheple.reviewEditorPhotoadapter.DragManageAdapter
@@ -24,7 +24,13 @@ import kotlinx.android.synthetic.main.activity_review_writer.*
 class WritingReviewActivity  : AppCompatActivity(), WritingReviewContract.View {
     private lateinit var mPresenter: WritingReviewContract.Presenter
 
-    private val linearLayoutManager by lazy { LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false) }
+    private val linearLayoutManager by lazy {
+        androidx.recyclerview.widget.LinearLayoutManager(
+            this,
+            androidx.recyclerview.widget.LinearLayoutManager.HORIZONTAL,
+            false
+        )
+    }
     private lateinit var writingReviewPhotoAdapter: ReviewEditorPhotoAdapter
 
     override fun setPresenter(presenter: WritingReviewContract.Presenter) {

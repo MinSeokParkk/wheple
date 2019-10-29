@@ -7,10 +7,10 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
-import android.support.v4.app.ActivityCompat
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.helper.ItemTouchHelper
+import androidx.core.app.ActivityCompat
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.ItemTouchHelper
 import android.widget.Toast
 import com.minseok.wheple.Gallery
 import com.minseok.wheple.R
@@ -23,7 +23,13 @@ import kotlinx.android.synthetic.main.activity_review_writer.*
 class ModifyingReviewActivity :AppCompatActivity(), ModifyingReviewContract.View {
     private lateinit var mPresenter:ModifyingReviewContract.Presenter
 
-    private val linearLayoutManager by lazy { LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false) }
+    private val linearLayoutManager by lazy {
+        androidx.recyclerview.widget.LinearLayoutManager(
+            this,
+            androidx.recyclerview.widget.LinearLayoutManager.HORIZONTAL,
+            false
+        )
+    }
     private lateinit var modifyingReviewPhotoAdapter: ReviewEditorPhotoAdapter
 
     override fun setPresenter(presenter: ModifyingReviewContract.Presenter) {
@@ -41,6 +47,8 @@ class ModifyingReviewActivity :AppCompatActivity(), ModifyingReviewContract.View
 
         gallery = Gallery()
 
+
+
         img_rev_writer_back.setOnClickListener {
             onBackPressed()
         }
@@ -49,6 +57,7 @@ class ModifyingReviewActivity :AppCompatActivity(), ModifyingReviewContract.View
 
 
         text_rev_writer_subject.text = "리뷰 수정하기"
+        button_rev_writer_sending.text = "수정하기"
 
         rating_rev_writer.setOnRatingBarChangeListener { ratingBar, rating, fromUser ->
             if (rating < 0.5f) {

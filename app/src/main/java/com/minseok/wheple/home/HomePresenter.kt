@@ -2,7 +2,9 @@ package com.minseok.wheple.home
 
 
 import android.widget.CheckBox
+import android.widget.TextView
 import com.minseok.wheple.Filter_data
+import com.minseok.wheple.Sort_data
 import com.minseok.wheple.home.adapter.PlaceAdapter
 import com.minseok.wheple.retrofit.APIService
 import com.minseok.wheple.retrofit.Result
@@ -21,6 +23,8 @@ class HomePresenter  (private val view : HomeContract.View): HomeContract.Presen
     var disposable: Disposable? = null
 
     val fildataClass = Filter_data()
+    val sortClass = Sort_data()
+    val pg = HomePaging()
 
 
     init {
@@ -51,7 +55,9 @@ class HomePresenter  (private val view : HomeContract.View): HomeContract.Presen
                 "\"shower\" : \""+Filter_data.shower+"\", \r\n" +
                 "\"cooling\" : \""+Filter_data.cooling+"\", \r\n" +
                 "\"heating\" : \""+Filter_data.heating+"\", \r\n" +
-                "\"loc\" : \""+loc+"\"}"
+                "\"loc\" : \""+loc+"\", \r\n" +
+                "\"start\" : \""+pg.start+"\", \r\n" +
+                "\"sort\" : \""+sortClass.sort+"\"}"
         println("sending ===   " + sending)
         disposable =
             apiService.connect_server("placelist.php", sending)
@@ -68,14 +74,49 @@ class HomePresenter  (private val view : HomeContract.View): HomeContract.Presen
 
     fun showResult(places: Result.Connectresult ){
 
-                placeAdapter1.addItems(places.places)
-                placeAdapter1.notifyAdapter()
 
-               view.connectAdapter()
-               view.setPlaceNumber(placeAdapter1.itemsList.size.toString())
-                view.showNothing(placeAdapter1.itemsList.size)
+        if(pg.start==0){ //아이템이 새로 불러와질때
 
+            placeAdapter1.addItems(places.places)
+            placeAdapter1.notifyAdapter()
 
+            view.connectAdapter()
+            pg.size = 0 //아이템 사이즈는 0으로 초기화
+            if(places.places.size>0){ //아이템이 아예 없으면 places.places 가 아예 없다.. 그래서 확인차
+                pg.size = places.places[0].num.toInt()
+            }
+            view.setPlaceNumber(pg.size)
+
+            view.showNothing(pg.size)
+        }else{ // 페이징을 통해서 아이템이 불러와질때
+            placeAdapter1.removeLoadingFooter()
+
+          placeAdapter1.newItems(places.places)
+
+        }
+
+        pg.isloading = false
+    }
+
+    override fun paging(placeAdapter: PlaceAdapter){
+        if(!pg.isloading) {
+            pg.isloading = true
+            pg.start = pg.start + 2 // 2는  한번에 보여주는 개수
+            if (pg.size > pg.start) { // size(아이템의 전체 사이즈)가 start(새로 시작하는 아이템의 position)보다 작으면 더이상 페이징 되지 않는다.
+
+                placeAdapter.addLoadingFooter()
+
+                getlist(placeAdapter)
+
+            } else {
+                println("더이상 가져올게 없다...")
+            }
+        }
+
+    }
+
+    override fun page0(){ //필터를 사용하거나, 정렬을 사용하면 아이템은 다시 0부터 시작된다.
+        pg.start =0
     }
 
     override fun clear(){ //테스트용
@@ -152,7 +193,28 @@ class HomePresenter  (private val view : HomeContract.View): HomeContract.Presen
         view.homefilter_Back(change)
     }
 
+    override fun setSort(){
+        view.setSortText(sortClass.sort)
+    }
 
+    override fun basicSort(rating: TextView, review: TextView, cheap: TextView, expensive: TextView){
+        val num = sortClass.changedsort(sortClass.sort)
+        if(num == 1){
+            view.sortTextChange(rating)
+        }else if(num ==2){
+            view.sortTextChange(review)
+        }else if(num == 3){
+            view.sortTextChange(cheap)
+        }else if(num == 4){
+            view.sortTextChange(expensive)
+        }
+    }
+
+    override fun sortSelected(sort:String){
+        sortClass.sort = sort
+
+        setSort()
+    }
 
 
 }

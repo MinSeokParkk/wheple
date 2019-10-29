@@ -1,7 +1,7 @@
 package com.minseok.wheple.reviewEditorPhotoadapter
 
 import android.os.Handler
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.minseok.wheple.R
 
-class ReviewEditorPhotoAdapter : RecyclerView.Adapter<ReviewEditorPhotoAdapter.WritingReviewPhotoViewHolder>(){
+class ReviewEditorPhotoAdapter : androidx.recyclerview.widget.RecyclerView.Adapter<ReviewEditorPhotoAdapter.WritingReviewPhotoViewHolder>(){
 
 
  lateinit var wr_itemsList:ArrayList<String>
@@ -93,7 +93,8 @@ class ReviewEditorPhotoAdapter : RecyclerView.Adapter<ReviewEditorPhotoAdapter.W
     }
 
 
-    inner class WritingReviewPhotoViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
+    inner class WritingReviewPhotoViewHolder(itemView: View):
+        androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView){
         var reviewImage = itemView.findViewById<ImageView>(R.id.img_rew)
         var deleteButton = itemView.findViewById<ImageView>(R.id.img_rev_item_clear)
 

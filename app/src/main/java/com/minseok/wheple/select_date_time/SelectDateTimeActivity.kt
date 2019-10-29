@@ -4,9 +4,9 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
-import android.support.v7.app.AlertDialog
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.View
 import android.widget.DatePicker
 import android.widget.Toast
@@ -28,7 +28,13 @@ class SelectDateTimeActivity : AppCompatActivity(), SelectDateTimeContract.View{
 
     private lateinit var mPresenter: SelectDateTimeContract.Presenter
 
-    private val linearLayoutManager by lazy { LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false) }
+    private val linearLayoutManager by lazy {
+        androidx.recyclerview.widget.LinearLayoutManager(
+            this,
+            androidx.recyclerview.widget.LinearLayoutManager.HORIZONTAL,
+            false
+        )
+    }
     private lateinit var timeAdapter: TimeAdapter
     var date =""
 

@@ -2,7 +2,7 @@ package com.minseok.wheple.mypage
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,7 +17,7 @@ import com.minseok.wheple.myinfo.MyinfoActivity
 import kotlinx.android.synthetic.main.fragment_mypage.*
 
 
-class MypageFragment : Fragment(), MypageContract.View {
+class MypageFragment : androidx.fragment.app.Fragment(), MypageContract.View {
 
     private lateinit var mPresenter : MypageContract.Presenter
 

@@ -3,7 +3,7 @@ package com.minseok.wheple.myReview.adapter
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,7 +19,7 @@ import com.minseok.wheple.myReview.MyreviewItem
 import kotlinx.android.synthetic.main.dialog_my_review_more.view.*
 
 class MyreviewAdapter (private var mpresenter: MyreviewContract.Presenter)
-   : RecyclerView.Adapter<MyreviewAdapter.MyreviewViewHolder>() {
+   : androidx.recyclerview.widget.RecyclerView.Adapter<MyreviewAdapter.MyreviewViewHolder>() {
 
     lateinit var itemsList: ArrayList<MyreviewItem>
     var baseurl = ""
@@ -103,7 +103,7 @@ class MyreviewAdapter (private var mpresenter: MyreviewContract.Presenter)
         builder.show()
     }
 
-   inner class MyreviewViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+   inner class MyreviewViewHolder(itemView: View): androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
 
        var myrevPlacephoto = itemView.findViewById<ImageView>(R.id.img_myr_place_photo)
        var myrevPlacename = itemView.findViewById<TextView>(R.id.text_myr_place_name)

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
                                              xmlns:app="http://schemas.android.com/apk/res-auto"
                                              xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
                                              android:layout_height="match_parent">
@@ -19,7 +19,7 @@
             app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp" android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"
             android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/guideline17"/>
-    <android.support.constraint.Guideline
+    <androidx.constraintlayout.widget.Guideline
             android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" app:layout_constraintGuide_begin="46dp"
@@ -117,7 +117,7 @@
             android:layout_marginStart="8dp" android:layout_marginTop="24dp"
             app:layout_constraintTop_toBottomOf="@+id/textView76" app:layout_constraintVertical_bias="1.0"/>
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="286dp"
             android:layout_height="95dp" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
@@ -176,8 +176,8 @@
                 android:layout_height="85dp" android:id="@+id/view17" app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" android:layout_marginLeft="5dp"
                 android:layout_marginStart="5dp" android:layout_marginTop="5dp"/>
-    </android.support.constraint.ConstraintLayout>
-    <android.support.v7.widget.RecyclerView
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.recyclerview.widget.RecyclerView
             android:orientation="horizontal"
             android:layout_width="286dp"
             android:background="@color/tp"
@@ -188,7 +188,7 @@
             app:layout_constraintHorizontal_bias="0.0" android:id="@+id/recycler_rev_photos"
             android:layout_marginLeft="8dp" android:layout_marginStart="8dp" android:layout_marginRight="8dp"
             android:layout_marginEnd="8dp"/>
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="80dp"
             android:layout_height="80dp" android:layout_marginTop="24dp"
             android:background="@color/lightgrey"
@@ -210,7 +210,7 @@
                 android:id="@+id/textView73"
                 app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="16dp"/>
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
     <TextView
             android:text="사진을 길게 누른 후 순서를 변경해보세요"
             android:textSize="13dp"
@@ -221,4 +221,4 @@
             android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/constraint_rev_addphoto"
             app:layout_constraintStart_toStartOf="parent"
     />
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

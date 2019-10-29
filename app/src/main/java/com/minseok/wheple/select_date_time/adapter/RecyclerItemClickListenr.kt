@@ -1,12 +1,12 @@
 package com.minseok.wheple.select_date_time.adapter
 
 import android.content.Context
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
 
-class RecyclerItemClickListenr(context: Context, recyclerView: RecyclerView, private val  mListener: OnItemClickListener?) : RecyclerView.OnItemTouchListener {
+class RecyclerItemClickListenr(context: Context, recyclerView: androidx.recyclerview.widget.RecyclerView, private val  mListener: OnItemClickListener?) : androidx.recyclerview.widget.RecyclerView.OnItemTouchListener {
 
     private val mGestureDetector: GestureDetector
 
@@ -43,7 +43,7 @@ class RecyclerItemClickListenr(context: Context, recyclerView: RecyclerView, pri
         })
     }
 
-    override fun onInterceptTouchEvent(view: RecyclerView, e: MotionEvent): Boolean {
+    override fun onInterceptTouchEvent(view: androidx.recyclerview.widget.RecyclerView, e: MotionEvent): Boolean {
         val childView = view.findChildViewUnder(e.x, e.y)
 
         println("클릭리스너 인터셉트~")
@@ -62,6 +62,6 @@ class RecyclerItemClickListenr(context: Context, recyclerView: RecyclerView, pri
 
 
 
-    override fun onTouchEvent(view: RecyclerView, motionEvent: MotionEvent) {}
+    override fun onTouchEvent(view: androidx.recyclerview.widget.RecyclerView, motionEvent: MotionEvent) {}
 
     override fun onRequestDisallowInterceptTouchEvent(disallowIntercept: Boolean) {}}

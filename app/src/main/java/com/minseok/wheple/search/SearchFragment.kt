@@ -1,13 +1,13 @@
 package com.minseok.wheple.search
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.minseok.wheple.R
 
-class SearchFragment : Fragment(), SearchContract.View {
+class SearchFragment : androidx.fragment.app.Fragment(), SearchContract.View {
 
     private lateinit var mPresenter: SearchContract.Presenter
 

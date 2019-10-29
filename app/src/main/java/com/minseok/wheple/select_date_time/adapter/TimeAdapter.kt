@@ -3,7 +3,7 @@ package com.minseok.wheple.select_date_time.adapter
 import android.annotation.SuppressLint
 import android.app.Application
 import android.graphics.Paint
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,7 +15,7 @@ import com.minseok.wheple.R
 import kotlinx.android.synthetic.main.activity_selectdatetime.*
 import java.security.AccessController.getContext
 
-class TimeAdapter : RecyclerView.Adapter<TimeAdapter.TimeViewHolder>() {
+class TimeAdapter : androidx.recyclerview.widget.RecyclerView.Adapter<TimeAdapter.TimeViewHolder>() {
 
     private lateinit var itemsList: ArrayList<String>
    private var lastCheckedPosition = -1
@@ -75,7 +75,7 @@ class TimeAdapter : RecyclerView.Adapter<TimeAdapter.TimeViewHolder>() {
     }
 
 
-   inner class TimeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+   inner class TimeViewHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
 
        var timeline = itemView.findViewById<RadioButton>(R.id.radio_time)
        var state = itemView.findViewById<TextView>(R.id.radio_state)

@@ -2,8 +2,8 @@ package com.minseok.wheple.reservation
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AlertDialog
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import android.view.KeyEvent
 import android.widget.Toast
 import com.minseok.wheple.R

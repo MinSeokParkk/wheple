@@ -2,8 +2,8 @@ package com.minseok.wheple.myReview
 
 import android.app.Activity
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.View
 import com.minseok.wheple.R
 import com.minseok.wheple.myReview.adapter.MyreviewAdapter
@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.activity_my_review.*
 
 class MyreviewActivity : AppCompatActivity(), MyreviewContract.View {
     private lateinit var mPresenter: MyreviewContract.Presenter
-    private val linearLayoutManager by lazy { LinearLayoutManager(this) }
+    private val linearLayoutManager by lazy { androidx.recyclerview.widget.LinearLayoutManager(this) }
     private lateinit var myreviewAdapter: MyreviewAdapter
 
     class MyClass{

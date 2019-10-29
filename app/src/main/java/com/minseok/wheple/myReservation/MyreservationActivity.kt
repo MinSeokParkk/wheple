@@ -2,9 +2,9 @@ package com.minseok.wheple.myReservation
 
 import android.app.Activity
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import com.minseok.wheple.R
 import com.minseok.wheple.myReservation.adapter.MyreservationAdapter
@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.activity_my_reservation.*
 
 class MyreservationActivity: AppCompatActivity(), MyreservationContract.View {
     private lateinit var mPresenter: MyreservationContract.Presenter
-    private val linearLayoutManager by lazy { LinearLayoutManager(this) }
+    private val linearLayoutManager by lazy { androidx.recyclerview.widget.LinearLayoutManager(this) }
     private lateinit var myreservationAdapter: MyreservationAdapter
 
 

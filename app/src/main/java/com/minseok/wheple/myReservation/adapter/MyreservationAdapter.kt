@@ -3,8 +3,8 @@ package com.minseok.wheple.myReservation.adapter
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
-import android.support.v4.widget.NestedScrollView
-import android.support.v7.widget.RecyclerView
+import androidx.core.widget.NestedScrollView
+import androidx.recyclerview.widget.RecyclerView
 import android.util.SparseBooleanArray
 import android.view.LayoutInflater
 import android.view.View
@@ -20,7 +20,7 @@ import com.minseok.wheple.myReservation.MyreservationPresenter
 import com.minseok.wheple.writiingReview.WritingReviewActivity
 
 class MyreservationAdapter(private var mpresenter: MyreservationContract.Presenter)
-    : RecyclerView.Adapter<MyreservationAdapter.MyreservationViewHolder>() {
+    : androidx.recyclerview.widget.RecyclerView.Adapter<MyreservationAdapter.MyreservationViewHolder>() {
 
 
     lateinit var itemsList:ArrayList<MyreservationItem>
@@ -83,7 +83,7 @@ class MyreservationAdapter(private var mpresenter: MyreservationContract.Present
 
 
 
-    inner class MyreservationViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+    inner class MyreservationViewHolder(itemView: View): androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
 
         var myresName = itemView.findViewById<TextView>(R.id.text_item_myres_name)
         var myresDate = itemView.findViewById<TextView>(R.id.text_item_myres_date)

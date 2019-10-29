@@ -2,12 +2,12 @@ package com.minseok.wheple.main
 
 
 import android.os.Build
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import android.support.annotation.RequiresApi
-import android.support.design.widget.BottomNavigationView
-import android.support.v4.app.Fragment
+import androidx.annotation.RequiresApi
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import androidx.fragment.app.Fragment
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     val fragment3 = ChatlistFragment()
     val fragment4 = MypageFragment()
     val fm = supportFragmentManager
-    var active:Fragment = fragment1
+    var active: androidx.fragment.app.Fragment = fragment1
 
 
 
@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
 
 
 
-    override fun openFragment(fragment: Fragment) {
+    override fun openFragment(fragment: androidx.fragment.app.Fragment) {
         val transaction = fm.beginTransaction()
         transaction.hide(active).show(fragment).commit()
         active = fragment
