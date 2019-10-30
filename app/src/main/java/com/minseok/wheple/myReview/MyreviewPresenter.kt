@@ -54,7 +54,6 @@ class MyreviewPresenter(private val view : MyreviewContract.View): MyreviewContr
     }
 
     override fun delete(no: String) {
-        println("실험중입니다. : "+no)
 
         var sending = "{ \"no\" : \""+ no + "\"}"
         disposable =

@@ -35,7 +35,7 @@
 
         <activity android:name=".ReservationSuccessActivity"></activity>
 
-        <activity android:name=".ReviewActivity"></activity>
+        <activity android:name=".review.ReviewActivity"></activity>
 
         <activity android:name=".ChatroomActivity"></activity>
 

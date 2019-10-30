@@ -1,5 +1,6 @@
 package com.minseok.wheple.retrofit
 
+import com.minseok.wheple.PlaceReviewItem
 import com.minseok.wheple.cancel.CancelItem
 import com.minseok.wheple.home.PlaceItem
 import com.minseok.wheple.modifyingReview.ModifyingReviewItem
@@ -26,7 +27,8 @@ object Result {
                              val reW:WritingReviewItem,
                              val myrev:ArrayList<MyreviewItem>,
                              val mod : ModifyingReviewItem,
-                             val myinfo:MyinfoItem
+                             val myinfo:MyinfoItem,
+                             val pr:ArrayList<PlaceReviewItem>
                              )
 
 }
