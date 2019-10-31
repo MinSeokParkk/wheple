@@ -53,9 +53,8 @@
         android:layout_marginRight="12dp"
         android:numStars="5"
         android:progressTint="@color/ratingYellow"
-        android:rating="5"
         android:secondaryProgressTint="@android:color/transparent"
-        android:stepSize="5"
+        android:stepSize="0.1"
         app:layout_constraintEnd_toStartOf="@+id/text_rv_rating"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
@@ -88,7 +87,7 @@
         app:layout_constraintTop_toBottomOf="@+id/ratingbar_rv" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/layout_rw_sort"
+        android:id="@+id/layout_rv_sort"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -116,7 +115,7 @@
 
         <TextView
             android:text="최근 작성순"
-            android:id="@+id/text_rw_sort"
+            android:id="@+id/text_rv_sort"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -146,7 +145,7 @@
         app:layout_constraintTop_toBottomOf="@+id/vi3ew21" />
 
     <Switch
-        android:id="@+id/switch_rw_onlyphoto"
+        android:id="@+id/switch_rv_onlyphoto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="7dp"
@@ -158,7 +157,7 @@
         app:layout_constraintTop_toBottomOf="@+id/vi3ew21" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/recycler_rv"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@color/lightgrey"
@@ -168,7 +167,7 @@
         app:layout_constraintTop_toBottomOf="@+id/vi3ew" />
 
     <ImageView
-        android:id="@+id/img_rw_nophoto"
+        android:id="@+id/img_rv_nophoto"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="160dp"
@@ -179,15 +178,15 @@
         app:srcCompat="@drawable/icon_nophoto" />
 
     <TextView
-        android:id="@+id/text_rw_nophoto"
+        android:id="@+id/text_rv_nophoto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="사진 리뷰가 없습니다."
         android:textColor="@color/filter_possible"
         android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="@+id/recyclerView"
-        app:layout_constraintStart_toStartOf="@+id/recyclerView"
-        app:layout_constraintTop_toBottomOf="@+id/img_rw_nophoto" />
+        app:layout_constraintEnd_toEndOf="@+id/recycler_rv"
+        app:layout_constraintStart_toStartOf="@+id/recycler_rv"
+        app:layout_constraintTop_toBottomOf="@+id/img_rv_nophoto" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

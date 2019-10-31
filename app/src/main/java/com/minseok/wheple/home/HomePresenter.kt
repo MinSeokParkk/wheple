@@ -167,7 +167,7 @@ class HomePresenter  (private val view : HomeContract.View): HomeContract.Presen
         Filter_data.loc2 = loc2
     }
 
-    override fun checkChange(){
+    override fun checkChange(){  // 필터 액티비티에서 필터 변화가 있고 홈플래그먼트로 돌아올 때 변화감지
         if(Filter_data.filter_change){
             view.destroyRecycler()
             view.makeRecycler()
@@ -193,9 +193,7 @@ class HomePresenter  (private val view : HomeContract.View): HomeContract.Presen
         view.homefilter_Back(change)
     }
 
-    override fun setSort(){
-        view.setSortText(sortClass.sort)
-    }
+
 
     override fun basicSort(rating: TextView, review: TextView, cheap: TextView, expensive: TextView){
         val num = sortClass.changedsort(sortClass.sort)
@@ -213,7 +211,11 @@ class HomePresenter  (private val view : HomeContract.View): HomeContract.Presen
     override fun sortSelected(sort:String){
         sortClass.sort = sort
 
-        setSort()
+       setSort()
+    }
+
+    override fun setSort(){
+        view.setSortText(sortClass.sort)
     }
 
 

@@ -27,59 +27,80 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".place.PlaceActivity"></activity>
+        <activity android:name=".place.PlaceActivity"
+                  android:launchMode = "singleTop"></activity>
 
-        <activity android:name=".select_date_time.SelectDateTimeActivity"></activity>
+        <activity android:name=".select_date_time.SelectDateTimeActivity"
+                  android:launchMode = "singleTop"></activity>
 
-        <activity android:name=".reservation.ReservationActivity"></activity>
+        <activity android:name=".reservation.ReservationActivity"
+                  android:launchMode = "singleTop"></activity>
 
-        <activity android:name=".ReservationSuccessActivity"></activity>
+        <activity android:name=".ReservationSuccessActivity"
+                 android:launchMode = "singleTop"></activity>
 
-        <activity android:name=".review.ReviewActivity"></activity>
+        <activity android:name=".review.ReviewActivity"
+                  android:launchMode = "singleTop"></activity>
 
         <activity android:name=".ChatroomActivity"></activity>
 
-        <activity android:name=".login.LoginActivity"></activity>
+        <activity android:name=".login.LoginActivity"
+                  android:launchMode = "singleTop"></activity>
 
-        <activity android:name=".signup_phone.SignupPhoneActivity"></activity>
+        <activity android:name=".signup_phone.SignupPhoneActivity"
+                  android:launchMode = "singleTop"></activity>
 
-        <activity android:name=".signup_others.SignupOthersActivity"></activity>
+        <activity android:name=".signup_others.SignupOthersActivity"
+                  android:launchMode = "singleTop"></activity>
 
-        <activity android:name=".myReservation.MyreservationActivity"></activity>
+        <activity android:name=".myReservation.MyreservationActivity"
+                  android:launchMode = "singleTop"></activity>
 
-        <activity android:name=".myResDetail.MyResDetailActivity"></activity>
+        <activity android:name=".myResDetail.MyResDetailActivity"
+                  android:launchMode = "singleTop"></activity>
 
-        <activity android:name=".cancel.CancelActivity"></activity>
+        <activity android:name=".cancel.CancelActivity"
+                  android:launchMode = "singleTop"></activity>
 
         <activity android:name=".writiingReview.WritingReviewActivity"
-                  android:windowSoftInputMode="adjustNothing"></activity>
+                  android:windowSoftInputMode="adjustNothing"
+                  android:launchMode = "singleTop"></activity>
 
-        <activity android:name=".myReview.MyreviewActivity"></activity>
+        <activity android:name=".myReview.MyreviewActivity"
+                  android:launchMode = "singleTop"></activity>
 
         <activity android:name=".modifyingReview.ModifyingReviewActivity"
-                  android:windowSoftInputMode="adjustNothing"></activity>
+                  android:windowSoftInputMode="adjustNothing"
+                  android:launchMode = "singleTop"></activity>
 
-        <activity android:name=".myinfo.MyinfoActivity"></activity>
+        <activity android:name=".myinfo.MyinfoActivity"
+                  android:launchMode = "singleTop"></activity>
 
         <activity android:name=".myinfoNickname.MyinfoNicknameActivity"
-                  android:windowSoftInputMode="adjustResize"></activity>
+                  android:windowSoftInputMode="adjustResize"
+                  android:launchMode = "singleTop"></activity>
 
         <activity android:name=".myinfoName.MyinfoNameActivity"
-                  android:windowSoftInputMode="adjustResize"></activity>
+                  android:windowSoftInputMode="adjustResize"
+                  android:launchMode = "singleTop"></activity>
 
         <activity android:name=".myinfoPhone.MyinfoPhoneActivity"
-                  android:windowSoftInputMode="adjustResize"></activity>
+                  android:windowSoftInputMode="adjustResize"
+                  android:launchMode = "singleTop"></activity>
 
         <activity android:name=".myinfoPw.MyinfoPwActivity"
-                  android:windowSoftInputMode="adjustResize"></activity>
+                  android:windowSoftInputMode="adjustResize"
+                  android:launchMode = "singleTop"></activity>
 
         <activity android:name=".deleteAccountBefore.DeleteAccountBeforeActivity"
-                  android:windowSoftInputMode="adjustResize" ></activity>
+                  android:windowSoftInputMode="adjustResize"
+                  android:launchMode = "singleTop"></activity>
 
-        <activity android:name=".deleteAccountAgree.DeleteAccountAgreeActivity"></activity>
+        <activity android:name=".deleteAccountAgree.DeleteAccountAgreeActivity"
+                  android:launchMode = "singleTop"></activity>
 
-        <activity android:name=".filter.FilterActivity"></activity>
-
+        <activity android:name=".filter.FilterActivity"
+                  android:launchMode = "singleTop"></activity>
 
         <!-- 테스트 용-->
         <activity android:name=".test.TestActivity"></activity>

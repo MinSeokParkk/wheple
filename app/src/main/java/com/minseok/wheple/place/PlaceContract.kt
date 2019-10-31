@@ -20,16 +20,20 @@ interface PlaceContract {
         fun connectAdapter()
         fun no_review()
 
-        fun gotoReview(placeNO:String)
+        fun gotoReview(placeNO:String, rating: String, review: String)
+
+        fun ask_message(phone:String)
+        fun ask_phone(phone: String)
     }
 
 
     interface Presenter : BasePresenter{
         fun showDetail()
         fun calling()
+        fun messaging()
         fun sendPlaceNo()
         fun topplacename(scroll:Int)
         fun getReview(prAdapter:PlaceReviewAdapter, placeNo:String)
-        fun review_more()
+        fun review_more(rating: String, review: String)
     }
 }

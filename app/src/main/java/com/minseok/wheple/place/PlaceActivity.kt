@@ -2,6 +2,7 @@ package com.minseok.wheple.place
 
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.view.View
@@ -33,15 +34,15 @@ class PlaceActivity : AppCompatActivity(), PlaceContract.View{
 
 
             layout_place_reviewmore.setOnClickListener {
-                  mPresenter.review_more()
+                  mPresenter.review_more(text_place_rating.text.toString(), text_place_review.text.toString())
             }
 
             layout_place_reviewmore2.setOnClickListener {
-                   mPresenter.review_more()
+                   mPresenter.review_more(text_place_rating.text.toString(), text_place_review.text.toString())
            }
 
           layout_place_reviewmore3.setOnClickListener {
-                   mPresenter.review_more()
+                   mPresenter.review_more(text_place_rating.text.toString(), text_place_review.text.toString())
            }
 
 
@@ -57,6 +58,10 @@ class PlaceActivity : AppCompatActivity(), PlaceContract.View{
 
         constraint_place_phone.setOnClickListener{
             mPresenter.calling()
+        }
+
+        constraint_place_message.setOnClickListener {
+            mPresenter.messaging()
         }
 
         scroll_place.viewTreeObserver.addOnScrollChangedListener { //스크롤뷰 위치 변화 감지
@@ -158,10 +163,26 @@ class PlaceActivity : AppCompatActivity(), PlaceContract.View{
 
     }
 
-    override fun gotoReview(placeNO:String){
+    override fun gotoReview(placeNO:String, rating: String, review: String){
         val nextIntent = Intent(this, ReviewActivity::class.java)
         nextIntent.putExtra("no", placeNO)
+        nextIntent.putExtra("rating", rating)
+        nextIntent.putExtra("review", review)
         startActivity(nextIntent)
+    }
+
+    override fun ask_message(phone:String){
+        val smsIntent = Intent(android.content.Intent.ACTION_VIEW)
+        smsIntent.setType("vnd.android-dir/mms-sms")
+        smsIntent.putExtra("address", phone)
+        smsIntent.putExtra("sms_body","웨플 보고 연락드립니다. ")
+        startActivity(smsIntent)
+    }
+
+    override fun ask_phone(phone: String){
+        val call = Uri.parse("tel:"+phone)
+        val phoneIntent = Intent(Intent.ACTION_DIAL, call)
+        startActivity(phoneIntent)
     }
 
 

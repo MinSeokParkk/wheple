@@ -29,6 +29,7 @@ object Result {
                              val mod : ModifyingReviewItem,
                              val myinfo:MyinfoItem,
                              val pr:ArrayList<PlaceReviewItem>
+
                              )
 
 }

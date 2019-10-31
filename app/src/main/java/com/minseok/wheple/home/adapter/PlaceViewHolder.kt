@@ -1,6 +1,7 @@
 package com.minseok.wheple.home.adapter
 
 import android.content.Intent
+import android.os.Handler
 import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import android.widget.ImageView
@@ -43,6 +44,9 @@ class PlaceViewHolder(itemView: View): androidx.recyclerview.widget.RecyclerView
             val nextIntent = Intent(itemView.context, PlaceActivity::class.java)
            nextIntent.putExtra("no", placeItemList.no)
             itemView.context.startActivity(nextIntent)
+
+
+
         }
 
     }

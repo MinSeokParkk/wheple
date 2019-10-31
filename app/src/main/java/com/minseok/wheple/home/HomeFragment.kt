@@ -256,10 +256,6 @@ class HomeFragment : androidx.fragment.app.Fragment(), HomeContract.View {
             }
         }
 
-        img_logo.setOnClickListener {
-
-        }
-
         recycler_home.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
                 super.onScrollStateChanged(recyclerView, newState)

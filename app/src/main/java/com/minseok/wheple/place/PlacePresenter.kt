@@ -96,8 +96,11 @@ class PlacePresenter (private val view: PlaceContract.View, private val no:Strin
 
     }
     override fun calling(){
-        //나중에 수정 예정
-        view.showToast(phone!!)
+        view.ask_phone(phone!!)
+    }
+
+    override fun messaging() {
+        view.ask_message(phone!!)
     }
 
     override fun sendPlaceNo() {
@@ -138,7 +141,9 @@ class PlacePresenter (private val view: PlaceContract.View, private val no:Strin
 
     }
 
-    override fun review_more(){
-        view.gotoReview(no)
+    override fun review_more(rating: String, review: String){
+        val reviewN = review.replace("(","").replace(")","")
+
+        view.gotoReview(no, rating, reviewN)
     }
 }

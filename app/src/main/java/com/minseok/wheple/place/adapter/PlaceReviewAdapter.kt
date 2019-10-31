@@ -53,6 +53,7 @@ class PlaceReviewAdapter : RecyclerView.Adapter<PlaceReviewAdapter.PlaceReviewVi
         var prPhoto3 = itemView.findViewById<ImageView>(R.id.img_pr_photo3)
         var prDatetime = itemView.findViewById<TextView>(R.id.text_pr_datetime)
 
+
         fun bind(prItem:PlaceReviewItem){
             Glide.with(itemView)
                 .load(baseurl+prItem.userphoto)
