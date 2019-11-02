@@ -9,7 +9,7 @@ interface PlaceContract {
     interface View : BaseView<Presenter> {
         fun showToast(string: String)
         fun setPlace(
-            name: String, address: String, price: String, rating: String, review: String, photo: String,
+            name: String, address: String, price: String, rating: String, review: String, photos: Array<String>,
             parking: String, shower: String, heating: String, sports: String, introduction :String, guide:String)
         fun noParking()
         fun noShower()

@@ -6,11 +6,16 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageView
+import android.widget.LinearLayout
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.Toast
+import androidx.core.content.ContextCompat
+import androidx.viewpager.widget.ViewPager
 import com.bumptech.glide.Glide
 import com.minseok.wheple.R
+import com.minseok.wheple.place.adapter.PlacePhotoViewPagerAdapter
 import com.minseok.wheple.review.ReviewActivity
 import com.minseok.wheple.place.adapter.PlaceReviewAdapter
 import com.minseok.wheple.select_date_time.SelectDateTimeActivity
@@ -51,6 +56,7 @@ class PlaceActivity : AppCompatActivity(), PlaceContract.View{
             }
 
 
+
         PlacePresenter(this, intent.getStringExtra("no"))
         mPresenter.showDetail()
 
@@ -83,7 +89,7 @@ class PlaceActivity : AppCompatActivity(), PlaceContract.View{
     }
 
     override fun setPlace(name : String, address : String, price : String, rating : String, review : String,
-                          photo : String, parking : String, shower : String, heating : String, sports : String,
+                          photos: Array<String>, parking : String, shower : String, heating : String, sports : String,
                           introduction :String, guide:String){
         text_place_name.text = name
         text_place_address.text = address
@@ -101,9 +107,11 @@ class PlaceActivity : AppCompatActivity(), PlaceContract.View{
         text_place_reviewB.text = review
 
 
-        Glide.with(this)
-            .load(photo)
-            .into(img_place_photo)
+        val viewPagerAdapter = PlacePhotoViewPagerAdapter(photos)
+        viewPager_place.adapter = viewPagerAdapter
+
+        //인디케이터 설정
+        makingDots(viewPagerAdapter)
 
     }
 
@@ -183,6 +191,52 @@ class PlaceActivity : AppCompatActivity(), PlaceContract.View{
         val call = Uri.parse("tel:"+phone)
         val phoneIntent = Intent(Intent.ACTION_DIAL, call)
         startActivity(phoneIntent)
+    }
+
+    fun makingDots(viewPagerAdapter : PlacePhotoViewPagerAdapter){
+
+        val dotscount = viewPagerAdapter.count
+        val dots = arrayOfNulls<ImageView>(dotscount)
+
+        for(i in 0..dotscount-1){
+            dots[i] = ImageView(this)
+            dots[i]!!.setImageDrawable(ContextCompat.getDrawable(applicationContext, R.drawable.non_active_dot))
+
+            val params = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
+
+            params.setMargins(3,0,3,0)
+
+            SliderDots_place.addView(dots[i],params)
+        }
+
+        dots[0]!!.setImageDrawable(ContextCompat.getDrawable(applicationContext, R.drawable.active_dot))
+
+
+        viewPager_place.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+
+            override fun onPageScrollStateChanged(state: Int) {
+            }
+
+            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+
+            }
+            override fun onPageSelected(position: Int) {
+
+                println("바뀌나요? + "+dotscount.toString())
+                for(i in 0..dotscount-1){
+
+                    dots[i]!!.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.non_active_dot))
+                }
+                dots[position]!!.setImageDrawable(ContextCompat.getDrawable(applicationContext, R.drawable.active_dot))
+
+            }
+
+        })
+
+
+
+
+
     }
 
 

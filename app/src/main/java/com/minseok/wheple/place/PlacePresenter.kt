@@ -87,7 +87,9 @@ class PlacePresenter (private val view: PlaceContract.View, private val no:Strin
             here.review = "("+here.review+")"
         }
 
-        view.setPlace(here.name, here.address, here.price, here.rating, here.review, here.photo,
+        val photoarray = here.photo.split("|").toTypedArray()
+
+        view.setPlace(here.name, here.address, here.price, here.rating, here.review, photoarray,
                       parking, shower, heating, sports, here.introduction, here.guide)
 
 

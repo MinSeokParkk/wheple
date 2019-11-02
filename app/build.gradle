@@ -54,5 +54,8 @@ dependencies {
     //circle imageview
     implementation 'de.hdodenhof:circleimageview:3.0.0'
 
+    //PhotoView for zoom
+    implementation 'com.github.chrisbanes:PhotoView:2.3.0'
+
 
 }
