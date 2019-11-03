@@ -1,5 +1,6 @@
 package com.minseok.wheple.review.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +13,7 @@ import com.bumptech.glide.Glide
 import com.minseok.wheple.PlaceReviewItem
 import com.minseok.wheple.R
 import com.minseok.wheple.R.id.text_pr_username
+import com.minseok.wheple.img_slider.ImageSliderActivity
 
 class ReviewAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     lateinit var itemsList: ArrayList<PlaceReviewItem>
@@ -125,12 +127,29 @@ class ReviewAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             rReview.text = prItem.review.replace("|||", "\n")
             rDatetime.text = prItem.datetime.replace("|", " ")
 
+            val Aimages = ArrayList<String>()
+            if(prItem.photo1!=""){
+                Aimages.add(baseurl + prItem.photo1)
+            }
+            if(prItem.photo2!=""){
+                Aimages.add(baseurl + prItem.photo2)
+            }
+            if(prItem.photo3!=""){
+                Aimages.add(baseurl + prItem.photo3)
+            }
+            val images:Array<String?> = arrayOfNulls<String>(Aimages.size)
+            Aimages.toArray(images)
+
 
             if(prItem.photo1!=""){
                 rPhoto1.visibility = View.VISIBLE
                 Glide.with(itemView)
                     .load(baseurl+prItem.photo1)
                     .into(rPhoto1)
+
+                rPhoto1.setOnClickListener {
+                    gotoIS("0", images)
+                }
             } else{
                 rPhoto1.visibility = View.GONE
                 rPhoto2.visibility = View.GONE
@@ -141,6 +160,10 @@ class ReviewAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 Glide.with(itemView)
                     .load(baseurl+prItem.photo2)
                     .into(rPhoto2)
+
+                rPhoto2.setOnClickListener {
+                    gotoIS("1", images)
+                }
             } else{
                 rPhoto2.visibility = View.GONE
                 rPhoto3.visibility = View.GONE
@@ -151,9 +174,21 @@ class ReviewAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 Glide.with(itemView)
                     .load(baseurl+prItem.photo3)
                     .into(rPhoto3)
+
+                rPhoto3.setOnClickListener {
+                    gotoIS("2", images)
+                }
             } else {
                 rPhoto3.visibility = View.GONE
             }
+        }
+
+        fun gotoIS(postion:String, images:Array<String?>){
+            val nextIntent = Intent(itemView.context, ImageSliderActivity::class.java)
+            nextIntent.putExtra("images", images)
+            nextIntent.putExtra("position", postion)
+            nextIntent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+            itemView.context.startActivity(nextIntent)
         }
     }
 

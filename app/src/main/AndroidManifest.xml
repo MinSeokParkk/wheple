@@ -103,7 +103,8 @@
                   android:launchMode = "singleTop"></activity>
 
         <activity android:name=".img_slider.ImageSliderActivity"
-            android:launchMode = "singleTop"></activity>
+            android:launchMode = "singleTop"
+            android:theme="@style/Transparent"></activity>
 
         <!-- 테스트 용-->
         <activity android:name=".test.TestActivity"></activity>

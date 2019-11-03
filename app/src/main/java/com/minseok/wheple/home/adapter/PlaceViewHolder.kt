@@ -40,11 +40,9 @@ class PlaceViewHolder(itemView: View): androidx.recyclerview.widget.RecyclerView
             .into(placePhoto)
 
         itemView.setOnClickListener{
-
             val nextIntent = Intent(itemView.context, PlaceActivity::class.java)
            nextIntent.putExtra("no", placeItemList.no)
             itemView.context.startActivity(nextIntent)
-
 
 
         }

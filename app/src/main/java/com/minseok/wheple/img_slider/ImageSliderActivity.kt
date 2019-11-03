@@ -37,6 +37,13 @@ class ImageSliderActivity: AppCompatActivity(), ImageSliderContract.View {
 
     }
 
+    override fun onPause() {
+        super.onPause()
+        overridePendingTransition(0, 0) // 액티비티 종료될 때 애니메이션 없애기
+    }
+
+
+
     override fun setAdapter(imageList: ArrayList<String>){
         val viewPagerAdapter = ImageSliderAdapter(imageList)
         viewPager_imgslider.adapter = viewPagerAdapter

@@ -13,6 +13,7 @@ import android.widget.TextView
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.minseok.wheple.R
+import com.minseok.wheple.img_slider.ImageSliderActivity
 import com.minseok.wheple.modifyingReview.ModifyingReviewActivity
 import com.minseok.wheple.myReview.MyreviewContract
 import com.minseok.wheple.myReview.MyreviewItem
@@ -125,11 +126,29 @@ class MyreviewAdapter (private var mpresenter: MyreviewContract.Presenter)
            myrevReview.text = myrevItem.review.replace("|||", "\n")
            myrevDatetime.text = myrevItem.datetime.replace("|", " ")
 
+
+           val Aimages = ArrayList<String>()
+           if(myrevItem.photo1!=""){
+               Aimages.add(baseurl + myrevItem.photo1)
+           }
+           if(myrevItem.photo2!=""){
+               Aimages.add(baseurl + myrevItem.photo2)
+           }
+           if(myrevItem.photo3!=""){
+               Aimages.add(baseurl + myrevItem.photo3)
+           }
+           val images:Array<String?> = arrayOfNulls<String>(Aimages.size)
+           Aimages.toArray(images)
+
            if(myrevItem.photo1!=""){
                myrevPhoto1.visibility = View.VISIBLE
                Glide.with(itemView)
                    .load(baseurl+myrevItem.photo1)
                    .into(myrevPhoto1)
+
+               myrevPhoto1.setOnClickListener {
+                   gotoIS("0", images)
+               }
            } else{
                myrevPhoto1.visibility = View.GONE
                myrevPhoto2.visibility = View.GONE
@@ -140,6 +159,10 @@ class MyreviewAdapter (private var mpresenter: MyreviewContract.Presenter)
                Glide.with(itemView)
                    .load(baseurl+myrevItem.photo2)
                    .into(myrevPhoto2)
+
+               myrevPhoto2.setOnClickListener {
+                   gotoIS("1", images)
+               }
            } else{
                myrevPhoto2.visibility = View.GONE
                myrevPhoto3.visibility = View.GONE
@@ -150,12 +173,22 @@ class MyreviewAdapter (private var mpresenter: MyreviewContract.Presenter)
                Glide.with(itemView)
                    .load(baseurl+myrevItem.photo3)
                    .into(myrevPhoto3)
+
+               myrevPhoto3.setOnClickListener {
+                   gotoIS("2", images)
+               }
            } else {
                myrevPhoto3.visibility = View.GONE
            }
 
+       }
 
-
+       fun gotoIS(postion:String, images:Array<String?>){
+           val nextIntent = Intent(itemView.context, ImageSliderActivity::class.java)
+           nextIntent.putExtra("images", images)
+           nextIntent.putExtra("position", postion)
+           nextIntent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+           itemView.context.startActivity(nextIntent)
        }
 
    }

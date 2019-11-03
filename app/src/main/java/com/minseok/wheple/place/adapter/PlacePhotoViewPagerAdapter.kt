@@ -41,6 +41,7 @@ class PlacePhotoViewPagerAdapter(photos: Array<String>) : PagerAdapter() {
             val nextIntent = Intent(container.context, ImageSliderActivity::class.java)
             nextIntent.putExtra("images", images)
             nextIntent.putExtra("position", position.toString())
+            nextIntent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
             container.context.startActivity(nextIntent)
         }
 
