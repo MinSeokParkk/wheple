@@ -15,6 +15,7 @@ import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.ViewPager
 import com.bumptech.glide.Glide
 import com.minseok.wheple.R
+import com.minseok.wheple.map.MapActivity
 import com.minseok.wheple.place.adapter.PlacePhotoViewPagerAdapter
 import com.minseok.wheple.review.ReviewActivity
 import com.minseok.wheple.place.adapter.PlaceReviewAdapter
@@ -54,6 +55,10 @@ class PlaceActivity : AppCompatActivity(), PlaceContract.View{
             select_date_time_Button.setOnClickListener {
                     mPresenter.sendPlaceNo()
             }
+
+        layout_place_showmap.setOnClickListener {
+            mPresenter.show_map()
+        }
 
 
 
@@ -233,10 +238,13 @@ class PlaceActivity : AppCompatActivity(), PlaceContract.View{
 
         })
 
+    }
 
-
-
-
+    override fun gotoMap(no:String){
+        val nextIntent = Intent(this, MapActivity::class.java)
+        nextIntent.putExtra("name", text_place_name.text.toString())
+        nextIntent.putExtra("address", text_place_address.text.toString())
+        startActivity(nextIntent)
     }
 
 

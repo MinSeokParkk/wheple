@@ -148,4 +148,8 @@ class PlacePresenter (private val view: PlaceContract.View, private val no:Strin
 
         view.gotoReview(no, rating, reviewN)
     }
+
+    override fun show_map() {
+        view.gotoMap(no)
+    }
 }

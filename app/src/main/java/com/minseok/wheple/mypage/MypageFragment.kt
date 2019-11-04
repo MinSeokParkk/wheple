@@ -120,4 +120,11 @@ class MypageFragment : androidx.fragment.app.Fragment(), MypageContract.View {
         fun newInstance(): MypageFragment = MypageFragment()
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        retainInstance = true
+    }
+
+
 }

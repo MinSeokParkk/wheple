@@ -67,4 +67,10 @@ class ChatlistFragment : androidx.fragment.app.Fragment(), ChatlistContract.View
     companion object {
         fun newInstance(): ChatlistFragment = ChatlistFragment()
     }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        retainInstance = true
+    }
 }

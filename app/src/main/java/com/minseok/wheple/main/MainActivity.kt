@@ -5,11 +5,14 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.os.PersistableBundle
+import android.util.Log
 import androidx.annotation.RequiresApi
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.fragment.app.Fragment
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import com.minseok.wheple.*
 import com.minseok.wheple.HomeFragment
@@ -28,42 +31,58 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     val fragment4 = MypageFragment()
     val fm = supportFragmentManager
     var active: androidx.fragment.app.Fragment = fragment1
-
+    var save = false
 
 
     override fun setPresenter(presenter: MainContract.Presenter) {
         this.mPresenter = presenter
     }
 
-
-
     override fun openFragment(fragment: androidx.fragment.app.Fragment) {
+        Log.d("navtest",  "openFragment")
         val transaction = fm.beginTransaction()
         transaction.hide(active).show(fragment).commit()
         active = fragment
     }
 
+    @RequiresApi(Build.VERSION_CODES.JELLY_BEAN)
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
         mPresenter = MainPresenter(this)
-
+        super.onCreate(null)
+        setContentView(R.layout.activity_main)
 
         val bottomNavigation: BottomNavigationView = findViewById(R.id.nav_view)
+
         bottomNavigation.setOnNavigationItemSelectedListener(mPresenter.navListener(fragment1, fragment2, fragment3, fragment4))
 
-            fm.beginTransaction().add(R.id.container, fragment4).hide(fragment4).commit()
-            fm.beginTransaction().add(R.id.container, fragment3).hide(fragment3).commit()
-            fm.beginTransaction().add(R.id.container, fragment2).hide(fragment2).commit()
-            fm.beginTransaction().add(R.id.container, fragment1).commit()
+
+
+        fm.beginTransaction().add(R.id.container, fragment4).hide(fragment4).commit()
+        fm.beginTransaction().add(R.id.container, fragment3).hide(fragment3).commit()
+        fm.beginTransaction().add(R.id.container, fragment2).hide(fragment2).commit()
+        fm.beginTransaction().add(R.id.container, fragment1).commit()
+
+        if (savedInstanceState != null) {
+          save = true
+        }
+
 
 
 
     }
 
+    override fun onResume() {
+        super.onResume()
+        if(save){ //saveinstance 가 있으면 무조건 홈으로 바꾼다.
+            nav_view.selectedItemId = R.id.navigation_home
+            save = false
+        }
+
+    }
+
     @RequiresApi(Build.VERSION_CODES.JELLY_BEAN)
     override fun onBackPressed() {
-
+        Log.d("navtest",  "onBackpressed")
         if(nav_view.selectedItemId==R.id.navigation_home){
 
              finishAffinity()
@@ -74,10 +93,14 @@ class MainActivity : AppCompatActivity(), MainContract.View {
 
     }
 
+
 //    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 //        menuInflater.inflate(R.menu.bottom_nav_menu, menu)
 //        return super.onCreateOptionsMenu(menu)
 //    }
+
+
+
 
 
 

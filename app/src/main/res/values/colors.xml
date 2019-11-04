@@ -14,6 +14,7 @@
     <color name="darkPrimary">#1751C9</color>
     <color name="red">#E05151</color>
     <color name="tp_black">#80000000</color>
+    <color name="tp_white">#E6FFFFFF</color>
     <color name="tp">#00FFFFFF</color>
     <color name="imageSlider">#D9000000</color>
 

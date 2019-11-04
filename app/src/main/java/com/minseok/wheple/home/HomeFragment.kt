@@ -59,6 +59,12 @@ class HomeFragment : androidx.fragment.app.Fragment(), HomeContract.View {
         return view
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+       retainInstance = true
+    }
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 

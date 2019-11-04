@@ -24,6 +24,8 @@ interface PlaceContract {
 
         fun ask_message(phone:String)
         fun ask_phone(phone: String)
+
+        fun gotoMap(no:String)
     }
 
 
@@ -35,5 +37,6 @@ interface PlaceContract {
         fun topplacename(scroll:Int)
         fun getReview(prAdapter:PlaceReviewAdapter, placeNo:String)
         fun review_more(rating: String, review: String)
+        fun show_map()
     }
 }

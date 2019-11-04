@@ -26,4 +26,10 @@ class SearchFragment : androidx.fragment.app.Fragment(), SearchContract.View {
     companion object {
         fun newInstance(): SearchFragment = SearchFragment()
     }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        retainInstance = true
+    }
 }
