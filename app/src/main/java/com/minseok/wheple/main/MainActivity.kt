@@ -4,19 +4,12 @@ package com.minseok.wheple.main
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.os.PersistableBundle
 import android.util.Log
 import androidx.annotation.RequiresApi
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import androidx.fragment.app.Fragment
-import android.view.Menu
-import android.view.MenuItem
-import android.view.View
-import android.widget.Toast
 import com.minseok.wheple.*
 import com.minseok.wheple.HomeFragment
-import com.minseok.wheple.chatlist.ChatlistFragment
+import com.minseok.wheple.near.NearFragment
 import com.minseok.wheple.mypage.MypageFragment
 import com.minseok.wheple.search.SearchFragment
 import kotlinx.android.synthetic.main.activity_main.*
@@ -27,7 +20,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
 
     val fragment1 = HomeFragment()
     val fragment2 = SearchFragment()
-    val fragment3 = ChatlistFragment()
+    val fragment3 = NearFragment()
     val fragment4 = MypageFragment()
     val fm = supportFragmentManager
     var active: androidx.fragment.app.Fragment = fragment1

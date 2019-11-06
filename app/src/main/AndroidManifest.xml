@@ -12,6 +12,9 @@
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
+
     <application
             android:allowBackup="false"
             android:icon="@mipmap/ic_launcher"
@@ -50,7 +53,6 @@
         <activity android:name=".review.ReviewActivity"
                   android:launchMode = "singleTop"></activity>
 
-        <activity android:name=".ChatroomActivity"></activity>
 
         <activity android:name=".login.LoginActivity"
                   android:launchMode = "singleTop"></activity>

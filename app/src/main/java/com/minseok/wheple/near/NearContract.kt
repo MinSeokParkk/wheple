@@ -1,18 +1,17 @@
-package com.minseok.wheple.chatlist
+package com.minseok.wheple.near
 
 import com.minseok.wheple.base.BasePresenter
 import com.minseok.wheple.base.BaseView
 
-interface ChatlistContract {
+interface NearContract {
 
     interface View : BaseView<Presenter> {
-            fun login_mode()
-            fun guest_mode()
+
 
     }
 
     interface Presenter : BasePresenter {
-        fun check_preference()
+
 
     }
 }

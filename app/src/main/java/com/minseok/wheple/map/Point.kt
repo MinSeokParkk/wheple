@@ -19,8 +19,9 @@ class Point() {
 
           listAddress = geocoder.getFromLocationName(addr, 1)
 
-        point.y = listAddress.get(0).longitude
         point.x = listAddress.get(0).latitude
+        point.y = listAddress.get(0).longitude
+
 
         return point
     }

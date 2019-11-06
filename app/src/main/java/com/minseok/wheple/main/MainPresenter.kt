@@ -1,9 +1,8 @@
 package com.minseok.wheple.main
 
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import androidx.fragment.app.Fragment
 import com.minseok.wheple.*
-import com.minseok.wheple.chatlist.ChatlistFragment
+import com.minseok.wheple.near.NearFragment
 import com.minseok.wheple.HomeFragment
 import com.minseok.wheple.mypage.MypageFragment
 import com.minseok.wheple.search.SearchFragment
@@ -18,7 +17,7 @@ class MainPresenter (private val view : MainContract.View): MainContract.Present
     }
 
     override fun navListener(fragment1: HomeFragment, fragment2: SearchFragment,
-                             fragment3: ChatlistFragment, fragment4 : MypageFragment
+                             fragment3: NearFragment, fragment4 : MypageFragment
     ): BottomNavigationView.OnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener {
             menuItem ->
         val selectedFragment: androidx.fragment.app.Fragment

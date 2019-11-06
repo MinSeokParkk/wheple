@@ -13,8 +13,8 @@
 
     <item
             android:id="@+id/navigation_chat"
-            android:icon="@drawable/icon_chat_bubble_black_24dp"
-            android:title="채팅 문의"/>
+            android:icon="@drawable/icon_near_black_24dp"
+            android:title="내주변"/>
 
     <item
             android:id="@+id/navigation_mypage"

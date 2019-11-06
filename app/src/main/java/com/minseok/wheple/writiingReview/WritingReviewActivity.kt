@@ -124,7 +124,6 @@ class WritingReviewActivity  : AppCompatActivity(), WritingReviewContract.View {
     }
 
     override fun showPermissionDialog() {
-        println("퍼미션 다이얼로그")
 //        ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), 1000)
         gallery.showPermissionDialog(this)
 

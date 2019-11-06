@@ -33,4 +33,19 @@ class MapPresenter (private val view : MapContract.View): MapContract.Presenter{
         view.loc_setting(result.x, result.y)
     }
 
+    override fun currentPosition() {
+        if(!view.checkPermission()){
+            view.showPermissionDialog()
+            return
+        }
+        if(view.currentPosition !=null){
+            view.showCurrentP()
+            view.moveTocurrentP()
+        }else{
+            view.showProgress()
+            view.startLocationUpdates()
+        }
+
+    }
+
 }

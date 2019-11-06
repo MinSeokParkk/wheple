@@ -146,6 +146,7 @@
         android:layout_height="match_parent"
         android:layout_marginTop="130dp"
         android:background="@color/lightgrey"
+        android:scrollbars="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline" />
