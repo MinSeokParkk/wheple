@@ -27,9 +27,6 @@ class MapPresenter (private val view : MapContract.View): MapContract.Presenter{
     override fun setAddr(addr:String, context: Context){
        val result = point.getPointFromGeoCoder(point, addr, context)
 
-        println("x는: " + result.x.toString() )
-        println("y는: " + result.y.toString() )
-
         view.loc_setting(result.x, result.y)
     }
 
