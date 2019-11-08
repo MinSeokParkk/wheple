@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="320dp"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/textView59n"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="18dp"
+        android:fontFamily="@font/fontawesome_webfont"
+        android:text="\uf1e3"
+        android:textColor="@color/black"
+        android:textSize="13dp"
+        app:layout_constraintStart_toStartOf="@+id/Ncheck_soccer"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView124n"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="14dp"
+        android:text="종목별 선택"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        app:layout_constraintStart_toEndOf="@+id/textView59n"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:id="@+id/Ncheck_soccer"
+        android:layout_width="65dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/checkbutton"
+        android:button="@android:color/transparent"
+        android:gravity="center"
+        android:text="축구"
+        android:textColor="@drawable/check_text"
+        android:textSize="13dp"
+        app:layout_constraintEnd_toStartOf="@+id/Ncheck_futsal"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView124n" />
+
+    <CheckBox
+        android:textSize="13dp"
+        android:id="@+id/Ncheck_basketball"
+        android:layout_width="65dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/checkbutton"
+        android:button="@android:color/transparent"
+        android:gravity="center"
+        android:text="농구"
+        android:textColor="@drawable/check_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/Ncheck_baseball"
+        app:layout_constraintTop_toTopOf="@+id/Ncheck_baseball" />
+
+    <CheckBox
+        android:textSize="13dp"
+        android:id="@+id/Ncheck_baseball"
+        android:layout_width="65dp"
+        android:layout_height="40dp"
+        android:background="@drawable/checkbutton"
+        android:button="@android:color/transparent"
+        android:gravity="center"
+        android:text="야구"
+        android:textColor="@drawable/check_text"
+        app:layout_constraintEnd_toStartOf="@+id/Ncheck_basketball"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/Ncheck_futsal"
+        app:layout_constraintTop_toTopOf="@+id/Ncheck_futsal" />
+
+    <CheckBox
+        android:textSize="13dp"
+        android:id="@+id/Ncheck_tennis"
+        android:layout_width="65dp"
+        android:layout_height="40dp"
+        android:background="@drawable/checkbutton"
+        android:button="@android:color/transparent"
+        android:gravity="center"
+        android:text="테니스"
+        android:textColor="@drawable/check_text"
+        app:layout_constraintEnd_toStartOf="@+id/Ncheck_pingpong"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/Ncheck_badminton"
+        app:layout_constraintTop_toTopOf="@+id/Ncheck_badminton" />
+
+    <CheckBox
+        android:textSize="13dp"
+        android:id="@+id/Ncheck_pingpong"
+        android:layout_width="65dp"
+        android:layout_height="40dp"
+        android:background="@drawable/checkbutton"
+        android:button="@android:color/transparent"
+        android:gravity="center"
+        android:text="탁구"
+        android:textColor="@drawable/check_text"
+        app:layout_constraintEnd_toStartOf="@+id/Ncheck_volleyball"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/Ncheck_tennis"
+        app:layout_constraintTop_toTopOf="@+id/Ncheck_tennis" />
+
+    <CheckBox
+        android:textSize="13dp"
+        android:id="@+id/Ncheck_volleyball"
+        android:layout_width="65dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/checkbutton"
+        android:button="@android:color/transparent"
+        android:gravity="center"
+        android:text="배구"
+        android:textColor="@drawable/check_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/Ncheck_pingpong"
+        app:layout_constraintTop_toTopOf="@+id/Ncheck_pingpong" />
+
+    <CheckBox
+
+        android:id="@+id/Ncheck_badminton"
+        android:layout_width="65dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/checkbutton"
+        android:button="@android:color/transparent"
+        android:gravity="center"
+        android:text="배드민턴"
+        android:textColor="@drawable/check_text"
+        android:textSize="13dp"
+        app:layout_constraintEnd_toStartOf="@+id/Ncheck_tennis"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Ncheck_soccer" />
+
+    <CheckBox
+        android:textSize="13dp"
+        android:id="@+id/Ncheck_futsal"
+        android:layout_width="65dp"
+        android:layout_height="40dp"
+        android:background="@drawable/checkbutton"
+        android:button="@android:color/transparent"
+        android:gravity="center"
+        android:text="풋살"
+        android:textColor="@drawable/check_text"
+        app:layout_constraintEnd_toStartOf="@+id/Ncheck_baseball"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/Ncheck_soccer"
+        app:layout_constraintTop_toTopOf="@+id/Ncheck_soccer" />
+
+    <View
+        android:id="@+id/vie1sddsds3s3b"
+        android:layout_width="wrap_content"
+        android:layout_height="6dp"
+        android:background="@color/lightgrey"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayoutdn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayoutdn"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Ncheck_shower">
+
+        <TextView
+            android:id="@+id/dialog_near_reset"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:fontFamily="@font/fontawesome_webfont"
+            android:text="\uf0e2  초기화" />
+
+        <TextView
+            android:id="@+id/dialog_near_apply"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:text="적용"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <TextView
+        android:textSize="13dp"
+        android:id="@+id/nnnnnn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:text="중복 선택 가능합니다."
+        app:layout_constraintBottom_toBottomOf="@+id/textView124n"
+        app:layout_constraintStart_toEndOf="@+id/textView124n"
+        app:layout_constraintTop_toTopOf="@+id/textView124n" />
+
+    <View
+        android:id="@+id/vie1sddsd3s3n"
+        android:layout_width="wrap_content"
+        android:layout_height="2dp"
+        android:layout_marginTop="24dp"
+        android:background="@color/lightgrey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Ncheck_tennis" />
+
+    <TextView
+        android:id="@+id/textView168n"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="18dp"
+        android:fontFamily="@font/fontawesome_webfont"
+        android:text="\uf1ad"
+        android:textColor="@color/black"
+        android:textSize="13dp"
+        app:layout_constraintStart_toStartOf="@+id/Ncheck_parking"
+        app:layout_constraintTop_toBottomOf="@+id/vie1sddsd3s3n" />
+
+    <TextView
+        android:id="@+id/textView169n"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="14dp"
+        android:text="편의시설 선택"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        app:layout_constraintStart_toEndOf="@+id/textView168n"
+        app:layout_constraintTop_toBottomOf="@+id/vie1sddsd3s3n" />
+
+    <TextView
+        android:id="@+id/textView170n"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:text="필요한 편의시설을 선택해주세요."
+        android:textSize="13dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView169n"
+        app:layout_constraintStart_toEndOf="@+id/textView169n"
+        app:layout_constraintTop_toTopOf="@+id/textView169n" />
+
+    <CheckBox
+        android:id="@+id/Ncheck_parking"
+        android:layout_width="65dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/checkbutton"
+        android:button="@android:color/transparent"
+        android:gravity="center"
+        android:text="주차"
+        android:textColor="@drawable/check_text"
+        android:textSize="13dp"
+        app:layout_constraintEnd_toStartOf="@+id/Ncheck_shower"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView169n" />
+
+    <CheckBox
+        android:id="@+id/Ncheck_heating"
+        android:layout_width="65dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/checkbutton"
+        android:button="@android:color/transparent"
+        android:gravity="center"
+        android:text="난방"
+        android:textColor="@drawable/check_text"
+        android:textSize="13dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/Ncheck_cooling"
+        app:layout_constraintTop_toTopOf="@+id/Ncheck_cooling" />
+
+    <CheckBox
+        android:id="@+id/Ncheck_shower"
+        android:layout_width="65dp"
+        android:layout_height="40dp"
+        android:background="@drawable/checkbutton"
+        android:button="@android:color/transparent"
+        android:gravity="center"
+        android:text="샤워"
+        android:textColor="@drawable/check_text"
+        android:textSize="13dp"
+        app:layout_constraintEnd_toStartOf="@+id/Ncheck_cooling"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/Ncheck_parking"
+        app:layout_constraintTop_toTopOf="@+id/Ncheck_parking" />
+
+    <CheckBox
+        android:id="@+id/Ncheck_cooling"
+        android:layout_width="65dp"
+        android:layout_height="40dp"
+        android:background="@drawable/checkbutton"
+        android:button="@android:color/transparent"
+        android:gravity="center"
+        android:text="냉방"
+        android:textColor="@drawable/check_text"
+        android:textSize="13dp"
+        app:layout_constraintEnd_toStartOf="@+id/Ncheck_heating"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/Ncheck_shower"
+        app:layout_constraintTop_toTopOf="@+id/Ncheck_shower" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

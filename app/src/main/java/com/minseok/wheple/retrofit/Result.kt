@@ -9,8 +9,8 @@ import com.minseok.wheple.myReservation.MyreservationItem
 import com.minseok.wheple.myReview.MyreviewItem
 import com.minseok.wheple.myinfo.MyinfoItem
 import com.minseok.wheple.mypage.MypageItem
-import com.minseok.wheple.near.NearDetailItem
-import com.minseok.wheple.near.NearItem
+import com.minseok.wheple.near.model.NearDetailItem
+import com.minseok.wheple.near.model.NearItem
 import com.minseok.wheple.place.PlaceDetailItem
 import com.minseok.wheple.reservation.ReservationItem
 import com.minseok.wheple.select_date_time.SelectTimeItem
