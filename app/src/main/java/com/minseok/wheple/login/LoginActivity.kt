@@ -12,6 +12,7 @@ import kotlinx.android.synthetic.main.activity_login.*
 import android.widget.Toast
 import com.minseok.wheple.afterTextChanged
 import com.minseok.wheple.main.MainActivity
+import com.minseok.wheple.place.PlaceActivity
 import com.minseok.wheple.reservation.ReservationActivity
 import com.minseok.wheple.signup_phone.SignupPhoneActivity
 
@@ -44,6 +45,10 @@ class LoginActivity : AppCompatActivity(), LoginContract.View{
                 startActivity(nextIntent)
             }
 
+            img_login_back.setOnClickListener {
+                onBackPressed()
+            }
+
             LoginPresenter(this)
         }
 
@@ -59,7 +64,11 @@ class LoginActivity : AppCompatActivity(), LoginContract.View{
 
 
     override fun loginSuccess() {
-        if(intent.getStringExtra("space")!=null){
+        if(intent.getStringExtra("space")!=null) { //시간 선택 액티비티에서 비로그인 상태로 "예약하기"버튼 눌렀을 때는 예약 액티비티로 보냄
+            showToast("로그인 성공!\n예약을 계속 진행해주세요.")
+
+            PlaceActivity.MyClass.res_login_back = true // 로그인 했다고 표시 -> 장소 액티비티로 돌아가면 찜했는 지 여부 다시 확인
+
             val nextIntent = Intent(this, ReservationActivity::class.java)
             nextIntent.putExtra("space", intent.getStringExtra("space"))
             nextIntent.putExtra("date", intent.getStringExtra("date"))
@@ -67,7 +76,14 @@ class LoginActivity : AppCompatActivity(), LoginContract.View{
             nextIntent.putExtra("timeText", intent.getStringExtra("timeText"))
 
             startActivity(nextIntent)
-        }else {
+
+
+        }else if(intent.getStringExtra("dib_place")!=null){//장소액티비티에서 비로그인 상태로 "찜"버튼 눌렀을 때는 장소 액티비티로 돌려보냄.
+                PlaceActivity.MyClass.login_back = true // 로그인 했다고 표시 -> 장소를 찜한 상태로 장소액티비티가 다시 시작함.
+
+
+        }else { // 그 외 사항이면 메인 액티비티(홈 플래그먼트로 시작)로 보냄.
+            showToast("로그인 성공!")
             val nextIntent = Intent(this, MainActivity::class.java)
             startActivity(nextIntent)
         }

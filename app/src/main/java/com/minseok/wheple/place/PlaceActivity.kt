@@ -1,6 +1,7 @@
 package com.minseok.wheple.place
 
 
+import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
@@ -11,10 +12,12 @@ import android.widget.LinearLayout
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.ViewPager
 import com.bumptech.glide.Glide
 import com.minseok.wheple.R
+import com.minseok.wheple.login.LoginActivity
 import com.minseok.wheple.map.MapActivity
 import com.minseok.wheple.place.adapter.PlacePhotoViewPagerAdapter
 import com.minseok.wheple.review.ReviewActivity
@@ -28,7 +31,17 @@ class PlaceActivity : AppCompatActivity(), PlaceContract.View{
     private lateinit var mPresenter: PlaceContract.Presenter
     private val linearLayoutManager by lazy { androidx.recyclerview.widget.LinearLayoutManager(this) }
     private lateinit var prAdapter:PlaceReviewAdapter
+    private var mydibs: Boolean = false
 
+    class MyClass{
+        companion object{
+            var login_back : Boolean = false
+            var res_login_back :Boolean = false
+        }
+
+    }
+
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_place)
@@ -80,6 +93,27 @@ class PlaceActivity : AppCompatActivity(), PlaceContract.View{
         }
 
 
+        text_place_dibs.setOnClickListener {
+
+            mPresenter.checkDibs(mydibs)
+        }
+
+
+    }
+
+    override fun onStart() {
+        if(MyClass.login_back){ //비로그인 상태로 찜하기를 누른 후 로그인 하고 다시 돌아온 상태면
+
+            // 이미 찜 한 상태로 바꿔놓기
+            mPresenter.checkDibs(mydibs)
+
+        }
+
+        if(MyClass.res_login_back){
+            mPresenter.checkDibs_before()
+        }
+        super.onStart()
+
     }
 
 
@@ -93,9 +127,10 @@ class PlaceActivity : AppCompatActivity(), PlaceContract.View{
         Toast.makeText(this, string, Toast.LENGTH_SHORT).show()
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun setPlace(name : String, address : String, price : String, rating : String, review : String,
                           photos: Array<String>, parking : String, shower : String, heating : String, sports : String,
-                          introduction :String, guide:String){
+                          introduction :String, guide:String, dibs:Boolean){
         text_place_name.text = name
         text_place_address.text = address
         text_place_price.text = price
@@ -110,6 +145,15 @@ class PlaceActivity : AppCompatActivity(), PlaceContract.View{
         text_place_placenametop.text = name
         text_place_ratingB.text = rating
         text_place_reviewB.text = review
+
+        mydibs = dibs
+        if(mydibs){ // 이미 찜 한거면
+            text_place_dibs.text = "\uf004"
+            text_place_dibs.setTextColor(getColor(R.color.red))
+        }else{
+            text_place_dibs.text = "\uf08a"
+            text_place_dibs.setTextColor(getColor(R.color.black))
+        }
 
 
         val viewPagerAdapter = PlacePhotoViewPagerAdapter(photos)
@@ -245,6 +289,38 @@ class PlaceActivity : AppCompatActivity(), PlaceContract.View{
         nextIntent.putExtra("name", text_place_name.text.toString())
         nextIntent.putExtra("address", text_place_address.text.toString())
         startActivity(nextIntent)
+    }
+
+    @RequiresApi(Build.VERSION_CODES.M)
+    override fun changeHeart(result: Boolean) {
+        mydibs = result
+        if(mydibs){ // 찜 눌렀으면
+            text_place_dibs.text = "\uf004"
+            text_place_dibs.setTextColor(getColor(R.color.red))
+        }else{ //찜 취소 눌렀으면
+            text_place_dibs.text = "\uf08a"
+            text_place_dibs.setTextColor(getColor(R.color.black))
+        }
+    }
+
+    override fun gotoLogin(no_here: String){
+
+        val builder = AlertDialog.Builder(this)
+        builder.setMessage("로그인이 필요한 서비스입니다.\n\n로그인 화면으로 이동하시겠습니까?" +
+                "\n")
+
+        builder.setPositiveButton(android.R.string.yes) { dialog, which ->
+            val nextIntent = Intent(this, LoginActivity::class.java)
+            nextIntent.putExtra("dib_place", no_here)
+
+
+            startActivity(nextIntent)
+        }
+        builder.setNegativeButton(android.R.string.no) { dialog, which ->
+
+        }
+
+        builder.show()
     }
 
 

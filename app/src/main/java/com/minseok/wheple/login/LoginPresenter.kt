@@ -64,8 +64,6 @@ class LoginPresenter (private val view : LoginContract.View): LoginContract.Pres
         if(result.result.equals("0")){
             view.loginSuccess()
 
-            view.showToast("로그인 성공")
-
             App.prefs.autologin = email //쉐어드로 로그인 상태 유지시킴
 
         } else if(result.result.equals("1")){

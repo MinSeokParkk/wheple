@@ -11,7 +11,7 @@ import com.minseok.wheple.*
 import com.minseok.wheple.HomeFragment
 import com.minseok.wheple.near.NearFragment
 import com.minseok.wheple.mypage.MypageFragment
-import com.minseok.wheple.search.SearchFragment
+import com.minseok.wheple.dibs.DibsFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     private lateinit var mPresenter : MainContract.Presenter
 
     val fragment1 = HomeFragment()
-    val fragment2 = SearchFragment()
+    val fragment2 = DibsFragment()
     val fragment3 = NearFragment()
     val fragment4 = MypageFragment()
     val fm = supportFragmentManager

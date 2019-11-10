@@ -5,7 +5,7 @@ import com.minseok.wheple.*
 import com.minseok.wheple.near.NearFragment
 import com.minseok.wheple.HomeFragment
 import com.minseok.wheple.mypage.MypageFragment
-import com.minseok.wheple.search.SearchFragment
+import com.minseok.wheple.dibs.DibsFragment
 
 class MainPresenter (private val view : MainContract.View): MainContract.Presenter{
 
@@ -16,7 +16,7 @@ class MainPresenter (private val view : MainContract.View): MainContract.Present
         this.view.setPresenter(this)
     }
 
-    override fun navListener(fragment1: HomeFragment, fragment2: SearchFragment,
+    override fun navListener(fragment1: HomeFragment, fragment2: DibsFragment,
                              fragment3: NearFragment, fragment4 : MypageFragment
     ): BottomNavigationView.OnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener {
             menuItem ->

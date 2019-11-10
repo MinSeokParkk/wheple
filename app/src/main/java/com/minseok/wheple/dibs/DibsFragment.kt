@@ -1,30 +1,33 @@
-package com.minseok.wheple.search
+package com.minseok.wheple.dibs
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.minseok.wheple.R
 
-class SearchFragment : androidx.fragment.app.Fragment(), SearchContract.View {
+class DibsFragment : androidx.fragment.app.Fragment(), DibsContract.View {
 
-    private lateinit var mPresenter: SearchContract.Presenter
+    private lateinit var mPresenter: DibsContract.Presenter
 
-    override fun setPresenter(presenter: SearchContract.Presenter) {
+    override fun setPresenter(presenter: DibsContract.Presenter) {
         this.mPresenter=presenter
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view: View = inflater.inflate(R.layout.fragment_search, container, false)
 
-       SearchPresenter(this)
+       DibsPresenter(this)
+
+
+
+
         return view
 
     }
 
     companion object {
-        fun newInstance(): SearchFragment = SearchFragment()
+        fun newInstance(): DibsFragment = DibsFragment()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

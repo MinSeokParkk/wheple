@@ -10,7 +10,7 @@ interface PlaceContract {
         fun showToast(string: String)
         fun setPlace(
             name: String, address: String, price: String, rating: String, review: String, photos: Array<String>,
-            parking: String, shower: String, heating: String, sports: String, introduction :String, guide:String)
+            parking: String, shower: String, heating: String, sports: String, introduction :String, guide:String, dibs:Boolean)
         fun noParking()
         fun noShower()
         fun noHeating()
@@ -26,6 +26,8 @@ interface PlaceContract {
         fun ask_phone(phone: String)
 
         fun gotoMap(no:String)
+        fun changeHeart(result:Boolean)
+        fun gotoLogin(no_here: String)
     }
 
 
@@ -38,5 +40,8 @@ interface PlaceContract {
         fun getReview(prAdapter:PlaceReviewAdapter, placeNo:String)
         fun review_more(rating: String, review: String)
         fun show_map()
+        fun checkDibs(mydibs:Boolean)
+         fun checkDibs_before()
+
     }
 }

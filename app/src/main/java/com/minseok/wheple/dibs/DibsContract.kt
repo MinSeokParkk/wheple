@@ -1,9 +1,9 @@
-package com.minseok.wheple.search
+package com.minseok.wheple.dibs
 
 import com.minseok.wheple.base.BasePresenter
 import com.minseok.wheple.base.BaseView
 
-interface SearchContract {
+interface DibsContract {
     interface View : BaseView<Presenter> {
 
     }

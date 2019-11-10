@@ -836,8 +836,25 @@
         android:textSize="18dp"
         android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/text_place_dibs"
+        app:layout_constraintStart_toEndOf="@+id/img_place_back"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_place_dibs"
+        android:gravity="center"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:fontFamily="@font/fontawesome_webfont"
+        android:text="\uf08a"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintEnd_toStartOf="@+id/imageView9"
         app:layout_constraintTop_toTopOf="parent" />
 
 
