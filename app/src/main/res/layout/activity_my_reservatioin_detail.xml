@@ -28,7 +28,7 @@
                     android:id="@+id/guideline14"/>
             <ImageView
                     android:layout_width="0dp"
-                    android:layout_height="200dp" app:srcCompat="@drawable/img_gym"
+                    android:layout_height="200dp"
                     android:id="@+id/img_res_detail_place"
                     android:scaleType="centerCrop"
                     app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"

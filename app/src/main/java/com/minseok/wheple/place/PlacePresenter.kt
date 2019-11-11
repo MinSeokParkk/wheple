@@ -3,6 +3,7 @@ package com.minseok.wheple.place
 
 import android.util.Log
 import android.view.View
+import com.minseok.wheple.dibs.DibsFragment
 import com.minseok.wheple.login.LoginActivity
 import com.minseok.wheple.place.adapter.PlaceReviewAdapter
 import com.minseok.wheple.retrofit.APIService
@@ -207,6 +208,8 @@ class PlacePresenter (private val view: PlaceContract.View, private val no:Strin
             view.changeHeart(result_di)
         }
         PlaceActivity.MyClass.login_back = false // 로그인 했다 돌아왔다는 표시 없애줌.
+
+        DibsFragment.MyClass.dibs_change = true
     }
 
     override fun checkDibs_before() {

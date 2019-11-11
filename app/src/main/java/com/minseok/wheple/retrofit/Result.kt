@@ -2,6 +2,7 @@ package com.minseok.wheple.retrofit
 
 import com.minseok.wheple.PlaceReviewItem
 import com.minseok.wheple.cancel.CancelItem
+import com.minseok.wheple.dibs.DibsItem
 import com.minseok.wheple.home.PlaceItem
 import com.minseok.wheple.modifyingReview.ModifyingReviewItem
 import com.minseok.wheple.myResDetail.MyResDetailItem
@@ -32,7 +33,8 @@ object Result {
                              val myinfo:MyinfoItem,
                              val pr:ArrayList<PlaceReviewItem>,
                              val ni:ArrayList<NearItem>,
-                             val ndi: NearDetailItem
+                             val ndi: NearDetailItem,
+                             val di:ArrayList<DibsItem>
 
                              )
 

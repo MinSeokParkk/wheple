@@ -1,12 +1,12 @@
 package com.minseok.wheple
 
 
-import android.annotation.SuppressLint
+
 import android.content.Intent
 import android.graphics.Typeface
-import android.os.Build
+
 import android.os.Bundle
-import androidx.annotation.RequiresApi
+
 import androidx.fragment.app.Fragment
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,15 +20,13 @@ import com.minseok.wheple.filter.FilterActivity
 import com.minseok.wheple.home.HomeContract
 import com.minseok.wheple.home.HomePresenter
 import com.minseok.wheple.home.adapter.PlaceAdapter
-import com.minseok.wheple.home.PlaceItem
 import kotlinx.android.synthetic.main.dialog_filter_facility.*
 import kotlinx.android.synthetic.main.dialog_filter_location.*
-import kotlinx.android.synthetic.main.dialog_filter_location.view.*
 import kotlinx.android.synthetic.main.dialog_filter_sports.*
 import kotlinx.android.synthetic.main.dialog_home_sort.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import java.lang.Exception
-import java.lang.reflect.AccessibleObject.setAccessible
+
 
 
 

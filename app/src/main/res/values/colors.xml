@@ -15,8 +15,10 @@
     <color name="red">#E05151</color>
     <color name="tp_black">#80000000</color>
     <color name="tp_white">#66FFFFFF</color>
+    <color name="tp_primary">#B34472C4</color>
     <color name="tp">#00FFFFFF</color>
     <color name="imageSlider">#D9000000</color>
+    <color name="dibsBackColor">#F7F7F7</color>
 
 
 </resources>
