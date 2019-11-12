@@ -17,6 +17,8 @@ interface DibsContract {
     interface Presenter : BasePresenter {
         fun getlist(dibsAdpater: DibsAdpater)
         fun check_preference()
+        fun delete(nos: String)
+
      }
 
 

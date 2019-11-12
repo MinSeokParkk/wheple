@@ -64,40 +64,72 @@ class DibsFragment : androidx.fragment.app.Fragment(), DibsContract.View {
 
     }
 
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
         mPresenter.check_preference()
+        makeRecycler()
 
+            text_dibs_cancelReady.setOnClickListener {
+                text_dibs_cancelReady.visibility = View.GONE
+                text_dibs_cancel.visibility = View.VISIBLE
+                dibsAdapter.readyForDibsCancel()
+            }
 
-        //////////////////찜 해제 테스트중.....
-        text_dibs_cancelReady.setOnClickListener {
-            text_dibs_cancelReady.visibility = View.GONE
-            text_dibs_cancel.visibility = View.VISIBLE
-            dibsAdapter.readyForDibsCancel()
+            text_dibs_cancel.setOnClickListener {
+                text_dibs_cancelReady.visibility = View.VISIBLE
+                text_dibs_cancel.visibility = View.GONE
+
+                dibsAdapter.deleteDibs()
+
+            }
+
+    }
+
+//      계속 안터지면 지우자....
+//    override fun onStart() {
+////        mPresenter.check_preference()
+////        text_dibs_cancelReady.visibility = View.VISIBLE
+////        text_dibs_cancel.visibility = View.GONE
+//        super.onStart()
+//        Log.d("dibsFrag","onStart")
+//    }
+
+    override fun onResume() {
+        if(MyClass.dibs_change){ //찜하기가 바뀌었으면 다시 찜 목록을 서버에서 다시 불러온다.
+            mPresenter.check_preference()
+            destroyRecycler()
+            makeRecycler()
+            MyClass.dibs_change = false
         }
-
-        text_dibs_cancel.setOnClickListener {
-            text_dibs_cancelReady.visibility = View.VISIBLE
-            text_dibs_cancel.visibility = View.GONE
-
-            dibsAdapter.rechangeDibs()
-        }
-
+        super.onResume()
+        Log.d("dibsFrag","onresume")
     }
 
     override fun onHiddenChanged(hidden: Boolean) {
         super.onHiddenChanged(hidden)
         if(hidden){
             Log.d("dibsFrag","hidden")
-            text_dibs_cancelReady.visibility = View.VISIBLE
-            text_dibs_cancel.visibility = View.GONE
-            dibsAdapter.rechangeDibs()
+
+            if(dibsAdapter!=null){
+
+                dibsAdapter.rechangeDibs()
+                if(dibsAdapter.itemInitial){
+                    if(dibsAdapter.itemsList.size>0){
+                        text_dibs_cancelReady.visibility = View.VISIBLE
+                        text_dibs_cancel.visibility = View.GONE
+                    }
+
+                }
+            }
+
         }
     }
 
     override fun makeRecycler() {
         recycler_dibs.layoutManager = gridLayoutManager
-        dibsAdapter = DibsAdpater()
+        dibsAdapter = DibsAdpater(mPresenter)
         mPresenter.getlist(dibsAdapter)
 
     }
@@ -113,15 +145,7 @@ class DibsFragment : androidx.fragment.app.Fragment(), DibsContract.View {
 
 
 
-    override fun onResume() {
-        if(MyClass.dibs_change){ //찜하기가 바뀌었으면 다시 찜 목록을 서버에서 다시 불러온다.
-            destroyRecycler()
-            makeRecycler()
-            MyClass.dibs_change = false
-        }
-        super.onResume()
-        Log.d("dibsFrag","onresume")
-    }
+
 
     override fun login_mode() {
 
@@ -140,10 +164,12 @@ class DibsFragment : androidx.fragment.app.Fragment(), DibsContract.View {
             img_dibs_noplace.visibility = View.VISIBLE
             text_dibs_noplace1.visibility = View.VISIBLE
             text_dibs_noplace2.visibility = View.VISIBLE
+            text_dibs_cancelReady.visibility = View.GONE
         }else{
             img_dibs_noplace.visibility = View.GONE
             text_dibs_noplace1.visibility = View.GONE
             text_dibs_noplace2.visibility = View.GONE
+            text_dibs_cancelReady.visibility = View.VISIBLE
         }
     }
 

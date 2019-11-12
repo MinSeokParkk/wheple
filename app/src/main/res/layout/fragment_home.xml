@@ -7,20 +7,13 @@
     android:layout_height="match_parent">
 
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="130dp" />
-
-
     <ImageView
         android:id="@+id/img_logo"
-        android:layout_width="50dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo_wheplehangul" />
@@ -28,7 +21,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_filter_location"
         android:layout_width="90dp"
-        android:layout_height="35dp"
+        android:layout_height="37dp"
         android:layout_marginStart="12dp"
         android:layout_marginLeft="12dp"
         android:background="@drawable/rounded_option"
@@ -66,7 +59,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_filter_facility"
         android:layout_width="90dp"
-        android:layout_height="35dp"
+        android:layout_height="37dp"
         android:layout_marginStart="12dp"
         android:layout_marginLeft="12dp"
         android:background="@drawable/rounded_option"
@@ -99,15 +92,17 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_filter_sports"
         android:layout_width="90dp"
-        android:layout_height="35dp"
+        android:layout_height="37dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/rounded_option"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/img_logo">
@@ -142,19 +137,19 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_home"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="130dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@color/lightgrey"
         android:scrollbars="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline" />
+        app:layout_constraintTop_toBottomOf="@+id/view22" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_home_filter"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
+        android:layout_width="37dp"
+        android:layout_height="37dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:background="@drawable/rounded_option"
@@ -177,9 +172,9 @@
         android:id="@+id/view21"
         android:layout_width="wrap_content"
         android:layout_height="0.5dp"
-        android:background="@color/bluegrey"
+        android:layout_marginTop="10dp"
 
-        android:layout_marginTop="8dp"
+        android:background="@color/bluegrey"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -190,10 +185,11 @@
         android:layout_width="wrap_content"
         android:layout_height="0.5dp"
 
+        android:layout_marginTop="45dp"
         android:background="@color/bluegrey"
-        app:layout_constraintBottom_toTopOf="@+id/recycler_home"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view21" />
 
     <TextView
 
@@ -309,6 +305,36 @@
         app:layout_constraintEnd_toEndOf="@+id/img_home_nothing"
         app:layout_constraintStart_toStartOf="@+id/img_home_nothing"
         app:layout_constraintTop_toBottomOf="@+id/img_home_nothing" />
+
+    <TextView
+        android:background="@drawable/edittext_background_search"
+        android:id="@+id/text_home_search"
+        android:layout_width="197dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:paddingLeft="37dp"
+        android:textSize="13dp"
+        android:paddingRight="10dp"
+        android:gravity="center_vertical"
+        android:text="장소 이름을 검색해보세요!"
+        app:layout_constraintBottom_toBottomOf="@+id/img_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/img_logo" />
+
+    <TextView
+        android:id="@+id/textView2f31"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginLeft="14dp"
+        android:fontFamily="@font/fontawesome_webfont"
+        android:text="\uf002"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/text_home_search"
+        app:layout_constraintStart_toStartOf="@+id/text_home_search"
+        app:layout_constraintTop_toTopOf="@+id/text_home_search" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

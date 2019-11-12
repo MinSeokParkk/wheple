@@ -1,6 +1,7 @@
 package com.minseok.wheple.home
 
 
+import android.util.Log
 import android.widget.CheckBox
 import android.widget.TextView
 import com.minseok.wheple.Filter_data

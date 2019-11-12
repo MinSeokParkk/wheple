@@ -12,6 +12,7 @@ class DibsPresenter (private val view : DibsContract.View): DibsContract.Present
 
     lateinit var myAdapter : DibsAdpater
 
+
     val apiService by lazy {
         APIService.create()
     }
@@ -24,12 +25,12 @@ class DibsPresenter (private val view : DibsContract.View): DibsContract.Present
     override fun start() {
     }
 
-    override fun check_preference() {
+    override fun check_preference(){
         if(App.prefs.autologin!=""){
             view.login_mode()
-            view.makeRecycler()
         }else{
             view.logout_mode()
+
         }
     }
 
@@ -60,4 +61,28 @@ class DibsPresenter (private val view : DibsContract.View): DibsContract.Present
 
         view.connectAdapter()
     }
+
+
+    override fun delete(nos: String) {
+
+        var sending = "{ \"nos\" : \""+ nos + "\", \r\n" +
+                             "\"email\" : \""+App.prefs.autologin+"\"}"
+        disposable =
+            apiService.connect_server("deleteDibs.php", sending)
+
+
+
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                    { result ->resultdelete()
+
+                    }
+                )
+    }
+    fun resultdelete(){
+            view.setNumber(myAdapter.itemsList.size)
+     }
+
+
 }

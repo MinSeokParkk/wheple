@@ -14,6 +14,7 @@ import com.minseok.wheple.near.model.NearDetailItem
 import com.minseok.wheple.near.model.NearItem
 import com.minseok.wheple.place.PlaceDetailItem
 import com.minseok.wheple.reservation.ReservationItem
+import com.minseok.wheple.search.SearchItem
 import com.minseok.wheple.select_date_time.SelectTimeItem
 import com.minseok.wheple.writiingReview.WritingReviewItem
 
@@ -34,7 +35,8 @@ object Result {
                              val pr:ArrayList<PlaceReviewItem>,
                              val ni:ArrayList<NearItem>,
                              val ndi: NearDetailItem,
-                             val di:ArrayList<DibsItem>
+                             val di:ArrayList<DibsItem>,
+                             val srchR:ArrayList<SearchItem>
 
                              )
 

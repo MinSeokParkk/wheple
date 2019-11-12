@@ -11,6 +11,7 @@ import com.minseok.wheple.R
 import kotlinx.android.synthetic.main.activity_login.*
 import android.widget.Toast
 import com.minseok.wheple.afterTextChanged
+import com.minseok.wheple.dibs.DibsFragment
 import com.minseok.wheple.main.MainActivity
 import com.minseok.wheple.place.PlaceActivity
 import com.minseok.wheple.reservation.ReservationActivity
@@ -68,6 +69,7 @@ class LoginActivity : AppCompatActivity(), LoginContract.View{
             showToast("로그인 성공!\n예약을 계속 진행해주세요.")
 
             PlaceActivity.MyClass.res_login_back = true // 로그인 했다고 표시 -> 장소 액티비티로 돌아가면 찜했는 지 여부 다시 확인
+            DibsFragment.MyClass.dibs_change = true // 찜 플래그먼트 다시 불러오기
 
             val nextIntent = Intent(this, ReservationActivity::class.java)
             nextIntent.putExtra("space", intent.getStringExtra("space"))
@@ -80,6 +82,7 @@ class LoginActivity : AppCompatActivity(), LoginContract.View{
 
         }else if(intent.getStringExtra("dib_place")!=null){//장소액티비티에서 비로그인 상태로 "찜"버튼 눌렀을 때는 장소 액티비티로 돌려보냄.
                 PlaceActivity.MyClass.login_back = true // 로그인 했다고 표시 -> 장소를 찜한 상태로 장소액티비티가 다시 시작함.
+                DibsFragment.MyClass.dibs_change = true // 찜 플래그먼트 다시 불러오기
 
 
         }else { // 그 외 사항이면 메인 액티비티(홈 플래그먼트로 시작)로 보냄.

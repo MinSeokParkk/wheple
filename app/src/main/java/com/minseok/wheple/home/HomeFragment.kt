@@ -20,6 +20,7 @@ import com.minseok.wheple.filter.FilterActivity
 import com.minseok.wheple.home.HomeContract
 import com.minseok.wheple.home.HomePresenter
 import com.minseok.wheple.home.adapter.PlaceAdapter
+import com.minseok.wheple.search.SearchActivity
 import kotlinx.android.synthetic.main.dialog_filter_facility.*
 import kotlinx.android.synthetic.main.dialog_filter_location.*
 import kotlinx.android.synthetic.main.dialog_filter_sports.*
@@ -70,6 +71,14 @@ class HomeFragment : androidx.fragment.app.Fragment(), HomeContract.View {
         mPresenter.setSort()
 
         makeRecycler()
+
+        //검색 버튼 눌렀을 때
+        text_home_search.setOnClickListener {
+            activity?.let {
+                val intent = Intent(it, SearchActivity::class.java)
+                it.startActivity(intent)
+            }
+        }
 
         //종목별 선택 필터
         layout_filter_sports.setOnClickListener{
