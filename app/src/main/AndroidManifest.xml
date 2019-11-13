@@ -120,6 +120,7 @@
                   android:launchMode = "singleTop"></activity>
 
         <activity android:name=".search.SearchActivity"
+            android:windowSoftInputMode="adjustResize"
             android:launchMode = "singleTop"></activity>
 
 

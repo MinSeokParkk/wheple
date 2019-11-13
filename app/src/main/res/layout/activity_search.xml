@@ -28,14 +28,30 @@
         android:background="@drawable/edittext_background_search"
         android:ems="10"
         android:focusable="true"
-        android:hint="검색어를 입력해주세요"
+        android:hint="장소의 이름을 입력해주세요."
+        android:imeOptions="actionNext"
         android:inputType="textPersonName"
         android:paddingLeft="40dp"
-        android:paddingRight="10dp"
+        android:paddingRight="40dp"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline11" />
+
+    <TextView
+        android:id="@+id/text_search_delete"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:fontFamily="@font/fontawesome_webfont"
+        android:gravity="center"
+        android:text="\uf057"
+        android:textSize="16dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/edit_search"
+        app:layout_constraintEnd_toEndOf="@+id/edit_search"
+        app:layout_constraintTop_toTopOf="@+id/edit_search" />
 
     <androidx.constraintlayout.widget.Guideline android:layout_width="wrap_content" android:layout_height="wrap_content"
         android:id="@+id/guideline11" app:layout_constraintGuide_begin="46dp"
@@ -52,31 +68,6 @@
         android:layout_marginStart="14dp"
         app:layout_constraintTop_toTopOf="@+id/edit_search"
         app:layout_constraintBottom_toBottomOf="@+id/edit_search"/>
-    <TextView
-        android:text="최근 검색어"
-        android:textSize="17dp"
-        android:textColor="@color/black"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView104" android:layout_marginTop="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/edit_search" app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginLeft="30dp" android:layout_marginStart="30dp"/>
-    <TextView
-        android:text="전체 삭제"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView105" android:layout_marginEnd="20dp" android:layout_marginRight="20dp"
-        app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="23dp"
-        app:layout_constraintTop_toBottomOf="@+id/edit_search"/>
-    <TextView
-        android:text="최근 검색한 내용이 없습니다."
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView106" android:layout_marginTop="124dp"
-        app:layout_constraintTop_toBottomOf="@+id/edit_search" app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
-        app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
-        android:layout_marginStart="8dp" android:textSize="15dp"/>
 
     <ImageView
         android:id="@+id/img_search_back"
@@ -88,5 +79,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/icon_back" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/const_search_result"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_search">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_search_result"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

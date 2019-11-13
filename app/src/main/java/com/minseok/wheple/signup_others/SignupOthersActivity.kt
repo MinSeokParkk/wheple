@@ -47,6 +47,10 @@ class SignupOthersActivity : AppCompatActivity(), SignupOthersContract.View{
                 signupUser()
         }
 
+        img_signupO_back.setOnClickListener {
+            onBackPressed()
+        }
+
         SignupOthersPresenter(this)
 
     }

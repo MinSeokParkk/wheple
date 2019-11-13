@@ -10,6 +10,7 @@
     <color name="bluegrey">#B1BCBE</color>
     <color name="white">#FFFFFF</color>
     <color name="filter_possible">#636363</color>
+    <color name="blackgrey">#383838</color>
     <color name="filter_impossible">#E0E0E0</color>
     <color name="darkPrimary">#1751C9</color>
     <color name="red">#E05151</color>
@@ -19,6 +20,7 @@
     <color name="tp">#00FFFFFF</color>
     <color name="imageSlider">#D9000000</color>
     <color name="dibsBackColor">#F7F7F7</color>
+
 
 
 </resources>

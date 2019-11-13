@@ -31,6 +31,10 @@ class SignupPhoneActivity : AppCompatActivity(), SignupPhoneContract.View{
             phonecheckServer()
         }
 
+        img_signupP_back.setOnClickListener {
+            onBackPressed()
+        }
+
         SignupPhonePresenter(this)
     }
 
