@@ -9,10 +9,13 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.minseok.wheple.R
 import com.minseok.wheple.place.PlaceActivity
-import com.minseok.wheple.search.SearchItem
+import com.minseok.wheple.search.SearchContract
+import com.minseok.wheple.search.model.RecentOpenHelper
+import com.minseok.wheple.search.model.SearchItem
 
-class SearchResultAdapter  : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
+class SearchResultAdapter (private var mpresenter: SearchContract.Presenter) : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
     lateinit var itemsList:ArrayList<SearchItem>
+    lateinit var dbhelper :RecentOpenHelper
     var input =""
 
     val changeB = ChangeTextBold()
@@ -40,9 +43,11 @@ class SearchResultAdapter  : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
         notifyDataSetChanged()
     }
 
-    fun addItems(searchItems:ArrayList<SearchItem>, input_:String){
+    fun addItems(searchItems:ArrayList<SearchItem>, input_:String, rohelper:RecentOpenHelper){
+        Log.d("searchT6","add items")
         this.itemsList = searchItems
         input = input_
+        dbhelper = rohelper
     }
 
 
@@ -52,7 +57,7 @@ class SearchResultAdapter  : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
         var nameS = itemView.findViewById<TextView>(R.id.text_searchItem_name)
         var addressS = itemView.findViewById<TextView>(R.id.text_searchItem_address)
 
-        fun bind(si:SearchItem){
+        fun bind(si: SearchItem){
             nameS.text = si.name
 
             if(input  in nameS.text.toString()){
@@ -62,6 +67,11 @@ class SearchResultAdapter  : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
             addressS.text = si.address
 
             itemView.setOnClickListener {
+
+                //클릭한 장소를 sqlite에 저장 시키자. (이름, no)
+                dbhelper.addSearching(si.name, si.no)
+//                mpresenter.refreshRecentR()
+
                 val nextIntent = Intent(itemView.context, PlaceActivity::class.java)
                 nextIntent.putExtra("no", si.no)
                 itemView.context.startActivity(nextIntent)
