@@ -1,4 +1,4 @@
-package com.minseok.wheple.reservation
+package com.minseok.wheple.reservation.model
 
 import java.text.NumberFormat
 import java.util.*

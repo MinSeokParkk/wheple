@@ -28,12 +28,11 @@ class ReservationActivity : AppCompatActivity(), ReservationContract.View{
             mPresenter.checkchange(check_res_all.isChecked)
         }
 
-        edit_res_point.afterTextChanged{
+        edit_res_point.afterTextChanged{ // text_res_price_mid.text.toString() 를 중간금액 - 쿠폰금액으로 바꿔야 할듯!
             mPresenter.inputPointCheck(text_res_price_mid.text.toString(), edit_res_point.text.toString(), edit_res_point.hint.toString())
         }
 
         text_res_allpoint.setOnClickListener{
-            println("전 포인트 사용!")
             println(edit_res_point.hint)
 
             mPresenter.useAllPoint(edit_res_point.hint.toString())
@@ -62,9 +61,9 @@ class ReservationActivity : AppCompatActivity(), ReservationContract.View{
 
         button_gotopay.setOnClickListener {
             mPresenter.reserve_check(edit_res_name.text.toString(), edit_res_phone.text.toString(),
-                check_res_use.isChecked, check_res_cancel.isChecked, check_res_personal.isChecked, text_res_date.text.toString(),
-                intent.getStringExtra("timeNo"), intent.getStringExtra("space"), text_res_time.text.toString(),
-                text_res_price_top.text.toString(), text_res_finalprice.text.toString(), edit_res_point.text.toString())
+            check_res_use.isChecked, check_res_cancel.isChecked, check_res_personal.isChecked, text_res_date.text.toString(),
+            intent.getStringExtra("timeNo"), intent.getStringExtra("space"), text_res_time.text.toString(),
+            text_res_price_top.text.toString(), text_res_finalprice.text.toString(), edit_res_point.text.toString())
         }
 
         img_res_back.setOnClickListener {
@@ -148,7 +147,7 @@ class ReservationActivity : AppCompatActivity(), ReservationContract.View{
         Toast.makeText(this, string, Toast.LENGTH_SHORT).show()
     }
 
-    override fun lateReserve() {
+    override fun lateReserve() {  //다른 사람이 이미 예약 완료했을때
 
         val builder = AlertDialog.Builder(this)
         builder.setTitle("예약이 불가능합니다.")
@@ -160,7 +159,6 @@ class ReservationActivity : AppCompatActivity(), ReservationContract.View{
          onBackPressed()
 
         }
-
 
         builder.show()
     }

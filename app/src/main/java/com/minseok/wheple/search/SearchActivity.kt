@@ -51,6 +51,7 @@ class SearchActivity : AppCompatActivity(), SearchContract.View {
         text_search_allDelete.setOnClickListener {  //최근 검색어 전체 삭제 눌렀을 때
             rohelper.deleteAll()
             mPresenter.refreshRecentR()
+            noRecent(true)
         }
 
     }
@@ -105,4 +106,16 @@ class SearchActivity : AppCompatActivity(), SearchContract.View {
         const_search_result.visibility = View.GONE
         const_search_recent.visibility = View.VISIBLE
     }
+
+    override fun noRecent(zero:Boolean){
+        if(zero){
+            text_search_norecent.visibility = View.VISIBLE
+            text_search_allDelete.visibility = View.GONE
+        }else{
+            text_search_norecent.visibility = View.GONE
+            text_search_allDelete.visibility = View.VISIBLE
+        }
+
+    }
+
 }

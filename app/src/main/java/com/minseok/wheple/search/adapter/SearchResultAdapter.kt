@@ -70,7 +70,6 @@ class SearchResultAdapter (private var mpresenter: SearchContract.Presenter) : R
 
                 //클릭한 장소를 sqlite에 저장 시키자. (이름, no)
                 dbhelper.addSearching(si.name, si.no)
-//                mpresenter.refreshRecentR()
 
                 val nextIntent = Intent(itemView.context, PlaceActivity::class.java)
                 nextIntent.putExtra("no", si.no)

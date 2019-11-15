@@ -74,6 +74,13 @@ class SearchPresenter  (private val view: SearchContract.View, recentOpenHelper:
 
         recentAdapter.addItems(rohelper.allSearching, rohelper)
         recentAdapter.notifyAdapter()
+
+        if(recentAdapter.itemsList.size>0){
+             showNorecent(false)
+        }else{
+            showNorecent(true)
+        }
+
         view.connectAdapter_recent()
 
     }
@@ -81,6 +88,10 @@ class SearchPresenter  (private val view: SearchContract.View, recentOpenHelper:
     override fun refreshRecentR(){
         view.destroyRecycler_recent()
         view.makeRecycler_recent()
+    }
+
+    override fun showNorecent(show:Boolean){
+        view.noRecent(show)
     }
 
 }

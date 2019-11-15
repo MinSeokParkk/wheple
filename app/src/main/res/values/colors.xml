@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#4472C4</color>
-    <color name="colorPrimaryDark">#949494</color>
-    <color name="colorAccent">#4472C4</color>
-    <color name="black">#000000</color>
-    <color name="grey">#797979</color>
-    <color name="ratingYellow">#EBBC34</color>
-    <color name="lightgrey">#E2E2E2</color>
-    <color name="bluegrey">#B1BCBE</color>
-    <color name="white">#FFFFFF</color>
-    <color name="filter_possible">#636363</color>
-    <color name="blackgrey">#383838</color>
-    <color name="filter_impossible">#E0E0E0</color>
-    <color name="darkPrimary">#1751C9</color>
-    <color name="red">#E05151</color>
-    <color name="tp_black">#80000000</color>
-    <color name="tp_white">#66FFFFFF</color>
-    <color name="tp_primary">#CC4472C4</color>
-    <color name="tp">#00FFFFFF</color>
-    <color name="imageSlider">#D9000000</color>
-    <color name="dibsBackColor">#F7F7F7</color>
-    <color name="colorAccentGrey">#636899</color>
+<color name="colorPrimary">#4472C4</color>
+<color name="colorPrimaryDark">#949494</color>
+<color name="colorAccent">#4472C4</color>
+<color name="black">#000000</color>
+<color name="grey">#797979</color>
+<color name="ratingYellow">#EBBC34</color>
+<color name="lightgrey">#E2E2E2</color>
+<color name="bluegrey">#B1BCBE</color>
+<color name="white">#FFFFFF</color>
+<color name="filter_possible">#636363</color>
+<color name="blackgrey">#383838</color>
+<color name="filter_impossible">#E0E0E0</color>
+<color name="darkPrimary">#1751C9</color>
+<color name="red">#E05151</color>
+<color name="tp_black">#80000000</color>
+<color name="tp_white">#66FFFFFF</color>
+<color name="tp_primary">#CC4472C4</color>
+<color name="tp">#00FFFFFF</color>
+<color name="imageSlider">#D9000000</color>
+<color name="dibsBackColor">#F7F7F7</color>
+<color name="colorAccentGrey">#636899</color>
 
 
 

@@ -37,7 +37,11 @@ class SearchRecentAdapter  (private var mpresenter: SearchContract.Presenter) : 
             dbhelper.deleteSearching(itemsList[position].name!!, itemsList[position].no!!)
 
             itemsList.removeAt(position)
-            notifyItemRemoved(position)
+            notifyAdapter()
+
+            if(itemsList.size==0){
+                mpresenter.showNorecent(true)
+            }
 
         }
 

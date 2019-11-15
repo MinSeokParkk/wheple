@@ -13,7 +13,7 @@ import com.minseok.wheple.mypage.MypageItem
 import com.minseok.wheple.near.model.NearDetailItem
 import com.minseok.wheple.near.model.NearItem
 import com.minseok.wheple.place.PlaceDetailItem
-import com.minseok.wheple.reservation.ReservationItem
+import com.minseok.wheple.reservation.model.ReservationItem
 import com.minseok.wheple.search.model.SearchItem
 import com.minseok.wheple.select_date_time.SelectTimeItem
 import com.minseok.wheple.writiingReview.WritingReviewItem

@@ -146,7 +146,7 @@
                             android:fontFamily="@font/fontawesome_webfont"
                             android:text="\uf288"
                             android:textColor="@color/white"
-                            android:textSize="21sp"
+                            android:textSize="21dp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -158,7 +158,7 @@
                             android:layout_marginBottom="6dp"
                             android:text="포인트"
                             android:textColor="@color/white"
-                            android:textSize="11sp"
+                            android:textSize="11dp"
                             app:layout_constraintBottom_toTopOf="@+id/text_mypage_point"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent" />
@@ -188,11 +188,11 @@
                             android:id="@+id/textView23"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="12dp"
+                            android:layout_marginTop="14dp"
                             android:fontFamily="@font/fontawesome_webfont"
-                            android:text="\uf0d6"
+                            android:text="\uf145"
                             android:textColor="@color/white"
-                            android:textSize="25sp"
+                            android:textSize="23dp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -204,7 +204,7 @@
                             android:layout_marginBottom="6dp"
                             android:text="쿠폰"
                             android:textColor="@color/white"
-                            android:textSize="11sp"
+                            android:textSize="11dp"
                             app:layout_constraintBottom_toTopOf="@+id/textView25"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent" />

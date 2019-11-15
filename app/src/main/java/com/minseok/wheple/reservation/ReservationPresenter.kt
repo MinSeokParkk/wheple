@@ -1,8 +1,10 @@
 package com.minseok.wheple.reservation
 
+import com.minseok.wheple.reservation.model.Point_Calculator
+import com.minseok.wheple.reservation.model.ReservationItem
+import com.minseok.wheple.reservation.model.ReservationRegex
 import com.minseok.wheple.retrofit.APIService
 import com.minseok.wheple.retrofit.Result
-import com.minseok.wheple.select_date_time.SelectDateTimeActivity
 import com.minseok.wheple.shared.App
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
@@ -28,6 +30,8 @@ class ReservationPresenter (private val view : ReservationContract.View): Reserv
     override fun start() {
     }
 
+//    같은 장소 같은 시간대의 예약액티비티에  한 명만 들어갈 수 있게 하는 코드(임시 예약 테이블)
+//
 //    override fun temp_reserve(space: String, date: String, timeNo: String) {
 //                    var sending : String
 //            sending = "{ \"place\" : \""+ space + "\", \r\n" +
@@ -152,9 +156,6 @@ class ReservationPresenter (private val view : ReservationContract.View): Reserv
                     .subscribe(
                         { result -> showResult_First(result, date, time, place, time_text, name, phone, price, payment, usedpoint) }
                     )
-
-
-
 
         }
     }

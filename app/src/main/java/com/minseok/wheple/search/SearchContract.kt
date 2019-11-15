@@ -15,6 +15,7 @@ interface SearchContract {
         fun makeRecycler_recent()
         fun destroyRecycler_recent()
         fun connectAdapter_recent()
+        fun noRecent(zero:Boolean)
 
     }
 
@@ -23,5 +24,6 @@ interface SearchContract {
         fun sendSearching(input:String, sAdapter: SearchResultAdapter)
         fun getRecent(rAdapter : SearchRecentAdapter)
         fun refreshRecentR()
+        fun showNorecent(show:Boolean)
     }
 }
