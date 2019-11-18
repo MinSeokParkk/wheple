@@ -7,7 +7,7 @@ interface ReservationContract {
 
     interface View : BaseView<Presenter> {
         fun setRes(name:String, date: String, timeText: String, price:String, hour:String, totalprice:String,
-                   phone:String, point:String, username:String)
+                   phone:String, point:String, username:String, coupon:Int)
         fun otherscheck(check:Boolean)
         fun writePoint(point: String)
         fun setPrice(price:String)
@@ -17,6 +17,7 @@ interface ReservationContract {
         fun wrongInput(int:Int)
         fun showToast(string: String)
         fun lateReserve()
+        fun nocoupon()
 
     }
 

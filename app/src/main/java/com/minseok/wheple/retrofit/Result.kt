@@ -2,6 +2,7 @@ package com.minseok.wheple.retrofit
 
 import com.minseok.wheple.PlaceReviewItem
 import com.minseok.wheple.cancel.CancelItem
+import com.minseok.wheple.coupon.CouponItem
 import com.minseok.wheple.dibs.DibsItem
 import com.minseok.wheple.home.PlaceItem
 import com.minseok.wheple.modifyingReview.ModifyingReviewItem
@@ -36,7 +37,8 @@ object Result {
                              val ni:ArrayList<NearItem>,
                              val ndi: NearDetailItem,
                              val di:ArrayList<DibsItem>,
-                             val srchR:ArrayList<SearchItem>
+                             val srchR:ArrayList<SearchItem>,
+                             val cps:ArrayList<CouponItem>
 
                              )
 

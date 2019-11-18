@@ -92,7 +92,11 @@ class ReservationPresenter (private val view : ReservationContract.View): Reserv
         }
 
         view.setRes(re.name, date, timeText, NumberFormat.getNumberInstance(Locale.US).format(re.price.toInt()), re.hour,
-            NumberFormat.getNumberInstance(Locale.US).format(totalprice), re.phone,re.point, userName)
+            NumberFormat.getNumberInstance(Locale.US).format(totalprice), re.phone,re.point, userName, re.coupon)
+
+        if(re.coupon<1){
+            view.nocoupon()
+        }
 
     }
 

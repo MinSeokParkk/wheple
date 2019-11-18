@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="120dp"
-    android:layout_margin="20dp"
+    android:layout_marginHorizontal="20dp"
+    android:layout_marginVertical="10dp"
     app:cardBackgroundColor="@color/colorPrimary"
     app:cardCornerRadius="10dp"
     app:cardElevation="1dp">
@@ -15,7 +16,7 @@
 
 
         <TextView
-            android:id="@+id/textViedw"
+            android:id="@+id/text_cpitem_min"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -23,11 +24,11 @@
             android:text="50,000원 이상 구매시"
             android:textColor="@color/white"
             android:textSize="11dp"
-            app:layout_constraintBottom_toTopOf="@+id/textVgdiew2"
+            app:layout_constraintBottom_toTopOf="@+id/text_cpitem_discount"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:id="@+id/textVgdiew2"
+            android:id="@+id/text_cpitem_discount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -40,7 +41,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView3dwsfd"
+            android:id="@+id/text_cpitem_name"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="30dp"
@@ -60,11 +61,11 @@
             android:text="유효기간 | "
             android:textColor="@color/white"
             android:textSize="11dp"
-            app:layout_constraintEnd_toStartOf="@+id/textView524"
-            app:layout_constraintTop_toBottomOf="@+id/textVgdiew2" />
+            app:layout_constraintEnd_toStartOf="@+id/text_cpitem_exp"
+            app:layout_constraintTop_toBottomOf="@+id/text_cpitem_discount" />
 
         <TextView
-            android:id="@+id/textView524"
+            android:id="@+id/text_cpitem_exp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="30dp"

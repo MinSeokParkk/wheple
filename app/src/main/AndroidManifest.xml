@@ -123,7 +123,8 @@
             android:windowSoftInputMode="adjustResize"
             android:launchMode = "singleTop"></activity>
 
-
+        <activity android:name=".coupon.CouponActivity"
+            android:launchMode = "singleTop"></activity>
 
         <!-- 테스트 용-->
         <activity android:name=".test.TestActivity"></activity>

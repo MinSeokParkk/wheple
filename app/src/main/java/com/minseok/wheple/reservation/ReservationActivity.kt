@@ -5,14 +5,22 @@ import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.view.KeyEvent
+import android.view.View
 import android.widget.Toast
 import com.minseok.wheple.R
 import com.minseok.wheple.ReservationSuccessActivity
 import com.minseok.wheple.afterTextChanged
+import com.minseok.wheple.coupon.CouponActivity
 import com.minseok.wheple.select_date_time.SelectDateTimeActivity
 import kotlinx.android.synthetic.main.activity_reservation.*
 
 class ReservationActivity : AppCompatActivity(), ReservationContract.View{
+
+    companion object{
+        var couponchange = false
+        var couponcount = 0
+        var couponNo = ""
+    }
 
     private lateinit var mPresenter : ReservationContract.Presenter
 
@@ -70,7 +78,18 @@ class ReservationActivity : AppCompatActivity(), ReservationContract.View{
             onBackPressed()
         }
 
+        button_res_coupon.setOnClickListener {
+            val nextIntent = Intent(this, CouponActivity::class.java)
+            nextIntent.putExtra("price",  text_res_price_mid.text.toString())
+            startActivity(nextIntent)
+        }
 
+
+    }
+
+    override fun onStart() {
+        super.onStart()
+        //여기에 변화된 내용을 쓰자
     }
 
 
@@ -79,7 +98,7 @@ class ReservationActivity : AppCompatActivity(), ReservationContract.View{
     }
 
     override fun setRes(name:String, date: String, timeText: String, price:String, hour:String, totalprice:String,
-                        phone:String, point:String, username:String) {
+                        phone:String, point:String, username:String, coupon:Int) {
         text_res_name.text = name
         text_res_date.text = date
         text_res_time.text = timeText
@@ -92,6 +111,7 @@ class ReservationActivity : AppCompatActivity(), ReservationContract.View{
         text_res_finalprice.text = totalprice+"원"
         button_gotopay.text = totalprice+"원 결제하기"
         edit_res_name.setText(username)
+        text_res_coupon_use.text = text_res_coupon_use.text.toString() + coupon.toString() +"장"
 
     }
 
@@ -161,6 +181,12 @@ class ReservationActivity : AppCompatActivity(), ReservationContract.View{
         }
 
         builder.show()
+    }
+
+    override fun nocoupon(){
+        text_res_coupon.visibility = View.GONE
+        text_res_coupon_use.visibility = View.GONE
+        button_res_coupon.visibility = View.GONE
     }
 
 
