@@ -53,7 +53,7 @@ class MyResDetailPresenter (private val view : MyResDetailContract.View): MyResD
        val phone =  PhoneChange().check(myd.phone)
 
         view.setData(myd.place, myd.photo,myd.date, myd.time, myd.name, phone, myd.price, myd.usedpoint, myd.payment,
-                     myd.refund_price, myd.refund_point)
+                     myd.refund_price, myd.refund_point, myd.usedcoupon, myd.refund_coupon)
 
         if (myd.cancel.equals("t")) {
             view.cancel()

@@ -1,5 +1,6 @@
 package com.minseok.wheple.coupon
 
+import android.app.Activity
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +9,10 @@ import com.minseok.wheple.coupon.adapter.CouponAdapter
 import kotlinx.android.synthetic.main.activity_coupon_reservation.*
 
 class CouponActivity : AppCompatActivity(), CouponContract.View {
+
+    companion object{
+        var activity: Activity? = null
+    }
 
 
     private lateinit var mPresenter:  CouponContract.Presenter
@@ -31,9 +36,7 @@ class CouponActivity : AppCompatActivity(), CouponContract.View {
         Log.d("couponA1", "intent 확인 : "+intent.getStringExtra("price"))
         makeRecycler_search()
 
-
-
-
+        activity = this@CouponActivity
     }
 
     override fun connectAdapter(){

@@ -58,7 +58,8 @@ class MyResDetailActivity : AppCompatActivity(),  MyResDetailContract.View {
     }
 
     override fun setData(place: String,photo: String, date: String, time: String, name: String, phone: String,
-                         price: String, point: String, payment: String,refund_price:String, refund_point:String) {
+                         price: String, point: String, payment: String,refund_price:String, refund_point:String,
+                         usedcoupon:String, refund_coupon:String) {
         text_myres_de_place.text = place
 
         Glide.with(this)
@@ -74,6 +75,9 @@ class MyResDetailActivity : AppCompatActivity(),  MyResDetailContract.View {
         text_myres_de_payment.text = payment
         text_myres_de_refund.text = refund_price
         text_myres_de_refund_point.text = refund_point
+        text_myres_de_coupon.text = usedcoupon
+        text_myres_de_refund_coupon.text = refund_coupon
+
     }
 
 

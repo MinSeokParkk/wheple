@@ -18,7 +18,10 @@ interface ReservationContract {
         fun showToast(string: String)
         fun lateReserve()
         fun nocoupon()
-
+        fun gotoCoupon()
+        fun cancelCoupon()
+        fun gotoPay(date:String, time:String, place:String, time_text: String, name:String,
+                phone:String, price:String, payment:String, usedpoint:String)
     }
 
 
@@ -27,10 +30,12 @@ interface ReservationContract {
         fun showDetail(space:String, date:String, timeNo:String, timeText:String)
         fun checkchange(check:Boolean)
         fun useAllPoint(string:String)
-        fun inputPointCheck(price:String, point:String, mypoint:String)
+        fun inputPointCheck(price:String, point:String, mypoint:String, coupon: Int)
         fun inputCheck(name:String, phone:String, useAgree :Boolean, cancelAgree:Boolean, personalAgree:Boolean)
         fun reserve_check(name:String, phone:String, useAgree :Boolean, cancelAgree:Boolean, personalAgree:Boolean,
                     date:String, time:String, place:String, time_text:String, price:String, payment:String, usedpoint:String)
+        fun couponButton(discount:Int)
+        fun couponPrice(coupon: Int, price:String, usecoupon:Boolean)
 //        fun delete_temp(space:String, date:String, timeNo:String)
     }
 }

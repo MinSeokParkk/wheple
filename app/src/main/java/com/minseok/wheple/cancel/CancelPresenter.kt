@@ -49,7 +49,7 @@ class CancelPresenter (private val view : CancelContract.View): CancelContract.P
         val refund = array[0]
         val repoint = array[1]
 
-        view.setText(refund, repoint, cs.price, cs.usedpoint, cs.payment)
+        view.setText(refund, repoint, cs.price, cs.usedpoint, cs.payment, cs.usedcoupon, cs.returncoupon)
 
 
     }
@@ -62,12 +62,13 @@ class CancelPresenter (private val view : CancelContract.View): CancelContract.P
         }
     }
 
-    override fun clickbutton(check: Boolean, no:String, refund:String, repoint: String){
+    override fun clickbutton(check: Boolean, no:String, refund:String, repoint: String, recoupon:String){
         if(!check){
             view.showToast("내용 확인에 체크해주세요.")
         }else{
             val strrefund =  refund.replace(",", "")
             val strrepoint = repoint.replace(",", "")
+            val strrecoupon = recoupon.replace(",", "")
             val email = App.prefs.autologin
 
             println("준비완료~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" + no + " | " +strrefund + " | "+strrepoint)
@@ -77,6 +78,7 @@ class CancelPresenter (private val view : CancelContract.View): CancelContract.P
             sending = "{ \"no\" : \""+ no + "\", \r\n" +
                      "\"refund\" : \""+ strrefund + "\", \r\n" +
                     "\"point\" : \""+ strrepoint + "\", \r\n" +
+                    "\"recoupon\" : \""+ strrecoupon + "\", \r\n" +
                     "\"email\" : \""+email+"\"}"
 
             println(sending)

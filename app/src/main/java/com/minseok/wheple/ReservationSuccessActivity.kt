@@ -16,6 +16,14 @@ class ReservationSuccessActivity : AppCompatActivity() {
             val nextIntent = Intent(this, MainActivity::class.java)
             startActivity(nextIntent)
         }
+
+        button_goMyres.setOnClickListener {
+            MainActivity.afterRes = true
+            val nextIntent = Intent(this, MainActivity::class.java)
+            startActivity(nextIntent)
+        }
+
+
     }
 
     override fun onBackPressed() {

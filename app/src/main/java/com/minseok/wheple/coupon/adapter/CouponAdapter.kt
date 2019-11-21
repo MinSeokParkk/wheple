@@ -1,12 +1,15 @@
 package com.minseok.wheple.coupon.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.minseok.wheple.R
+import com.minseok.wheple.coupon.CouponActivity
 import com.minseok.wheple.coupon.CouponItem
+import com.minseok.wheple.reservation.ReservationActivity
 import java.text.NumberFormat
 import java.util.*
 import kotlin.collections.ArrayList
@@ -52,6 +55,16 @@ class CouponAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
             coupDisc.text = NumberFormat.getNumberInstance(Locale.US).format(cp.discount)
             coupName.text = cp.name
             coupExp.text  = cp.start_date + " ~ "+cp.end_date
+
+            itemView.setOnClickListener {
+                Log.d("couponA1", "아이템 클릭 "+ cp.no)
+
+                ReservationActivity.couponchange = true
+                ReservationActivity.couponNo = cp.no
+                ReservationActivity.couponcount = cp.discount
+
+                 CouponActivity.activity?.finish()
+            }
         }
     }
 }

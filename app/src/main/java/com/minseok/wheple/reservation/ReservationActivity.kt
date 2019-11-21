@@ -1,5 +1,6 @@
 package com.minseok.wheple.reservation
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
@@ -11,12 +12,16 @@ import com.minseok.wheple.R
 import com.minseok.wheple.ReservationSuccessActivity
 import com.minseok.wheple.afterTextChanged
 import com.minseok.wheple.coupon.CouponActivity
+import com.minseok.wheple.pay.PayActivity
 import com.minseok.wheple.select_date_time.SelectDateTimeActivity
 import kotlinx.android.synthetic.main.activity_reservation.*
+import java.text.NumberFormat
+import java.util.*
 
 class ReservationActivity : AppCompatActivity(), ReservationContract.View{
 
     companion object{
+        var activity: Activity? = null
         var couponchange = false
         var couponcount = 0
         var couponNo = ""
@@ -28,6 +33,8 @@ class ReservationActivity : AppCompatActivity(), ReservationContract.View{
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_reservation)
 
+       activity = this@ReservationActivity
+
         ReservationPresenter(this)
 //        mPresenter.temp_reserve(intent.getStringExtra("space"), intent.getStringExtra("date"), intent.getStringExtra("timeNo"))
         mPresenter.showDetail(intent.getStringExtra("space"), intent.getStringExtra("date"), intent.getStringExtra("timeNo"), intent.getStringExtra("timeText"))
@@ -37,12 +44,10 @@ class ReservationActivity : AppCompatActivity(), ReservationContract.View{
         }
 
         edit_res_point.afterTextChanged{ // text_res_price_mid.text.toString() 를 중간금액 - 쿠폰금액으로 바꿔야 할듯!
-            mPresenter.inputPointCheck(text_res_price_mid.text.toString(), edit_res_point.text.toString(), edit_res_point.hint.toString())
+            mPresenter.inputPointCheck(text_res_price_mid.text.toString(), edit_res_point.text.toString(), edit_res_point.hint.toString(), couponcount)
         }
 
         text_res_allpoint.setOnClickListener{
-            println(edit_res_point.hint)
-
             mPresenter.useAllPoint(edit_res_point.hint.toString())
         }
 
@@ -79,9 +84,7 @@ class ReservationActivity : AppCompatActivity(), ReservationContract.View{
         }
 
         button_res_coupon.setOnClickListener {
-            val nextIntent = Intent(this, CouponActivity::class.java)
-            nextIntent.putExtra("price",  text_res_price_mid.text.toString())
-            startActivity(nextIntent)
+             mPresenter.couponButton(couponcount)
         }
 
 
@@ -89,7 +92,24 @@ class ReservationActivity : AppCompatActivity(), ReservationContract.View{
 
     override fun onStart() {
         super.onStart()
-        //여기에 변화된 내용을 쓰자
+       if(couponchange){
+           text_res_coupon_discount.text = "-"+NumberFormat.getNumberInstance(Locale.US).format(couponcount)
+           text_res_coupon_use.visibility = View.GONE
+           button_res_coupon.text = "사용 취소"
+           button_res_coupon.setBackgroundResource(R.drawable.button_off)
+
+           mPresenter.couponPrice(couponcount, text_res_finalprice.text.toString(), true)
+
+           couponchange = false
+       }
+    }
+
+    override fun onDestroy() {
+        couponchange = false
+        couponcount = 0
+        couponNo = ""
+        super.onDestroy()
+
     }
 
 
@@ -187,6 +207,40 @@ class ReservationActivity : AppCompatActivity(), ReservationContract.View{
         text_res_coupon.visibility = View.GONE
         text_res_coupon_use.visibility = View.GONE
         button_res_coupon.visibility = View.GONE
+    }
+
+    override fun gotoCoupon(){
+        val nextIntent = Intent(this, CouponActivity::class.java)
+        nextIntent.putExtra("price",  text_res_price_mid.text.toString())
+        startActivity(nextIntent)
+    }
+
+    override fun cancelCoupon(){
+        text_res_coupon_discount.text = ""
+        text_res_coupon_use.visibility = View.VISIBLE
+        button_res_coupon.text = "쿠폰 적용"
+        button_res_coupon.setBackgroundResource(R.drawable.button_on)
+        mPresenter.couponPrice(couponcount, text_res_finalprice.text.toString(), false)
+        couponcount = 0
+        couponNo = ""
+
+    }
+
+    override fun gotoPay(date:String, time:String, place:String, time_text: String, name:String,
+                         phone:String, price:String, payment:String, usedpoint:String) {
+        val nextIntent = Intent(this, PayActivity::class.java)
+        nextIntent.putExtra("date", date)
+        nextIntent.putExtra("time", time)
+        nextIntent.putExtra("place", place)
+        nextIntent.putExtra("time_text", time_text)
+        nextIntent.putExtra("name", name)
+        nextIntent.putExtra("phone", phone)
+        nextIntent.putExtra("price", price)
+        nextIntent.putExtra("payment", payment)
+        nextIntent.putExtra("usedpoint", usedpoint)
+        nextIntent.putExtra("placename", text_res_name.text.toString())
+        nextIntent.putExtra("coupon", couponNo)
+        startActivity(nextIntent)
     }
 
 

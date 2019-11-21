@@ -1,6 +1,7 @@
 package com.minseok.wheple.main
 
 
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -12,6 +13,7 @@ import com.minseok.wheple.HomeFragment
 import com.minseok.wheple.near.NearFragment
 import com.minseok.wheple.mypage.MypageFragment
 import com.minseok.wheple.dibs.DibsFragment
+import com.minseok.wheple.myReservation.MyreservationActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -25,6 +27,10 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     val fm = supportFragmentManager
     var active: androidx.fragment.app.Fragment = fragment1
     var save = false
+
+    companion object{
+        var afterRes : Boolean = false
+    }
 
 
     override fun setPresenter(presenter: MainContract.Presenter) {
@@ -62,6 +68,8 @@ class MainActivity : AppCompatActivity(), MainContract.View {
 
 
 
+
+
     }
 
     override fun onResume() {
@@ -69,6 +77,17 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         if(save){ //saveinstance 가 있으면 무조건 홈으로 바꾼다.
             nav_view.selectedItemId = R.id.navigation_home
             save = false
+        }
+
+        ////////////////실험중
+        if(afterRes){
+
+            nav_view.selectedItemId = R.id.navigation_mypage
+
+            val nextIntent = Intent(this, MyreservationActivity::class.java)
+            startActivity(nextIntent)
+
+            afterRes = false
         }
 
     }

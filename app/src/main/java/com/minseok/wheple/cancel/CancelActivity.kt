@@ -28,7 +28,7 @@ class CancelActivity : AppCompatActivity(), CancelContract.View{
 
         button_cancel.setOnClickListener {
             mPresenter.clickbutton(check_cancel.isChecked, intent.getStringExtra("no"), text_cancel_refund.text.toString(),
-                text_cancel_point.text.toString())
+                text_cancel_point.text.toString(), text_cancel_recoupon.text.toString())
         }
     }
 
@@ -37,12 +37,15 @@ class CancelActivity : AppCompatActivity(), CancelContract.View{
         this.mPresenter = presenter
     }
 
-    override fun setText(refund: String, repoint: String, price: String, usedpoint: String, payment: String) {
+    override fun setText(refund: String, repoint: String, price: String, usedpoint: String, payment: String,
+                         usedcoupon:String, returncoupon:String) {
         text_cancel_refund.text = refund
         text_cancel_repoint.text = repoint
         text_cancel_price.text = price
         text_cancel_point.text = usedpoint
         text_cancel_payment.text = payment
+        text_cancel_coupon.text = usedcoupon
+        text_cancel_recoupon.text = returncoupon
 
     }
 

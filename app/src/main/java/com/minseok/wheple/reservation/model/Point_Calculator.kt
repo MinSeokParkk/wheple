@@ -35,7 +35,7 @@ class Point_Calculator {
         return result_check
     }
 
-    fun point_cal(price:String, point: String, mypoint:String):String{
+    fun point_cal(price:String, point: String, mypoint:String, coupon: Int):String{
 
         var pricechange = price.replace(",", "")
         pricechange = pricechange.replace("원", "")
@@ -52,9 +52,9 @@ class Point_Calculator {
                 finalPrice = pricechange.toInt() - point.toInt()
             }
 
-            result = NumberFormat.getNumberInstance(Locale.US).format(finalPrice) + "원"
+            result = NumberFormat.getNumberInstance(Locale.US).format(finalPrice - coupon) + "원"
         } else {
-            result  = price
+            result  = NumberFormat.getNumberInstance(Locale.US).format(pricechange.toInt() - coupon) + "원"
         }
 
         return result

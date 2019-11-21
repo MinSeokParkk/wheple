@@ -109,13 +109,13 @@ class ReservationPresenter (private val view : ReservationContract.View): Reserv
         view.writePoint(allPoint[0])
     }
 
-    override fun inputPointCheck(price:String, point: String, mypoint:String) {
+    override fun inputPointCheck(price:String, point: String, mypoint:String, coupon: Int) {
 
         val message= point_Cal.point_check(point, mypoint)
         if(!message.equals("stop")) {
             view.writePoint(message)
         }
-        view.setPrice(point_Cal.point_cal(price, point, mypoint))
+        view.setPrice(point_Cal.point_cal(price, point, mypoint, coupon))
     }
 
     override  fun inputCheck(name:String, phone:String, useAgree :Boolean, cancelAgree:Boolean, personalAgree:Boolean){
@@ -181,58 +181,40 @@ class ReservationPresenter (private val view : ReservationContract.View): Reserv
                 usedPoint = "0"
             }
 
-            reserve(date, time, place, time_text, email, name, phone, pricechange, paymentchange, usedPoint)
+//            원래는 바로 예약 시켰다. 그렇지만 이제 카카오페이를 붙일 예정.
+//            reserve(date, time, place, time_text, email, name, phone, pricechange, paymentchange, usedPoint)
+
+            view.gotoPay(date, time, place, time_text, name, phone, pricechange, paymentchange, usedPoint)
 
 
         } else if(result.result.equals("fail")){
-//            view.showToast("다른 사람이 이미 예약한 시간입니다.\n다른 시간대를 선택해주세요.")
-//            SelectDateTimeActivity.MyClass.activity?.finish()
-//            view.gotoback()
             view.lateReserve()
         }
 
     }
 
-    fun reserve(date:String, time:String, place:String, time_text: String, email:String, name:String,
-                phone:String, price:String, payment:String, usedpoint:String){
 
-        var sending : String
-        sending = "{ \"date\" : \""+ date + "\", \r\n" +
-                "\"time\" : \""+ time + "\", \r\n" +
-                "\"place\" : \""+ place + "\", \r\n" +
-                "\"time_text\" : \""+ time_text + "\", \r\n" +
-                "\"email\" : \""+ email + "\", \r\n" +
-                "\"name\" : \""+ name + "\", \r\n" +
-                "\"phone\" : \""+ phone + "\", \r\n" +
-                "\"price\" : \""+ price + "\", \r\n" +
-                "\"payment\" : \""+ payment + "\", \r\n" +
-                "\"usedpoint\" : \""+usedpoint+"\"}"
-
-        println(sending)
-
-        disposable =
-            apiService.connect_server("reservation.php", sending)
-
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(
-                    { result -> showResult_Second(result) }
-                )
-    }
-
-    fun showResult_Second(result: Result.Connectresult){
-        if(result.result.equals("0")){
-
-            view.showToast("예약 성공")
-            view.gotoReservationSuccess()
-
-
-        } else {
-            view.showToast("예약 실패")
+    override fun couponButton(discount: Int) {
+        if(discount>0){
+            view.cancelCoupon()
+        }else{
+            view.gotoCoupon()
         }
-
     }
 
+    override fun couponPrice(coupon: Int, price: String, usecoupon:Boolean) {
+       var priceI = price.replace("원", "")
+        priceI = priceI.replace(",", "")
+        val priceInt = priceI.toInt()
+        var newprice =0
+        if(usecoupon){
+            newprice = priceInt - coupon
+        }else{
+            newprice = priceInt + coupon
+        }
+        val result = NumberFormat.getNumberInstance(Locale.US).format(newprice) + "원"
+        view.setPrice(result)
+    }
 
 
 

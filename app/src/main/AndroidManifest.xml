@@ -126,6 +126,9 @@
         <activity android:name=".coupon.CouponActivity"
             android:launchMode = "singleTop"></activity>
 
+        <activity android:name=".pay.PayActivity"
+            android:launchMode = "singleTop"></activity>
+
         <!-- 테스트 용-->
         <activity android:name=".test.TestActivity"></activity>
         <activity android:name=".test.Test2Activity"></activity>
