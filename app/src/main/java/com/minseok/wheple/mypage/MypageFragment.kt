@@ -2,6 +2,7 @@ package com.minseok.wheple.mypage
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +14,7 @@ import com.minseok.wheple.login.LoginActivity
 import com.minseok.wheple.main.MainActivity
 import com.minseok.wheple.myReservation.MyreservationActivity
 import com.minseok.wheple.myReview.MyreviewActivity
+import com.minseok.wheple.mycoupon.MycouponActivity
 import com.minseok.wheple.myinfo.MyinfoActivity
 import kotlinx.android.synthetic.main.fragment_mypage.*
 
@@ -75,10 +77,15 @@ class MypageFragment : androidx.fragment.app.Fragment(), MypageContract.View {
                 }
             }
 
+            view.const_mypage_coupon.setOnClickListener {
+                activity?.let {
+                    val intent = Intent(it, MycouponActivity::class.java)
+                    intent.putExtra("couponNum", text_mypage_coupon.text.toString())
+                    it.startActivity(intent)
+                }
+            }
+
         MypagePresenter(this)
-
-
-
 
 
         // Return the fragment view/layout
@@ -87,6 +94,7 @@ class MypageFragment : androidx.fragment.app.Fragment(), MypageContract.View {
     }
 
     override fun onStart() {
+        Log.d("MypageFragM","OnStart")
         mPresenter.check_preference()
         super.onStart()
     }
@@ -101,9 +109,10 @@ class MypageFragment : androidx.fragment.app.Fragment(), MypageContract.View {
         constraint_mypage_user.visibility = View.GONE
     }
 
-    override fun set_myinfo(nickname:String, point:String, photo:String){
+    override fun set_myinfo(nickname:String, point:String, photo:String,coupon:String){
         text_mypage_nickname.text = nickname
         text_mypage_point.text = point
+        text_mypage_coupon.text = coupon
 
         Glide.with(this)
             .load(get_base_url()+photo)

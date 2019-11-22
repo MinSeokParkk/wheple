@@ -2,6 +2,7 @@ package com.minseok.wheple.mypage
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.util.Log
 import com.minseok.wheple.retrofit.APIService
 import com.minseok.wheple.retrofit.Result
 import com.minseok.wheple.shared.App
@@ -44,8 +45,8 @@ class MypagePresenter (private val view: MypageContract.View): MypageContract.Pr
     }
 
     fun showResult(mypage: Result.Connectresult){
-        println("return ======"+mypage.mypage )
-            view.set_myinfo(mypage.mypage.nickname, mypage.mypage.point, mypage.mypage.photo)
+        Log.d("MypageFragM","Return to mypage : "+mypage.mypage)
+            view.set_myinfo(mypage.mypage.nickname, mypage.mypage.point, mypage.mypage.photo, mypage.mypage.coupon)
 
     }
 

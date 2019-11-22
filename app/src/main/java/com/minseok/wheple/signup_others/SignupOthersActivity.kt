@@ -82,6 +82,10 @@ class SignupOthersActivity : AppCompatActivity(), SignupOthersContract.View{
         Toast.makeText(this, string, Toast.LENGTH_SHORT).show()
     }
 
+    override fun showToastL(string: String) {
+        Toast.makeText(this, string, Toast.LENGTH_LONG).show()
+    }
+
     override fun wrongInput(int: Int) {
         if(int==-1) { // 이메일 형식 오류
             signup_email_editText.requestFocus()

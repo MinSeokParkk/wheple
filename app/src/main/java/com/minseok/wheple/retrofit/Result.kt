@@ -9,6 +9,7 @@ import com.minseok.wheple.modifyingReview.ModifyingReviewItem
 import com.minseok.wheple.myResDetail.MyResDetailItem
 import com.minseok.wheple.myReservation.MyreservationItem
 import com.minseok.wheple.myReview.MyreviewItem
+import com.minseok.wheple.myinfo.MycouponItem
 import com.minseok.wheple.myinfo.MyinfoItem
 import com.minseok.wheple.mypage.MypageItem
 import com.minseok.wheple.near.model.NearDetailItem
@@ -38,7 +39,8 @@ object Result {
                              val ndi: NearDetailItem,
                              val di:ArrayList<DibsItem>,
                              val srchR:ArrayList<SearchItem>,
-                             val cps:ArrayList<CouponItem>
+                             val cps:ArrayList<CouponItem>,
+                             val mycou:ArrayList<MycouponItem>
 
                              )
 

@@ -8,6 +8,7 @@ interface SignupOthersContract {
     interface View : BaseView<Presenter> {
         fun signupSuccess()
         fun showToast(string: String)
+        fun showToastL(string: String)
         fun wrongInput(int: Int)
         fun signupbutton_on()
         fun signupbutton_off()

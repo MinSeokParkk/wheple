@@ -212,7 +212,6 @@ class HomeFragment : androidx.fragment.app.Fragment(), HomeContract.View {
             activity?.let {
                 val intent = Intent(it, FilterActivity::class.java)
                 it.startActivity(intent)
-
             }
         }
 

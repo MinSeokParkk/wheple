@@ -85,7 +85,7 @@ class SignupOthersPresenter (private val view : SignupOthersContract.View):Signu
     fun showResult(result: Result.Connectresult, email: String){
         if(result.result.equals("0")){
             view.signupSuccess()
-            view.showToast("회원 가입이 완료되었습니다.")
+            view.showToastL("회원가입을 환영합니다~\n가입 환영 쿠폰이 발급되었습니다.")
 
             App.prefs.autologin = email //쉐어드로 로그인 상태 유지시킴
 

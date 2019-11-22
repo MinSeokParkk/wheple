@@ -66,10 +66,6 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         }
 
 
-
-
-
-
     }
 
     override fun onResume() {
@@ -79,7 +75,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
             save = false
         }
 
-        ////////////////실험중
+
         if(afterRes){
 
             nav_view.selectedItemId = R.id.navigation_mypage
@@ -96,9 +92,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     override fun onBackPressed() {
         Log.d("navtest",  "onBackpressed")
         if(nav_view.selectedItemId==R.id.navigation_home){
-
              finishAffinity()
-
         }else{
             nav_view.selectedItemId = R.id.navigation_home
         }
@@ -106,10 +100,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     }
 
 
-//    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-//        menuInflater.inflate(R.menu.bottom_nav_menu, menu)
-//        return super.onCreateOptionsMenu(menu)
-//    }
+
 
 
 

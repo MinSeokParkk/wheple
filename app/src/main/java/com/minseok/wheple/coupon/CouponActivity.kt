@@ -33,6 +33,7 @@ class CouponActivity : AppCompatActivity(), CouponContract.View {
             onBackPressed()
         }
 
+
         Log.d("couponA1", "intent 확인 : "+intent.getStringExtra("price"))
         makeRecycler_search()
 
