@@ -10,7 +10,7 @@ interface PayContract {
     }
 
     interface Presenter : BasePresenter {
-        fun bringKakaoPay(baseurl:String, placename:String, payment:String)
+        fun bringKakaoPay(baseurl:String, adminkey:String, placename:String, payment:String)
         fun reserve(date:String, time:String, place:String, time_text: String, name:String,
                      phone:String, price:String, payment:String, usedpoint:String, coupon:String)
 

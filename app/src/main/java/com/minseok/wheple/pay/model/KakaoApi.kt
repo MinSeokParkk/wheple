@@ -1,5 +1,8 @@
 package com.minseok.wheple.pay.model
 
+import android.provider.Settings.Global.getString
+import com.minseok.wheple.R
+import com.minseok.wheple.shared.App
 import io.reactivex.Observable
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -9,11 +12,9 @@ import retrofit2.http.*
 interface KakaoApi {
 
 
-
-
-    @Headers("Authorization: KakaoAK 6ccefc43ce7b96e952c0e962227de332")
     @POST("v1/payment/ready")
     fun connect_pay(
+        @Header("Authorization") KakaoAK:String,
         @Query("cid") cid: String,
         @Query("partner_order_id") partner_order_id:String,
         @Query("partner_user_id") partner_user_id:String,
@@ -31,8 +32,6 @@ interface KakaoApi {
 
 
     companion object {
-
-
 
         fun create(): KakaoApi {
 

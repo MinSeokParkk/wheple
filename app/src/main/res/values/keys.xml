@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name= "google_geo_key">AIzaSyCLv91Ni-WlPZAOEOePQaDWD_NNTIAzXvY</string>
+    <string name ="base_url">http://172.30.1.35:9999/</string>
+    <string name = "kakao_api_key">6ccefc43ce7b96e952c0e962227de332</string>
+</resources>

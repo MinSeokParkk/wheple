@@ -45,27 +45,14 @@ class PayActivity:AppCompatActivity(), PayContract.View{
         webviewpayment.addJavascriptInterface(WebAppInterface(this), "Android")
         webviewpayment.webViewClient = CustomWebViewClient()
 
-        mPresenter.bringKakaoPay(get_base_url(), intent.getStringExtra("placename"), intent.getStringExtra("payment"))
+        mPresenter.bringKakaoPay(get_base_url(), getString(R.string.kakao_api_key),
+            intent.getStringExtra("placename"), intent.getStringExtra("payment"))
 
-//     disposable =  kakaoapi.connect_pay( "TC0ONETIME",
-//         "partner_order_id",  "partner_user_id", "초코파이", 1, 2200,  0,
-//         get_base_url()+"ksuccess.php", get_base_url()+"kfail.php", get_base_url()+"kcancel.php"
-//     )
-//         .subscribeOn(Schedulers.io())
-//         .observeOn(AndroidSchedulers.mainThread())
-//         .subscribe(
-//             {result -> showResult(result) },
-//             {err->println("ERROR 에러 에러에러에러에러에러 : "+err.toString())}
-//         )
+
+
     }
 
-//    @RequiresApi(Build.VERSION_CODES.O)
-//    fun showResult(result: KakaoResult.KakaoConnectResult){
-//        println("나옵니다~~~~~\n "+result.tid + "\n" + result.next_redirect_app_url + "\n" + result.android_app_scheme)
-//
-//        webviewpayment.loadUrl(result.next_redirect_app_url)
-//
-//    }
+
 
 
 

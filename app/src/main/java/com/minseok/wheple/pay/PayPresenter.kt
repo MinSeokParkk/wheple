@@ -1,7 +1,9 @@
 package com.minseok.wheple.pay
 
 import android.os.Build
+import android.provider.Settings.Global.getString
 import androidx.annotation.RequiresApi
+import com.minseok.wheple.R
 import com.minseok.wheple.pay.model.KakaoApi
 import com.minseok.wheple.pay.model.KakaoResult
 import com.minseok.wheple.retrofit.APIService
@@ -34,9 +36,9 @@ class PayPresenter (private val view : PayContract.View): PayContract.Presenter{
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    override fun bringKakaoPay(baseurl:String, placename:String, payment:String){
+    override fun bringKakaoPay(baseurl:String, adminkey:String, placename:String, payment:String){
 
-        disposable =  kakaoapi.connect_pay( "TC0ONETIME",
+        disposable =  kakaoapi.connect_pay( "KakaoAK "+adminkey,"TC0ONETIME",
             "partner_order_id",  "partner_user_id", placename, 1, payment.toInt(),  0,
             baseurl+"ksuccess.php", baseurl+"kfail.php", baseurl+"kcancel.php"
         )
