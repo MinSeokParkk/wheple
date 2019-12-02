@@ -68,6 +68,12 @@ class MainActivity : AppCompatActivity(), MainContract.View {
 
     }
 
+    override fun onStart() {
+        super.onStart()
+
+       Log.d("MainTest","메인 온스타트")
+    }
+
     override fun onResume() {
         super.onResume()
         if(save){ //saveinstance 가 있으면 무조건 홈으로 바꾼다.

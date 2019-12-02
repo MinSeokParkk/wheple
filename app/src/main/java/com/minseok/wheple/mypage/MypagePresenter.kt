@@ -36,7 +36,10 @@ class MypagePresenter (private val view: MypageContract.View): MypageContract.Pr
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(
-                        { mypage -> showResult(mypage) }
+                        { mypage -> showResult(mypage) },
+                        {e ->
+                            println("마이페이지! 오류 테스트 중입니다."+ e.message)
+                        }
                     )
 
         }else{

@@ -55,7 +55,8 @@ class MyreviewPresenter(private val view : MyreviewContract.View): MyreviewContr
 
     override fun delete(no: String) {
 
-        var sending = "{ \"no\" : \""+ no + "\"}"
+        var sending = "{ \"no\" : \""+ no  + "\", \r\n" +
+                "\"email\" : \""+ App.prefs.autologin +"\"}"
         disposable =
             apiService.connect_server("deleteReview.php", sending)
 

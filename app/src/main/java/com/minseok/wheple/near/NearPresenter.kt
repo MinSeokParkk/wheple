@@ -53,7 +53,10 @@ class NearPresenter (private val view : NearContract.View): NearContract.Present
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
-                    { ni -> showResult(ni) }
+                    { ni -> showResult(ni) },
+                    {e ->
+                        println("내주변! 오류 테스트 중입니다."+ e.message)
+                    }
                 )
     }
 

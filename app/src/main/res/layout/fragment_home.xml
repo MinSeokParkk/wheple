@@ -193,7 +193,7 @@
 
     <TextView
 
-        android:id="@+id/textView158"
+        android:id="@+id/text_home_test"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -215,9 +215,9 @@
         android:textColor="@color/colorPrimary"
         android:textSize="16dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/textView158"
-        app:layout_constraintStart_toEndOf="@+id/textView158"
-        app:layout_constraintTop_toTopOf="@+id/textView158" />
+        app:layout_constraintBottom_toBottomOf="@+id/text_home_test"
+        app:layout_constraintStart_toEndOf="@+id/text_home_test"
+        app:layout_constraintTop_toTopOf="@+id/text_home_test" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_home_sort"
@@ -275,7 +275,7 @@
         android:text="곳"
         android:textColor="#000000"
         android:textSize="14dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView158"
+        app:layout_constraintBottom_toBottomOf="@+id/text_home_test"
         app:layout_constraintStart_toEndOf="@+id/text_home_number" />
 
     <ImageView

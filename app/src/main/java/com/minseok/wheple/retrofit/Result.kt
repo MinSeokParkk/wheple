@@ -12,6 +12,7 @@ import com.minseok.wheple.myReview.MyreviewItem
 import com.minseok.wheple.myinfo.MycouponItem
 import com.minseok.wheple.myinfo.MyinfoItem
 import com.minseok.wheple.mypage.MypageItem
+import com.minseok.wheple.mypoint.MypointItem
 import com.minseok.wheple.near.model.NearDetailItem
 import com.minseok.wheple.near.model.NearItem
 import com.minseok.wheple.place.PlaceDetailItem
@@ -40,7 +41,8 @@ object Result {
                              val di:ArrayList<DibsItem>,
                              val srchR:ArrayList<SearchItem>,
                              val cps:ArrayList<CouponItem>,
-                             val mycou:ArrayList<MycouponItem>
+                             val mycou:ArrayList<MycouponItem>,
+                             val myp:ArrayList<MypointItem>
 
                              )
 

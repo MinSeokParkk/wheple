@@ -64,6 +64,11 @@ class DibsFragment : androidx.fragment.app.Fragment(), DibsContract.View {
 
     }
 
+//    override fun onStart() {
+//        super.onStart()
+//        makeRecycler()
+//    }
+
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -87,14 +92,6 @@ class DibsFragment : androidx.fragment.app.Fragment(), DibsContract.View {
 
     }
 
-//      계속 안터지면 지우자....
-//    override fun onStart() {
-////        mPresenter.check_preference()
-////        text_dibs_cancelReady.visibility = View.VISIBLE
-////        text_dibs_cancel.visibility = View.GONE
-//        super.onStart()
-//        Log.d("dibsFrag","onStart")
-//    }
 
     override fun onResume() {
         if(MyClass.dibs_change){ //찜하기가 바뀌었으면 다시 찜 목록을 서버에서 다시 불러온다.

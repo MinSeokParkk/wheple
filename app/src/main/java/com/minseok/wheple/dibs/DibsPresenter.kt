@@ -48,7 +48,10 @@ class DibsPresenter (private val view : DibsContract.View): DibsContract.Present
                 .subscribe(
                     { di -> showResult(di)
 
-                    }
+                    },
+                    {e ->
+                        println("딥! 오류 테스트 중입니다."+ e.message)
+                     }
                 )
 
 

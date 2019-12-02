@@ -21,6 +21,7 @@ import com.minseok.wheple.home.HomeContract
 import com.minseok.wheple.home.HomePresenter
 import com.minseok.wheple.home.adapter.PlaceAdapter
 import com.minseok.wheple.search.SearchActivity
+import com.minseok.wheple.test.TestFragment
 import kotlinx.android.synthetic.main.dialog_filter_facility.*
 import kotlinx.android.synthetic.main.dialog_filter_location.*
 import kotlinx.android.synthetic.main.dialog_filter_sports.*
@@ -71,6 +72,17 @@ class HomeFragment : androidx.fragment.app.Fragment(), HomeContract.View {
         mPresenter.setSort()
 
         makeRecycler()
+
+        //fragment 이동 테스트중////////////////////////////
+        text_home_test.setOnClickListener {
+            val fragment = TestFragment()
+            val fragmentManager = fragmentManager
+            val fragmentTransaction = fragmentManager!!.beginTransaction()
+            fragmentTransaction.replace(R.id.container, fragment)
+            fragmentTransaction.commit()
+        }
+
+
 
         //검색 버튼 눌렀을 때
         text_home_search.setOnClickListener {
@@ -429,5 +441,9 @@ class HomeFragment : androidx.fragment.app.Fragment(), HomeContract.View {
 
     override fun setSortText(text:String){
         text_home_sort.text = text
+    }
+
+    override fun showToast(string: String) {
+        Toast.makeText(this.context, string, Toast.LENGTH_SHORT).show()
     }
 }

@@ -16,6 +16,7 @@ import com.minseok.wheple.myReservation.MyreservationActivity
 import com.minseok.wheple.myReview.MyreviewActivity
 import com.minseok.wheple.mycoupon.MycouponActivity
 import com.minseok.wheple.myinfo.MyinfoActivity
+import com.minseok.wheple.mypoint.MypointActivity
 import kotlinx.android.synthetic.main.fragment_mypage.*
 
 
@@ -80,7 +81,14 @@ class MypageFragment : androidx.fragment.app.Fragment(), MypageContract.View {
             view.const_mypage_coupon.setOnClickListener {
                 activity?.let {
                     val intent = Intent(it, MycouponActivity::class.java)
-                    intent.putExtra("couponNum", text_mypage_coupon.text.toString())
+                    it.startActivity(intent)
+                }
+            }
+
+            view.const_mypage_point.setOnClickListener {
+                activity?.let{
+                    val intent = Intent(it, MypointActivity::class.java)
+                    intent.putExtra("myPoint", text_mypage_point.text.toString())
                     it.startActivity(intent)
                 }
             }

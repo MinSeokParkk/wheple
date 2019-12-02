@@ -11,7 +11,10 @@ import com.minseok.wheple.retrofit.APIService
 import com.minseok.wheple.retrofit.Result
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
+import io.reactivex.observers.DisposableObserver
 import io.reactivex.schedulers.Schedulers
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class HomePresenter  (private val view : HomeContract.View): HomeContract.Presenter{
@@ -66,37 +69,46 @@ class HomePresenter  (private val view : HomeContract.View): HomeContract.Presen
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
-                    { places -> showResult(places)
 
+                    { places -> showResult(places)
+                    }
+                    ,
+                    {e ->
+                        println("홈! 오류 테스트 중입니다."+ e.message)
+//                        placeAdapter1.removeLoadingFooter()
+//                        pg.isloading = false
+                        view.showToast("네트워크 연결 오류")
                     }
                 )
 
     }
 
     fun showResult(places: Result.Connectresult ){
+            Log.d("homeplaces",places.places.toString())
 
 
-        if(pg.start==0){ //아이템이 새로 불러와질때
+            if (pg.start == 0) { //아이템이 새로 불러와질때
 
-            placeAdapter1.addItems(places.places)
-            placeAdapter1.notifyAdapter()
+                placeAdapter1.addItems(places.places)
+                placeAdapter1.notifyAdapter()
 
-            view.connectAdapter()
-            pg.size = 0 //아이템 사이즈는 0으로 초기화
-            if(places.places.size>0){ //아이템이 아예 없으면 places.places 가 아예 없다.. 그래서 확인차
-                pg.size = places.places[0].num.toInt()
+                view.connectAdapter()
+                pg.size = 0 //아이템 사이즈는 0으로 초기화
+                if (places.places.size > 0) { //아이템이 아예 없으면 places.places 가 아예 없다.. 그래서 확인차
+                    pg.size = places.places[0].num.toInt()
+                }
+                view.setPlaceNumber(pg.size)
+
+                view.showNothing(pg.size)
+            } else { // 페이징을 통해서 아이템이 불러와질때
+                placeAdapter1.removeLoadingFooter()
+
+                placeAdapter1.newItems(places.places)
+
             }
-            view.setPlaceNumber(pg.size)
 
-            view.showNothing(pg.size)
-        }else{ // 페이징을 통해서 아이템이 불러와질때
-            placeAdapter1.removeLoadingFooter()
+            pg.isloading = false
 
-          placeAdapter1.newItems(places.places)
-
-        }
-
-        pg.isloading = false
     }
 
     override fun paging(placeAdapter: PlaceAdapter){

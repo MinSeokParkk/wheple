@@ -28,7 +28,7 @@ class CancelActivity : AppCompatActivity(), CancelContract.View{
 
         button_cancel.setOnClickListener {
             mPresenter.clickbutton(check_cancel.isChecked, intent.getStringExtra("no"), text_cancel_refund.text.toString(),
-                text_cancel_point.text.toString(), text_cancel_recoupon.text.toString())
+                text_cancel_repoint.text.toString(), text_cancel_recoupon.text.toString())
         }
     }
 

@@ -26,6 +26,7 @@ interface HomeContract {
         fun showNothing(itemsize:Int)
         fun sortTextChange(textview: TextView)
         fun setSortText(text:String)
+        fun showToast(string: String)
     }
 
     interface Presenter : BasePresenter {

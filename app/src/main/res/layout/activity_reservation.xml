@@ -49,16 +49,17 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintTop_toBottomOf="@+id/text_res_finalprice" android:layout_marginTop="32dp"/>
+
             <View
-                    android:layout_width="match_parent"
-                    android:layout_height="6dp"
-                    android:background="#CACACA"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:id="@+id/view7"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
-                    android:layout_marginTop="32dp" app:layout_constraintTop_toBottomOf="@+id/spinner"
-            />
+                android:id="@+id/view7"
+                android:layout_width="match_parent"
+                android:layout_height="6dp"
+                android:layout_marginTop="32dp"
+                android:background="#CACACA"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
             <View
                     android:layout_width="match_parent"
                     android:layout_height="6dp"
@@ -315,13 +316,7 @@
                     android:id="@+id/textView96" android:layout_marginTop="32dp"
                     app:layout_constraintTop_toBottomOf="@+id/view6" app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginLeft="40dp" android:layout_marginStart="40dp"/>
-            <Spinner
-                    android:layout_width="330dp"
-                    android:background="@drawable/spinner_background"
-                    android:layout_height="50dp"
-                    android:id="@+id/spinner"
-                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-                    android:layout_marginTop="26dp" app:layout_constraintTop_toBottomOf="@+id/textView96"/>
+
             <CheckBox
                     android:text="(필수) 숙소 이용규칙 동의"
                     android:layout_width="wrap_content"
@@ -412,6 +407,42 @@
                 app:layout_constraintBottom_toBottomOf="@+id/button_res_coupon"
                 app:layout_constraintEnd_toStartOf="@+id/button_res_coupon"
                 app:layout_constraintTop_toTopOf="@+id/button_res_coupon" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout"
+                android:background="@drawable/check_regular"
+                android:layout_width="330dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="26dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView96">
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="50dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginLeft="24dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/logo_kakao" />
+
+                <TextView
+                    android:id="@+id/textView110"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginLeft="12dp"
+                    android:text="카카오페이"
+                    android:textColor="@color/black"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView5"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
