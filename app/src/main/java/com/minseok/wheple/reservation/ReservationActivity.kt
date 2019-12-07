@@ -36,7 +36,7 @@ class ReservationActivity : AppCompatActivity(), ReservationContract.View{
        activity = this@ReservationActivity
 
         ReservationPresenter(this)
-//        mPresenter.temp_reserve(intent.getStringExtra("space"), intent.getStringExtra("date"), intent.getStringExtra("timeNo"))
+
         mPresenter.showDetail(intent.getStringExtra("space"), intent.getStringExtra("date"), intent.getStringExtra("timeNo"), intent.getStringExtra("timeText"))
 
         check_res_all.setOnCheckedChangeListener { buttonView, isChecked ->

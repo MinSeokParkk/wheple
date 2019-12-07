@@ -26,7 +26,7 @@ interface ReservationContract {
 
 
     interface Presenter : BasePresenter {
-//        fun temp_reserve(space:String, date:String, timeNo:String)
+
         fun showDetail(space:String, date:String, timeNo:String, timeText:String)
         fun checkchange(check:Boolean)
         fun useAllPoint(string:String)

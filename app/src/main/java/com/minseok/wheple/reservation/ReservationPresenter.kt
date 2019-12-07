@@ -30,39 +30,6 @@ class ReservationPresenter (private val view : ReservationContract.View): Reserv
     override fun start() {
     }
 
-//    같은 장소 같은 시간대의 예약액티비티에  한 명만 들어갈 수 있게 하는 코드(임시 예약 테이블)
-//
-//    override fun temp_reserve(space: String, date: String, timeNo: String) {
-//                    var sending : String
-//            sending = "{ \"place\" : \""+ space + "\", \r\n" +
-//                        "\"date\" : \""+ date + "\", \r\n" +
-//                        "\"time\" : \""+timeNo+"\"}"
-//
-//            disposable =
-//                apiService.connect_server("add_temp.php", sending)
-//
-//                    .subscribeOn(Schedulers.io())
-//                    .observeOn(AndroidSchedulers.mainThread())
-//                    .subscribe(
-//                        { result ->  }
-//                    )
-//    }
-//
-//    override fun delete_temp(space: String, date: String, timeNo: String) {
-//        var sending : String
-//        sending = "{ \"place\" : \""+ space + "\", \r\n" +
-//                "\"date\" : \""+ date + "\", \r\n" +
-//                "\"time\" : \""+timeNo+"\"}"
-//
-//        disposable =
-//            apiService.connect_server("delete_temp.php", sending)
-//
-//                .subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribe(
-//                    { result ->  }
-//                )
-//    }
 
     override fun showDetail(space: String,date:String, timeNo: String, timeText: String) {
 
@@ -180,9 +147,6 @@ class ReservationPresenter (private val view : ReservationContract.View): Reserv
             if(usedpoint.equals("")){
                 usedPoint = "0"
             }
-
-//            원래는 바로 예약 시켰다. 그렇지만 이제 카카오페이를 붙일 예정.
-//            reserve(date, time, place, time_text, email, name, phone, pricechange, paymentchange, usedPoint)
 
             view.gotoPay(date, time, place, time_text, name, phone, pricechange, paymentchange, usedPoint)
 
