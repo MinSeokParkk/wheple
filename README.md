@@ -1,7 +1,14 @@
 웨플 wheple
 ===========
-> 체육시설 예약 서비스
+> 체육시설 예약 안드로이드 어플
 <br/>
+
+사용기술
+-------
+- 언어 : Kotlin, PHP
+- 데이터베이스 : PostgreSQL
+- API : GoogleMap, KakaoPay 
+- 아키텍처 : MVP 
 
 기능
 -------
